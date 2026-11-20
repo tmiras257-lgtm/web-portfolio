@@ -10,7 +10,7 @@
 <meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:title" content="ОСТРИЁ — барбершоп в Алматы"><meta property="og:description" content="ОСТРИЁ — барбершоп в Алматы. Мужские стрижки, борода, королевское бритьё. Запись в WhatsApp за минуту. Демо-сайт для портфолио, бизнес вымышленный."><meta property="og:image" content="https://tmiras257-lgtm.github.io/web-portfolio/ostriyo-barbershop/screenshot.png"><meta property="og:url" content="https://tmiras257-lgtm.github.io/web-portfolio/ostriyo-barbershop/"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{--bg:#0e0e10;--bg2:#17171a;--ink:#f2efe9;--muted:#aaa69f;--red:#d63a2f;--gold:#d9b26a;--line:rgba(242,239,233,.14)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -37,7 +37,7 @@ header nav{display:none}
 @media(min-width:800px){header{padding:16px 40px}header nav{display:flex;gap:28px;font-size:14px;color:var(--muted)}header nav a:hover{color:var(--ink)}}
 /* hero */
 .hero{min-height:100svh;max-width:none;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 20px 56px}
-.hero .wrap{max-width:1100px;width:100%;margin-inline:auto}
+.hero{position:relative;isolation:isolate}.hero .hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.55}.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,10,.6),rgba(10,10,10,.25) 40%,#0a0a0a 100%)}.hero .wrap{max-width:1100px;width:100%;margin-inline:auto;position:relative}.attr{font-size:12px;opacity:.6}.attr a{color:inherit}
 .hero h1{font-size:clamp(64px,17vw,190px);letter-spacing:-.01em}
 .hero h1 .w{display:inline-block;animation:up 1s cubic-bezier(.2,.8,.2,1) both}
 .hero h1 .w:nth-child(2){animation-delay:.12s;color:transparent;-webkit-text-stroke:2px var(--ink)}
@@ -130,7 +130,7 @@ footer{padding:30px 20px 100px;color:var(--muted);font-size:13px;text-align:cent
 </header>
 
 <main id="top">
-  <section class="hero"><div class="wrap">
+  <section class="hero"><video class="hv" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.webp" aria-hidden="true" tabindex="-1"><source src="assets/hero-m.mp4" type="video/mp4" media="(max-width:799px)"><source src="assets/hero.mp4" type="video/mp4"></video><div class="wrap">
         <span class="eyebrow">Барбершоп · Алматы · с 2018</span>
     <h1><span class="w">Острый</span> <span class="w">как</span> <span class="w">бритва</span></h1>
     <p>Мужские стрижки, борода и королевское бритьё. Мастера с насмотренностью, горячие полотенца и честная цена. Крутите столб — он живой.</p>
@@ -236,7 +236,7 @@ footer{padding:30px 20px 100px;color:var(--muted);font-size:13px;text-align:cent
     <a class="btn wa" href="https://wa.me/77000000000">Записаться в WhatsApp</a>
     <p class="note" style="margin-top:14px">+7 700 000 00 00 · отвечаем за 2 минуты</p>
   </div>
-  <footer>© 2026 ОСТРИЁ — вымышленный барбершоп, демо-проект для портфолио · Сайт с анимацией, Алматы</footer>
+  <footer>© 2026 ОСТРИЁ — вымышленный барбершоп, демо-проект для портфолио · Сайт с анимацией, Алматы<p class="attr" style="padding:0 20px 90px;text-align:center">Видео — Mixkit (Mixkit Stock Video Free License), клип №271.</p></footer>
 </main>
 
 <a class="fab" id="fab" href="https://wa.me/77000000000">

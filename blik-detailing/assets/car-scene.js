@@ -1,0 +1,43 @@
+// БЛИК hero: real GLB (Khronos CarConcept, CC-BY 4.0) + Poly Haven HDRI (CC0), scroll-driven orbit.
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
+import {KTX2Loader} from 'three/addons/loaders/KTX2Loader.js';
+import {RGBELoader} from 'three/addons/loaders/RGBELoader.js';
+const V='https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/libs/';
+export async function start(canvas,track,onReady){
+ const R=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'});
+ R.setPixelRatio(Math.min(devicePixelRatio,2));R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;
+ R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;R.outputColorSpace=THREE.SRGBColorSpace;
+ const S=new THREE.Scene(),C=new THREE.PerspectiveCamera(30,1,.1,100);
+ const pm=new THREE.PMREMGenerator(R);
+ const hdr=await new RGBELoader().loadAsync('assets/studio_small_09_1k.hdr');hdr.mapping=THREE.EquirectangularReflectionMapping;
+ S.environment=pm.fromEquirectangular(hdr).texture;S.environmentIntensity=.9;hdr.dispose();
+ const key=new THREE.DirectionalLight(0xffffff,2.2);key.position.set(4,7,5);key.castShadow=true;key.shadow.mapSize.set(1024,1024);
+ Object.assign(key.shadow.camera,{left:-5,right:5,top:5,bottom:-5,near:1,far:20});key.shadow.bias=-.0004;key.shadow.radius=6;S.add(key);
+ const rim=new THREE.PointLight(0xff5a1f,60,14);rim.position.set(-3.5,1.2,-3);S.add(rim);
+ const gl=new GLTFLoader();
+ gl.setDRACOLoader(new DRACOLoader().setDecoderPath(V+'draco/gltf/'));
+ gl.setKTX2Loader(new KTX2Loader().setTranscoderPath(V+'basis/').detectSupport(R));
+ const g=await gl.loadAsync('assets/car/CarConcept.gltf');
+ const car=g.scene;const box=new THREE.Box3().setFromObject(car),sz=box.getSize(new THREE.Vector3()),ctr=box.getCenter(new THREE.Vector3());
+ const k=4.4/Math.max(sz.x,sz.z);car.scale.setScalar(k);car.position.set(-ctr.x*k,-box.min.y*k,-ctr.z*k);
+ car.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=false}});S.add(car);
+ const floor=new THREE.Mesh(new THREE.CircleGeometry(9,48),new THREE.ShadowMaterial({opacity:.55}));floor.rotation.x=-Math.PI/2;floor.receiveShadow=true;S.add(floor);
+ const size=()=>{const r=canvas.getBoundingClientRect();R.setSize(r.width,r.height,false);C.aspect=r.width/r.height;C.updateProjectionMatrix()};
+ size();addEventListener('resize',size);
+ let p=0,tp=0,mx=0,my=0,tmx=0,tmy=0,vis=true;
+ new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(track);
+ addEventListener('pointermove',e=>{tmx=e.clientX/innerWidth-.5;tmy=e.clientY/innerHeight-.5},{passive:true});
+ const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ const look=new THREE.Vector3(0,.55,0);
+ const frame=t=>{requestAnimationFrame(frame);if(!vis)return;
+  const r=track.getBoundingClientRect(),max=Math.max(1,r.height-innerHeight);tp=Math.min(1,Math.max(0,-r.top/max));
+  p+=(tp-p)*(reduce?1:.08);mx+=(tmx-mx)*.06;my+=(tmy-my)*.06;
+  const e=p*p*(3-2*p);const az=THREE.MathUtils.degToRad(-38+e*200+mx*14+(reduce?0:Math.sin(t/4000)*3));
+  const wide=innerWidth<800,rad=wide?9-e*1:6.6-e*.9,h=1.5-e*.6+my*.8;
+  C.position.set(Math.sin(az)*rad,h,Math.cos(az)*rad);C.lookAt(look);
+  rim.position.set(Math.sin(az+2.4)*4,1.2,Math.cos(az+2.4)*4);
+  R.render(S,C);canvas.style.setProperty('--p',p.toFixed(3));};
+ requestAnimationFrame(frame);onReady&&onReady();
+}

@@ -10,7 +10,7 @@
 <meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:title" content="ОЧАГ — ресторан живого огня в Алматы"><meta property="og:description" content="Ужин у живого огня. Меню сезона, бронь стола в WhatsApp."><meta property="og:image" content="https://tmiras257-lgtm.github.io/web-portfolio/ochag-restaurant/screenshot.png"><meta property="og:url" content="https://tmiras257-lgtm.github.io/web-portfolio/ochag-restaurant/"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Prata&family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{--bg:#efe7d8;--ink:#1b1713;--acc:#b73a17;--onacc:#fff6ea;--muted:#5c5246;--line:rgba(27,23,19,.2);--ochre:#e9b872;--hf:'Prata',Georgia,serif;--bf:'Inter Tight',system-ui,sans-serif;--mf:'JetBrains Mono',ui-monospace,monospace}
 /* kit.css - shared mobile-first base for demo sites. Sites define --bg --ink --acc --muted --line and fonts --hf --bf */
@@ -64,6 +64,16 @@ h1,h2,h3{font-family:var(--hf);font-weight:400;margin:0;line-height:1}
 @keyframes fl{0%,100%{transform:scale(1,1) skewX(0)}30%{transform:scale(.96,1.05) skewX(2deg)}60%{transform:scale(1.03,.97) skewX(-2deg)}}
 .sp circle{animation:spk 3s ease-in infinite;opacity:0}.sp circle:nth-child(2){animation-delay:.8s}.sp circle:nth-child(3){animation-delay:1.5s}.sp circle:nth-child(4){animation-delay:2.1s}
 @keyframes spk{0%{transform:translate(0,0);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx,10px),-110px);opacity:0}}
+
+.herox{position:relative;isolation:isolate;background:#120b07;color:#fff6ea}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.herox::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,11,7,.55) 0%,rgba(18,11,7,.15) 38%,rgba(18,11,7,.8) 100%)}
+.herox .hero .meta,.herox .hero-foot p{color:rgba(255,246,234,.9)}
+.herox .ln em{color:#ffb25b}.herox .link{color:#fff6ea}
+.herox h1{text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.fire{border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:#120b07;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.fire video{width:100%;height:100%;object-fit:cover;display:block}
+.attr{font-size:12px;opacity:.7;margin:14px 0 0}.attr a{color:inherit}
 /* ticker */
 .ticker{border-block:1px solid var(--ink);overflow:hidden;background:var(--ink);color:var(--bg);padding-block:14px;white-space:nowrap}
 .ticker .row{display:inline-flex;gap:36px;will-change:transform;font:400 22px var(--hf)}
@@ -74,7 +84,7 @@ h1,h2,h3{font-family:var(--hf);font-weight:400;margin:0;line-height:1}
 .stage .top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
 .clock{font:400 clamp(76px,24vw,220px)/.9 var(--mf);letter-spacing:-.04em}
 .stage .lab{max-width:12ch;text-align:right;opacity:.8}
-.fire{width:min(58vw,300px);margin:auto;overflow:visible}
+.fire{width:min(52vw,300px);margin:auto;aspect-ratio:1/1}
 .chs{position:relative;min-height:176px}
 .chs article{position:absolute;inset:0;opacity:0}
 .chs article:first-child{opacity:1}
@@ -143,7 +153,7 @@ footer .big{font:400 clamp(80px,30vw,360px)/.85 var(--hf);letter-spacing:.02em;c
  .hero{padding-block:34px 40px}.flame{position:absolute;right:4%;bottom:19%;width:min(18vw,250px);margin:0}.hero h1{font-size:clamp(54px,12.4vw,176px)}
  .hero h1{padding-block:40px}
  .stage{padding:34px 40px 40px!important;grid-template-columns:1.2fr 1fr;grid-template-rows:auto 1fr auto}
- .stage .top{grid-column:1/2}.fire{grid-column:2/3;grid-row:1/3;align-self:center;width:min(32vw,380px)}
+ .stage .top{grid-column:1/2}.fire{aspect-ratio:4/5;grid-column:2/3;grid-row:1/3;align-self:center;width:min(32vw,380px)}
  .chs{grid-column:1/2;min-height:210px;align-self:end}.rail{grid-column:1/3}
  .cols{columns:2;column-gap:56px}.facts{grid-template-columns:repeat(3,1fr);border-top:0}.facts div{flex-direction:column;border:0;border-top:1px solid rgba(239,231,216,.3);align-items:flex-start}.facts span{text-align:left}
  .card{grid-template-columns:1fr 1fr;padding:34px}.card .full{grid-column:1/3}
@@ -151,8 +161,6 @@ footer .big{font:400 clamp(80px,30vw,360px)/.85 var(--hf);letter-spacing:.02em;c
  .menu-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
 }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">К содержимому</a>
@@ -163,31 +171,27 @@ footer .big{font:400 clamp(80px,30vw,360px)/.85 var(--hf);letter-spacing:.02em;c
 </div></header>
 
 <main id="main">
+<div class="herox">
+<video class="hero-bg" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.webp" aria-hidden="true" tabindex="-1">
+ <source src="assets/hero-m.mp4" type="video/mp4" media="(max-width:799px)"><source src="assets/hero.mp4" type="video/mp4">
+</video>
 <section class="hero wrap" id="top">
  <div class="meta mono"><span>Ресторан живого огня</span><span>Алматы · с 2019</span></div>
  <h1 aria-label="Огонь — лучшая приправа"><span class="ln"><span>Огонь —</span></span><span class="ln"><span>лучшая</span></span><span class="ln"><span><em>приправа</em></span></span></h1>
- <svg class="flame" viewBox="0 0 200 240" aria-hidden="true">
-  <g id="fl-out"><path d="M100 6c4 36 52 58 52 118 0 40-22 80-52 80S48 164 48 124c0-34 22-44 28-72 10 14 16 22 20 36 8-26 0-56 4-82z" fill="#b73a17"/></g>
-  <g id="fl-mid"><path d="M100 70c3 24 36 40 36 84 0 28-16 50-36 50s-36-22-36-50c0-24 16-32 20-50 8 10 12 16 14 24 6-16 0-38 2-58z" fill="#e9772b"/></g>
-  <g id="fl-in"><path d="M100 128c2 16 22 26 22 52 0 16-10 26-22 26s-22-10-22-26c0-14 10-18 12-30 6 6 8 10 9 14 4-10 0-22 1-36z" fill="#f4d58a"/></g>
-  <g class="sp" fill="#e9772b"><circle cx="86" cy="150" r="3" style="--dx:-14px"/><circle cx="116" cy="140" r="2.500" style="--dx:18px"/><circle cx="100" cy="160" r="2" style="--dx:6px"/><circle cx="128" cy="170" r="3" style="--dx:-8px"/></g>
-  <rect x="32" y="206" width="136" height="14" rx="7" fill="#1b1713" transform="rotate(-6 100 213)"/><rect x="32" y="214" width="136" height="14" rx="7" fill="#3a2f26" transform="rotate(6 100 221)"/>
- </svg>
+ 
  <div class="hero-foot">
   <p>Ужин у настоящего огня: яблоня, урюк и девять часов терпения. Шесть-двенадцать столов, один вечер.</p>
   <div class="cta-row"><a class="btn" data-wa="Здравствуйте! Хочу забронировать стол в «ОЧАГЕ»" href="#book">Забронировать стол</a><a class="link" href="#menu">Меню сезона ↓</a></div>
  </div>
 </section>
+</div>
 
 <div class="ticker" aria-hidden="true"><div class="row" id="tk"></div></div>
 
 <section class="story" id="story" aria-label="Один вечер у огня">
  <div class="stage" id="stage">
   <div class="top"><div class="clock" id="clock" aria-hidden="true">17:30</div><div class="lab mono">один вечер<br>у огня</div></div>
-  <svg class="fire" viewBox="0 0 200 240" aria-hidden="true">
-   <g id="st-fire" style="transform-origin:100px 214px"><path id="st-o" d="M100 6c4 36 52 58 52 118 0 40-22 80-52 80S48 164 48 124c0-34 22-44 28-72 10 14 16 22 20 36 8-26 0-56 4-82z" fill="#b73a17"/><path d="M100 70c3 24 36 40 36 84 0 28-16 50-36 50s-36-22-36-50c0-24 16-32 20-50 8 10 12 16 14 24 6-16 0-38 2-58z" fill="#e9772b"/><path d="M100 128c2 16 22 26 22 52 0 16-10 26-22 26s-22-10-22-26c0-14 10-18 12-30 6 6 8 10 9 14 4-10 0-22 1-36z" fill="#f4d58a"/></g>
-   <rect x="32" y="206" width="136" height="14" rx="7" fill="currentColor" transform="rotate(-6 100 213)"/><rect x="32" y="214" width="136" height="14" rx="7" fill="currentColor" opacity=".7" transform="rotate(6 100 221)"/>
-  </svg>
+  <div class="fire" aria-hidden="true"><video id="scrub" muted playsinline preload="auto" poster="assets/grill-poster.webp" tabindex="-1"><source src="assets/grill-scrub.mp4" type="video/mp4"></video></div>
   <div class="chs" id="chs">
    <article><h3>Разжигаем</h3><p>Мастер раскладывает яблоню и урюк. Огонь должен стать углём — это час терпения. В зале пахнет садом.</p></article>
    <article><h3>Первое слово</h3><p>Хлеб из печи, казы, баурсаки. Пока угли доходят, стол уже накрыт — холодное подаём без спешки.</p></article>
@@ -267,10 +271,13 @@ footer .big{font:400 clamp(80px,30vw,360px)/.85 var(--hf);letter-spacing:.02em;c
    <div><h4>Связь</h4><p><a href="tel:+77000000000">+7 700 000 00 00</a><br><a data-wa="Здравствуйте! Вопрос по «ОЧАГУ»" href="#">Написать в WhatsApp</a></p></div>
   </div>
   <p class="demo">Демо-сайт для портфолио: ресторан вымышленный, цены и адрес условные.</p>
+  <p class="attr">Видео — Mixkit (Mixkit Stock Video Free License, коммерческое использование разрешено): «Wood burning in a fireplace» №1242, «Steak on the BBQ grill» №2774.</p>
  </div>
 </footer>
 <div class="wa-float"><a data-wa="Здравствуйте! Хочу забронировать стол в «ОЧАГЕ»" href="#">Забронировать в WhatsApp</a></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 /* kit.js - tiny helpers. window.KIT = {WA, wa(text), reveal(), stickyCta(heroEl), counters(), reduced} */
 (function(){
@@ -311,7 +318,8 @@ if(window.gsap&&window.ScrollTrigger&&!reduced){
  var cols=[['#efe7d8','#1b1713','#b73a17',.38],['#e9b872','#1b1713','#b73a17',.62],['#b73a17','#fff6ea','#f4b44a',1],['#1b1713','#efe7d8','#e9772b',.55]];
  var o={h:17.5};function showClock(){var h=Math.floor(o.h),m=Math.round((o.h-h)*12)*5;if(m===60){h++;m=0}clock.textContent=h+':'+(m<10?'0':'')+m}
  gsap.set(chs.slice(1),{opacity:0,y:24});gsap.set(fire,{scale:cols[0][3]});
- var tl=gsap.timeline({scrollTrigger:{trigger:st,start:'top 60px',end:'+='+(innerHeight*3.2),scrub:.5,pin:true,anticipatePin:1,onUpdate:function(s){var i=Math.min(3,Math.round(s.progress*3));dots.forEach(function(d,k){d.classList.toggle('on',k<=i)})}}});
+ var sv=$('#scrub'),tt=0,cur=0;(function seek(){requestAnimationFrame(seek);var d=sv.duration||0;if(!d)return;cur+=(tt*d*.97-cur)*.12;if(Math.abs(sv.currentTime-cur)>.04)sv.currentTime=cur})();
+ var tl=gsap.timeline({scrollTrigger:{trigger:st,start:'top 60px',end:'+='+(innerHeight*3.2),scrub:.5,pin:true,anticipatePin:1,onUpdate:function(s){tt=s.progress;var i=Math.min(3,Math.round(s.progress*3));dots.forEach(function(d,k){d.classList.toggle('on',k<=i)})}}});
  for(var i=1;i<4;i++){var at=(i-1)*1+0.0;
   tl.to(chs[i-1],{opacity:0,y:-24,duration:.35},at+.55);
   tl.to(st,{backgroundColor:cols[i][0],color:cols[i][1],duration:.9,ease:'none'},at+.1);
