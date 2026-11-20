@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сана — женская студия пилатеса и йоги в Алматы</title>
+<meta name="description" content="Сана — женская студия в Алматы: пилатес на реформерах, йога, барре, стретчинг. Расписание на неделю, абонементы, запись в WhatsApp. Демо-сайт для портфолио, студия вымышленная.">
+<meta name="theme-color" content="#0f2b2d">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f2b2d;--bg2:#143538;--ink:#fdf1e6;--muted:#a9c2bf;--acc:#ff6f4e;--onacc:#1b0d08;--acc2:#ff9b7d;--gold:#ffc8a0;--line:rgba(253,241,230,.16);--card:#17393cd9;--hdr:#0f2b2dc0;--hf:'Onest';--bf:'Onest'}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--bf),system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--hf),Georgia,serif;line-height:1.05}
+h1 em,h2 em{color:var(--acc2);font-style:normal}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:2}
+section{padding:72px 20px;max-width:1100px;margin:auto}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h2{font-size:clamp(32px,8vw,64px);margin:10px 0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:99px;background:var(--acc);color:var(--onacc,#fff);font-weight:700;font-size:16px;transition:transform .3s;min-height:52px;border:0;cursor:pointer;font-family:inherit}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.wa{background:#25d366;color:#06240f}
+@media(hover:hover){.btn:hover{transform:translateY(-2px)}}
+header{position:fixed;top:10px;left:10px;right:10px;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:8px 8px 8px 20px;border-radius:99px;background:var(--hdr);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:8px;font:700 21px var(--hf)}
+.logo svg{width:26px;height:26px}
+header .btn{padding:10px 18px;min-height:42px;font-size:14px}
+header nav{display:none}
+@media(min-width:800px){header{left:50%;right:auto;transform:translateX(-50%);width:min(780px,92vw);top:16px}header nav{display:flex;gap:22px;font-size:14px;color:var(--muted)}header nav a:hover{color:var(--ink)}}
+.hero{min-height:100svh;max-width:none;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 20px 56px}
+.hero .wrap{max-width:1100px;width:100%;margin-inline:auto}
+.hero h1{font-size:clamp(44px,12.5vw,140px)}
+.hero h1 .w{display:inline-block;animation:bloom 1.2s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .w:nth-child(2){animation-delay:.14s}.hero h1 .w:nth-child(3){animation-delay:.28s}.hero h1 .w:nth-child(4){animation-delay:.4s}
+@keyframes bloom{from{opacity:0;transform:translateY(40px) scale(.94);filter:blur(12px)}to{opacity:1;transform:none;filter:none}}
+.hero p{max-width:460px;color:var(--muted);margin:20px 0 26px;font-size:17px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap}
+.hint{margin-top:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px 18px}
+.stat b{font:700 clamp(34px,9vw,56px) var(--hf);display:block;color:var(--acc2)}
+.stat span{color:var(--muted);font-size:14px}
+@media(min-width:800px){.stats{grid-template-columns:repeat(4,1fr)}}
+.bg{background:var(--bg2);max-width:none;border-block:1px solid var(--line)}
+.bg>.in{max-width:1060px;margin:auto}
+.grid{display:grid;gap:14px}
+@media(min-width:800px){.grid{grid-template-columns:repeat(3,1fr)}}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:26px 22px}
+.cat h3{font-size:26px;margin-bottom:6px}
+.cat>p{color:var(--muted);font-size:14px;margin-bottom:12px}
+.row2{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid var(--line);font-size:15px}
+.row2 small{display:block;color:var(--muted);font-size:12px}
+.row2 b{white-space:nowrap;color:var(--acc2)}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{position:relative;aspect-ratio:1/1.2;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+.tile svg{width:100%;height:100%;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.tile figcaption{position:absolute;left:14px;bottom:12px;font:600 17px var(--hf);color:#fff;text-shadow:0 1px 10px #0007}
+@media(hover:hover){.tile:hover svg{transform:scale(1.08) rotate(1deg)}}
+@media(min-width:800px){.gal{grid-template-columns:repeat(4,1fr);gap:14px}}
+.note{color:var(--muted);font-size:12px;margin-top:12px}
+.rev{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
+.r{flex:none;width:min(84vw,350px);scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:24px}
+.r .st{color:var(--gold);letter-spacing:3px}
+.r p{margin:10px 0 14px;font-size:16px}
+.r b{font-size:14px;color:var(--muted);font-weight:500}
+.mq{overflow:hidden;padding:22px 0;border-block:1px solid var(--line)}
+.trk{display:flex;gap:40px;width:max-content;font:700 clamp(28px,7vw,60px) var(--hf);white-space:nowrap;color:var(--acc2)}
+.trk span:nth-child(even){color:var(--ink);opacity:.85}
+.visit{display:grid;gap:14px}
+.map{border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--bg2)}
+.map svg{width:100%;height:100%;display:block}
+.pin{animation:pin 2s ease-in-out infinite}
+@keyframes pin{50%{transform:translateY(-8px)}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:24px}
+.info div{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+.info div span:last-child{color:var(--muted);text-align:right}
+.info .btn{width:100%;margin-top:18px}
+@media(min-width:800px){.visit{grid-template-columns:1.3fr 1fr}.map{aspect-ratio:auto;min-height:380px}}
+.cta{text-align:center;padding:90px 20px}
+.cta .btn{font-size:clamp(18px,5vw,24px);padding:24px 36px;width:100%;max-width:520px;animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #25d36680}70%,100%{box-shadow:0 0 0 22px #25d36600}}
+footer{padding:30px 20px 100px;color:var(--muted);font-size:12px;text-align:center}
+.fab{position:fixed;left:14px;right:14px;bottom:14px;z-index:30;display:flex;justify-content:center;align-items:center;gap:10px;height:56px;border-radius:99px;background:#25d366;color:#06240f;font:700 17px var(--bf);box-shadow:0 10px 30px #0006;transform:translateY(120px);transition:transform .4s}
+.fab.show{transform:none}
+@media(min-width:800px){.fab{left:auto;right:24px;bottom:24px;padding:0 28px}}
+.rv{opacity:0;transform:translateY(34px)}
+@media(prefers-reduced-motion:reduce){.hero h1 .w{animation:none}.rv{opacity:1!important;transform:none!important}.pin,.cta .btn{animation:none}}
+
+h1,h2,h3{font-weight:800;letter-spacing:-.025em}
+.hero h1{font-size:clamp(46px,14vw,150px);line-height:.92;text-transform:uppercase}
+@media(min-width:800px){.hero .wrap>h1{max-width:900px;font-size:clamp(60px,8vw,120px)}.hero .wrap>p{max-width:460px}}
+.breath{position:absolute;right:20px;top:92px;z-index:3;text-align:right}
+.breath b{display:block;font:800 28px var(--hf);color:var(--acc);transition:opacity .6s}
+.breath span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.hero{position:relative}
+.tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -20px 16px;padding:0 20px}
+.tab{flex:none;min-width:58px;min-height:62px;border-radius:20px;border:1px solid var(--line);background:transparent;color:var(--ink);font:700 16px var(--bf);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.tab small{font-size:11px;color:var(--muted);font-weight:500}
+.tab[aria-selected=true]{background:var(--acc);color:var(--onacc);border-color:var(--acc)}
+.tab[aria-selected=true] small{color:var(--onacc)}
+.tbl{width:100%;border-collapse:collapse;display:block}.tbl tbody{display:block}
+.tbl thead{display:none}
+.tbl tbody tr{display:grid;grid-template-columns:70px 1fr auto;gap:2px 12px;align-items:center;padding:14px 16px;margin-bottom:10px;background:var(--card);border:1px solid var(--line);border-radius:22px}
+.tbl td{padding:0;font-size:14px;color:var(--muted)}
+.tbl td.t{grid-row:1/4;font:800 22px var(--hf);color:var(--acc2)}
+.tbl td.n{font:700 17px var(--hf);color:var(--ink);grid-column:2}
+.tbl td.c{grid-column:2}
+.tbl td.l{grid-column:2}.tbl td.s{display:none}.tbl td.l .m{display:inline;white-space:nowrap}
+.tbl td.b{grid-column:3;grid-row:1/4}
+.tbl .btn{min-height:44px;padding:10px 16px;font-size:14px}
+.tbl .few{color:var(--acc2);font-weight:700}
+.tbl .full{opacity:.55}
+@media(min-width:800px){
+ .tbl{border-spacing:0;display:table}.tbl tbody{display:table-row-group}.tbl thead{display:table-header-group}
+ .tbl th{text-align:left;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:12px 14px;border-bottom:1px solid var(--line)}
+ .tbl tbody tr{display:table-row;background:none;border:0;border-radius:0;padding:0;margin:0}
+ .tbl td{display:table-cell;padding:16px 14px;border-bottom:1px solid var(--line);font-size:15px}
+ .tbl td.t{font-size:20px;white-space:nowrap}.tbl td.n{font-size:18px}
+ .tbl td.s{display:table-cell}.tbl td.l .m{display:none}
+ .tbl tbody tr:hover td{background:#ffffff08}
+}
+.plans{display:grid;gap:12px}
+@media(min-width:800px){.plans{grid-template-columns:repeat(4,1fr)}}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:24px;display:flex;flex-direction:column;gap:6px}
+.plan.hot{background:var(--acc);color:var(--onacc);border-color:var(--acc)}
+.plan.hot p,.plan.hot small{color:#4a2216}
+.plan h3{font-size:22px}.plan b{font:800 36px var(--hf)}.plan p{color:var(--muted);font-size:14px;flex:1}
+.plan .btn{margin-top:12px;background:var(--ink);color:var(--bg);min-height:46px}
+.plan.hot .btn{background:var(--onacc);color:#fff}
+.coaches{display:grid;gap:12px}
+@media(min-width:800px){.coaches{grid-template-columns:repeat(3,1fr)}}
+.co{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:18px}
+.co svg{flex:none;width:84px;height:84px;border-radius:50%}
+.co h3{font-size:18px}.co p{font-size:13px;color:var(--muted)}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(min-width:800px){.perks{grid-template-columns:repeat(4,1fr)}}
+.perk{border:1px solid var(--line);border-radius:22px;padding:18px;background:var(--card);font-size:14px;color:var(--muted)}
+.perk b{display:block;font:800 18px var(--hf);color:var(--ink);margin-bottom:4px}
+.map{background:#143538}
+.tile figcaption{font-weight:800;text-transform:uppercase;font-size:13px;letter-spacing:.05em}
+.stat b{color:var(--acc)}
+.trk span:nth-child(even){color:var(--acc2);opacity:1}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<header>
+  <a class="logo" href="#top"><svg viewBox="0 0 32 32"><path d="M3 20 Q9 6 16 16 T29 12" stroke="#ff6f4e" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M3 27 Q9 15 16 24 T29 20" stroke="#ffc8a0" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/></svg>Сана</a>
+  <nav><a href="#schedule">Расписание</a><a href="#plans">Абонементы</a><a href="#coaches">Тренеры</a><a href="#reviews">Отзывы</a><a href="#visit">Контакты</a></nav>
+  <a class="btn" href="#" data-wa="Здравствуйте! Хочу записаться на пробное занятие в студию «Сана»">Записаться</a>
+</header>
+<main id="top">
+  <section class="hero"><div class="breath" aria-hidden="true"><b id="br">Вдох</b><span>дышим вместе</span></div><div class="wrap">
+    <span class="eyebrow">Женская студия · Алматы · Самал-2</span>
+    <h1><span class="w">Двигайся</span> <span class="w">в своём</span> <span class="w"><em>ритме</em></span></h1>
+    <p>Пилатес на реформерах, йога, барре и стретчинг в маленьких группах до 8 человек. Только для женщин, без зеркал-осуждалок и без «надо уметь». Пробное занятие 3 500 ₸.</p>
+    <div class="row">
+      <a class="btn wa" id="heroWa" href="#" data-wa="Здравствуйте! Хочу записаться на пробное занятие в студию «Сана»">Записаться в WhatsApp</a>
+      <a class="btn ghost" href="#schedule" style="color:var(--ink);border-color:var(--ink)">Расписание</a>
+    </div>
+    <div class="hint">↓ Листайте</div>
+  </div></section>
+
+  <section><div class="stats">
+    <div class="stat rv"><b data-c="8">0</b><span>человек максимум в группе</span></div>
+    <div class="stat rv"><b data-c="32">0</b><span>занятия в неделю</span></div>
+    <div class="stat rv"><b data-c="1200">0</b><span>участниц с 2019 года</span></div>
+    <div class="stat rv"><b data-c="4.9" data-d="1">0</b><span>оценка в 2ГИС</span></div>
+  </div></section>
+
+  <div class="mq"><div class="trk" id="trk"><span>Пилатес</span><span>Йога</span><span>Барре</span><span>Стретчинг</span><span>Растяжка</span><span>Пилатес</span><span>Йога</span><span>Барре</span><span>Стретчинг</span><span>Растяжка</span></div></div>
+
+  <section class="bg" id="schedule"><div class="in">
+    <span class="eyebrow rv">Расписание</span><h2 class="rv">Выберите <em>день</em></h2>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <table class="tbl"><thead><tr><th>Время</th><th>Занятие</th><th>Тренер</th><th>Уровень</th><th>Места</th><th></th></tr></thead><tbody id="tb"></tbody></table>
+    <p class="note">Расписание демонстрационное. Отмена записи за 6 часов, без штрафа.</p>
+  </div></section>
+
+  <section id="plans">
+    <span class="eyebrow rv">Абонементы</span><h2 class="rv">Платите <em>за ритм</em></h2>
+    <div class="plans">
+      <div class="plan rv"><h3>Пробное</h3><b>3 500 ₸</b><p>Одно занятие на выбор. Придите, посмотрите, вернётся ли вам вкус к движению.</p><a class="btn" href="#" data-wa="Здравствуйте! Хочу пробное занятие за 3 500 ₸ в «Сана»">Записаться</a></div>
+      <div class="plan rv"><h3>4 занятия</h3><b>18 000 ₸</b><p>Месяц, один раз в неделю. Подходит для старта.</p><a class="btn" href="#" data-wa="Здравствуйте! Хочу абонемент на 4 занятия в «Сана»">Записаться</a></div>
+      <div class="plan hot rv"><h3>8 занятий</h3><b>32 000 ₸</b><p>Дважды в неделю, самый частый выбор. 4 000 ₸ за занятие.</p><a class="btn" href="#" data-wa="Здравствуйте! Хочу абонемент на 8 занятий в «Сана»">Записаться</a></div>
+      <div class="plan rv"><h3>Безлимит</h3><b>55 000 ₸</b><p>Все занятия месяца и заморозка на 7 дней.</p><a class="btn" href="#" data-wa="Здравствуйте! Хочу безлимит в «Сана»">Записаться</a></div>
+    </div>
+    <p class="note">Цены демонстрационные. Студенткам и маме с малышом скидка 10%.</p>
+  </section>
+
+  <section class="bg" id="coaches"><div class="in">
+    <span class="eyebrow rv">Тренеры</span><h2 class="rv">Те, кто <em>ведёт</em></h2>
+    <div class="coaches" id="co"></div>
+    <p class="note">Имена и портреты вымышлены, в боевой версии фото тренеров.</p>
+  </div></section>
+
+  <section id="gallery">
+    <span class="eyebrow rv">Студия</span><h2 class="rv">Зал и <em>атмосфера</em></h2>
+    <div class="gal" id="gal"></div>
+    <p class="note">Иллюстрации-заглушки, в боевой версии фото вашего зала.</p>
+  </section>
+
+  <section class="bg"><div class="in">
+    <span class="eyebrow rv">Удобства</span><h2 class="rv">Всё, чтобы <em>прийти</em></h2>
+    <div class="perks">
+      <div class="perk rv"><b>Душ и фен</b>Полотенца, косметика</div>
+      <div class="perk rv"><b>Детская зона</b>Присмотрим за малышом</div>
+      <div class="perk rv"><b>Только женщины</b>Спокойно и без взглядов</div>
+      <div class="perk rv"><b>Парковка</b>Во дворе, бесплатно</div>
+    </div></div></section>
+
+  <section id="reviews">
+    <span class="eyebrow rv">Отзывы</span><h2 class="rv">Говорят <em>участницы</em></h2>
+    <div class="rev">
+      <div class="r"><div class="st">★★★★★</div><p>После родов боялась идти в зал. Здесь тренер подстроила нагрузку, через два месяца спина перестала болеть.</p><b>Алия Т., пилатес</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Маленькая группа, тебя видят и поправляют. Никакого «тут все лучше меня». Хожу уже год.</p><b>Дарья Л., йога</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Запись в WhatsApp за минуту, напоминают за три часа. Для моего графика идеально.</p><b>Жанна К., барре</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Пришла по пробному и взяла абонемент в тот же день. Пахнет чаем, а не железом.</p><b>Мадина С., стретчинг</b></div>
+    </div>
+  </section>
+
+  <section class="bg" id="visit"><div class="in">
+    <span class="eyebrow rv">Контакты</span><h2 class="rv">Как <em>нас найти</em></h2>
+    <div class="visit">
+      <div class="map rv" id="map"></div>
+      <div class="info rv">
+        <div><span>Адрес</span><span>мкр. Самал-2, д. 33<br>ЖК «Тау», 1 этаж</span></div>
+        <div><span>Часы</span><span>Пн–Сб 8:00–21:00<br>Вс 10:00–18:00</span></div>
+        <div><span>Телефон</span><span>+7 700 000 00 00</span></div>
+        <div><span>Парковка</span><span>во дворе, бесплатно</span></div>
+        <a class="btn ghost" href="https://2gis.kz/almaty" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+        <a class="btn wa" href="#" data-wa="Здравствуйте! Хочу записаться на пробное занятие в студию «Сана»">Записаться в WhatsApp</a>
+      </div>
+    </div></div></section>
+
+  <section class="cta"><h2 class="rv">Пробное занятие <em>3 500 ₸</em></h2>
+    <a class="btn wa" href="#" data-wa="Здравствуйте! Хочу записаться на пробное занятие в студию «Сана»">Записаться в WhatsApp</a></section>
+  <footer>© «Сана», вымышленная студия. Демо-сайт для портфолио. Расписание, цены и адрес не настоящие.</footer>
+</main>
+<a class="fab" id="fab" href="#" data-wa="Здравствуйте! Хочу записаться на пробное занятие в студию «Сана»">Записаться в WhatsApp</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* schedule data: [time, class, coach, level, spots left] */
+const days=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+const full=['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
+const C={p:'Пилатес на реформерах',y:'Йога-флоу',b:'Барре',s:'Стретчинг',t:'Тонус: сила и баланс',m:'Мягкая спина'};
+const T={a:'Алия Нурмуханова',d:'Дана Ержанова',l:'Лейла Ким'};
+const S=[
+ [['08:00','p','a','Все',3],['10:00','y','d','Начинающие',6],['12:30','m','l','Все',0],['19:00','b','l','Средний',2],['20:00','s','d','Все',5]],
+ [['08:00','t','l','Средний',4],['10:00','p','a','Начинающие',1],['19:00','y','d','Все',7],['20:00','p','a','Средний',3]],
+ [['08:00','y','d','Все',5],['10:00','b','l','Начинающие',6],['12:30','m','l','Все',4],['19:00','p','a','Все',0],['20:00','s','d','Все',6]],
+ [['08:00','p','a','Средний',2],['10:00','t','l','Все',6],['19:00','b','l','Все',3],['20:00','y','d','Средний',5]],
+ [['08:00','s','d','Все',7],['10:00','p','a','Начинающие',4],['12:30','y','d','Все',6],['19:00','t','l','Средний',2]],
+ [['09:00','p','a','Все',2],['10:30','y','d','Все',5],['12:00','b','l','Начинающие',6],['13:30','s','d','Все',8]],
+ [['10:00','y','d','Все',6],['11:30','m','l','Все',7],['13:00','s','d','Все',8]]];
+const dn=[...Array(7)].map((_,i)=>{const d=new Date(2026,10,23+i);return d.getDate()});
+let day=0;
+const sp=n=>n===0?'мест нет':n<=2?'осталось '+n:n+' мест';
+const wa=t=>'https://wa.me/77000000000?text='+encodeURIComponent(t);
+function renderDay(first){
+  document.getElementById('tb').innerHTML=S[day].map(([t,c,k,l,n])=>`<tr><td class="t">${t}</td><td class="n">${C[c]}</td><td class="c">${T[k]}</td><td class="l">${l}<span class="m ${n===0?'full':n<=2?'few':''}"> · ${sp(n)}</span></td><td class="s ${n===0?'full':n<=2?'few':''}">${sp(n)}</td><td class="b"><a class="btn ${n===0?'ghost':''}" href="${wa('Здравствуйте! Хочу записаться: '+full[day]+', '+t+', '+C[c]+(n===0?' (в лист ожидания)':''))}">${n===0?'В лист ожидания':'Записаться'}</a></td></tr>`).join('');
+  if(!first&&!matchMedia('(prefers-reduced-motion: reduce)').matches)gsap.from('#tb tr',{opacity:0,y:18,duration:.45,stagger:.06,ease:'power2.out'});
+}
+document.getElementById('tabs').innerHTML=days.map((d,i)=>`<button class="tab" role="tab" aria-selected="${i===0}" data-i="${i}">${d}<small>${dn[i]} ноя</small></button>`).join('');
+document.getElementById('tabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(!b)return;day=+b.dataset.i;document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t===b));renderDay(false)});
+renderDay(true);
+const co=[["Алия Нурмуханова","пилатес, реабилитация · 10 лет","#ff6f4e","АН"],["Дана Ержанова","йога, стретчинг · 8 лет","#ffc8a0","ДЕ"],["Лейла Ким","барре, тонус · 6 лет","#7fd1c6","ЛК"]];
+document.getElementById('co').innerHTML=co.map(([n,r,c,i])=>`<div class="co rv"><svg viewBox="0 0 84 84"><rect width="84" height="84" fill="${c}" opacity=".25"/><circle cx="42" cy="34" r="15" fill="${c}"/><path d="M12 84c2-22 14-30 30-30s28 8 30 30z" fill="${c}"/><path d="M30 28q12-16 24 0" stroke="#0f2b2d" stroke-width="3" fill="none" opacity=".5"/></svg><div><h3>${n}</h3><p>${r}</p></div></div>`).join('');
+/* gallery: studio object illustrations */
+const objs=[
+ ["Реформер","#ff6f4e",`<rect x="30" y="150" width="140" height="14" rx="7" fill="#fdf1e6"/><rect x="36" y="164" width="6" height="30" fill="#fdf1e6"/><rect x="158" y="164" width="6" height="30" fill="#fdf1e6"/><rect x="62" y="136" width="64" height="14" rx="7" fill="#0f2b2d"/><path d="M164 150 V96" stroke="#fdf1e6" stroke-width="5"/><path d="M164 100 Q130 110 110 140" stroke="#0f2b2d" stroke-width="3" fill="none"/>`],
+ ["Коврик","#ffc8a0",`<rect x="30" y="80" width="70" height="130" rx="30" fill="#0f2b2d" transform="rotate(-18 65 145)"/><circle cx="130" cy="150" r="34" fill="#0f2b2d" opacity=".25"/><circle cx="130" cy="150" r="22" fill="#0f2b2d" opacity=".35"/>`],
+ ["Мяч","#7fd1c6",`<circle cx="100" cy="140" r="48" fill="#fdf1e6"/><path d="M60 128 Q100 100 140 128" stroke="#0f2b2d" stroke-width="3" fill="none" opacity=".4"/><ellipse cx="100" cy="196" rx="44" ry="7" fill="#0f2b2d" opacity=".2"/>`],
+ ["Гантели","#ff9b7d",`<g transform="rotate(-25 100 140)"><rect x="52" y="134" width="96" height="9" rx="4" fill="#0f2b2d"/><rect x="38" y="116" width="22" height="44" rx="8" fill="#0f2b2d"/><rect x="140" y="116" width="22" height="44" rx="8" fill="#0f2b2d"/></g>`],
+ ["Станок","#f6d7c3",`<rect x="30" y="120" width="140" height="8" rx="4" fill="#0f2b2d"/><rect x="42" y="128" width="6" height="70" fill="#0f2b2d"/><rect x="152" y="128" width="6" height="70" fill="#0f2b2d"/><path d="M70 120 q10 -40 25 -20 t30 -40" stroke="#ff6f4e" stroke-width="6" fill="none" stroke-linecap="round"/>`],
+ ["Лента","#c9a6f0",`<path d="M20 190 Q70 90 100 150 T180 80" stroke="#fdf1e6" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M20 200 Q70 110 100 170 T180 100" stroke="#0f2b2d" stroke-width="5" fill="none" opacity=".4"/>`],
+ ["Чай","#ffb199",`<path d="M60 130 h80 v20 a40 40 0 0 1 -80 0z" fill="#fdf1e6"/><path d="M140 140 q26 0 26 18 q0 18 -26 18" stroke="#fdf1e6" stroke-width="7" fill="none"/><path d="M85 118 q-8 -16 0 -30 M110 118 q-8 -16 0 -30" stroke="#fdf1e6" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/>`],
+ ["Свет","#9fe0d6",`<circle cx="100" cy="100" r="40" fill="#fdf1e6"/>${[0,1,2,3,4,5,6,7].map(k=>`<line x1="${100+Math.cos(k*.785)*52}" y1="${100+Math.sin(k*.785)*52}" x2="${100+Math.cos(k*.785)*72}" y2="${100+Math.sin(k*.785)*72}" stroke="#fdf1e6" stroke-width="6" stroke-linecap="round"/>`).join('')}<rect x="0" y="190" width="200" height="50" fill="#0f2b2d" opacity=".25"/>`]];
+document.getElementById('gal').innerHTML=objs.map(([n,c,s])=>`<figure class="tile rv"><svg viewBox="0 0 200 240" preserveAspectRatio="xMidYMid slice"><rect width="200" height="240" fill="${c}"/><circle cx="160" cy="40" r="60" fill="#fff" opacity=".18"/>${s}</svg><figcaption style="color:#0f2b2d;text-shadow:none">${n}</figcaption></figure>`).join('');
+mapSVG('map',{bg:'#143538',park:'#1d4a4a',road:'#2b5b5c',txt:'#fdf1e6',pin:'#ff6f4e',s1:'мкр. Самал-2',s2:'ул. Мендыкулова',addr:'«Сана»'});
+gsap.registerPlugin(ScrollTrigger);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('[data-wa]').forEach(a=>a.href='https://wa.me/77000000000?text='+encodeURIComponent(a.dataset.wa));
+const fab=document.getElementById('fab');
+new IntersectionObserver(([e])=>fab.classList.toggle('show',!e.isIntersecting)).observe(document.getElementById('heroWa'));
+document.querySelectorAll('.rv').forEach(el=>{
+  if(reduce)return;
+  gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}});
+});
+document.querySelectorAll('[data-c]').forEach(el=>{
+  const to=+el.dataset.c,d=+(el.dataset.d||0),s=el.dataset.s||'',o={v:0};
+  const set=()=>el.textContent=(d?o.v.toFixed(d).replace('.',','):Math.round(o.v).toLocaleString('ru-RU'))+s;
+  if(reduce){o.v=to;set();return}
+  ScrollTrigger.create({trigger:el,start:'top 94%',once:true,onEnter:()=>gsap.to(o,{v:to,duration:1.8,ease:'power2.out',onUpdate:set})});
+});
+const _t=document.getElementById('trk');
+if(_t){const mq=gsap.to(_t,{xPercent:-50,duration:26,ease:'none',repeat:-1});
+if(reduce)mq.pause(); else ScrollTrigger.create({onUpdate:s=>mq.timeScale(1+Math.abs(s.getVelocity())/400)});}
+function mapSVG(id,o){document.getElementById(id).innerHTML=`<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Схема проезда"><rect width="400" height="300" fill="${o.bg}"/><path d="M-10 230 Q120 200 200 240 T420 210 V310 H-10Z" fill="${o.park}" opacity=".7"/><rect x="260" y="30" width="110" height="70" rx="14" fill="${o.park}" opacity=".6"/><g stroke="${o.road}" stroke-width="16" fill="none" stroke-linecap="round"><path d="M-10 120 H410"/><path d="M150 -10 V310"/></g><g stroke="${o.road}" stroke-width="8" fill="none" opacity=".8"><path d="M-10 60 H410"/><path d="M290 -10 V310"/><path d="M-10 190 H410"/><path d="M60 -10 V310"/></g><g font-family="sans-serif" font-size="10" fill="${o.txt}" opacity=".75"><text x="165" y="22" transform="rotate(90 165 22)">${o.s1}</text><text x="10" y="116">${o.s2}</text><text x="300" y="55">${o.park2||'парк'}</text></g><g class="pin"><path d="M150 120 m0 -34 a22 22 0 1 1 .1 0 Z" transform="translate(0 0)" fill="${o.pin}" stroke="#fff" stroke-width="3"/><circle cx="150" cy="75" r="8" fill="#fff"/></g><text x="150" y="146" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="12" fill="${o.txt}">${o.addr}</text></svg>`}
+
+</script>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+const mobile=innerWidth<800;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canvas=document.getElementById('gl');
+let renderer;
+try{renderer=new THREE.WebGLRenderer({canvas,antialias:false,alpha:true})}catch(e){console.warn('WebGL off',e)}
+if(renderer){
+renderer.setPixelRatio(Math.min(devicePixelRatio,mobile?1.5:2));
+renderer.setSize(innerWidth,innerHeight);
+const scene=new THREE.Scene();
+const cam=new THREE.PerspectiveCamera(45,innerWidth/innerHeight,.1,100);cam.position.set(0,2.2,8);cam.lookAt(0,0,0);
+/* breathing silk: grid of points, sine waves, amplitude follows a 4 s breath cycle */
+const NX=mobile?120:200,NZ=mobile?60:80,N=NX*NZ,pos=new Float32Array(N*3),idx=new Float32Array(N*2);
+for(let i=0;i<NX;i++)for(let j=0;j<NZ;j++){const k=i*NZ+j;pos[k*3]=(i/(NX-1)-.5)*16;pos[k*3+1]=0;pos[k*3+2]=(j/(NZ-1)-.5)*7;idx[k*2]=i/NX;idx[k*2+1]=j/NZ}
+const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(pos,3));geo.setAttribute('aI',new THREE.BufferAttribute(idx,2));
+const mat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+ uniforms:{uT:{value:0},uB:{value:0},uM:{value:new THREE.Vector2(9,9)},uK:{value:0},uS:{value:mobile?4.2:3.4}},
+ vertexShader:`uniform float uT;uniform float uB;uniform vec2 uM;uniform float uK;uniform float uS;varying float vH;varying float vA;attribute vec2 aI;
+ void main(){vec3 p=position;
+  float w1=sin(p.x*.7+uT*.9+p.z*.5)*cos(p.z*.9-uT*.6);
+  float w2=sin(p.x*1.7-uT*1.3)*.25;
+  float amp=.55+uB*.75+uK*.5;
+  float d=distance(p.xz,uM);float rip=sin(d*3.-uT*4.)*exp(-d*.7)*.5;
+  p.y=(w1+w2)*amp+rip;vH=p.y/amp;vA=1.-abs(aI.y-.5)*1.6;
+  vec4 mv=modelViewMatrix*vec4(p,1.);gl_PointSize=uS*(9./-mv.z)*(1.+uB*.5)*${mobile?'1.5':'1.0'};gl_Position=projectionMatrix*mv;}`,
+ fragmentShader:`varying float vH;varying float vA;
+ void main(){vec2 c=gl_PointCoord-.5;float r=length(c);if(r>.5)discard;
+  vec3 coral=vec3(1.,.44,.31),peach=vec3(1.,.82,.66),teal=vec3(.5,.82,.78);
+  vec3 col=mix(teal,coral,smoothstep(-.6,.6,vH));col=mix(col,peach,smoothstep(.6,1.,vH));
+  gl_FragColor=vec4(col,(1.-r*2.)*.9*clamp(vA,.1,1.));}`});
+const pts=new THREE.Points(geo,mat);scene.add(pts);
+function layout(){const w=innerWidth,h=innerHeight;cam.aspect=w/h;cam.updateProjectionMatrix();renderer.setSize(w,h)}
+addEventListener('resize',layout);
+let mx=9,my=9,kick=0;const ray=new THREE.Raycaster(),plane=new THREE.Plane(new THREE.Vector3(0,1,0),0),hit=new THREE.Vector3();
+addEventListener('pointermove',e=>{ray.setFromCamera(new THREE.Vector2(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1),cam);if(ray.ray.intersectPlane(plane,hit)){mx=hit.x;my=hit.z}});
+addEventListener('pointerdown',()=>{kick=1});
+const br=document.getElementById('br');let lastB='';
+let lastY=scrollY,vel=0;
+const clock=new THREE.Clock();
+function frame(){
+  const t=clock.getElapsedTime();
+  const sc=Math.min(1,scrollY/(innerHeight*1.2));
+  vel=vel*.92+Math.abs(scrollY-lastY)*.02;lastY=scrollY;kick*=.95;
+  const breath=reduce?.5:.5+.5*Math.sin(t*Math.PI/2-Math.PI/2);
+  mat.uniforms.uT.value=reduce?0:t;mat.uniforms.uB.value=breath;mat.uniforms.uM.value.set(mx,my);mat.uniforms.uK.value=Math.min(1.5,vel+kick);
+  const lb=Math.cos(t*Math.PI/2-Math.PI/2)>0?'Вдох':'Выдох';
+  if(lb!==lastB){lastB=lb;br.textContent=lb}
+  const w=innerWidth;
+  pts.position.set(0,(w<800?2.5:1.3)+sc*2.5,-1-sc*3);pts.rotation.y=-.3+Math.sin(t*.15)*.12;pts.rotation.z=w<800?.1:.06;
+  const sw=w<800?1.5:1.05;pts.scale.set(sw,1,sw);
+  canvas.style.opacity=Math.max(0,Math.min(1,1-(sc-.55)*2.2));
+  renderer.render(scene,cam);
+  requestAnimationFrame(frame);
+}
+frame();
+}
+</script>
+</body>
+</html>

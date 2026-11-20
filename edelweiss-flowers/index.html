@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Эдельвейс — цветочная мастерская в Алматы</title>
+<meta name="description" content="Эдельвейс — цветочная мастерская в Алматы: каталог букетов с ценами, доставка за 90 минут, заказ в WhatsApp. Демо-сайт для портфолио, бизнес вымышленный.">
+<meta name="theme-color" content="#fbf1e6">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=Golos+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf1e6;--bg2:#f4e4d2;--ink:#23352b;--muted:#6c7a6f;--acc:#23352b;--acc2:#cf4a62;--gold:#a8703c;--line:rgba(35,53,43,.15);--card:#fffaf3e6;--hdr:#fffaf3c4;--hf:'Cormorant Garamond';--bf:'Golos Text'}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--bf),system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--hf),Georgia,serif;line-height:1.05}
+h1 em,h2 em{color:var(--acc2);font-style:normal}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:2}
+section{padding:72px 20px;max-width:1100px;margin:auto}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h2{font-size:clamp(32px,8vw,64px);margin:10px 0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:99px;background:var(--acc);color:var(--onacc,#fff);font-weight:700;font-size:16px;transition:transform .3s;min-height:52px;border:0;cursor:pointer;font-family:inherit}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.wa{background:#25d366;color:#06240f}
+@media(hover:hover){.btn:hover{transform:translateY(-2px)}}
+header{position:fixed;top:10px;left:10px;right:10px;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:8px 8px 8px 20px;border-radius:99px;background:var(--hdr);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:8px;font:700 21px var(--hf)}
+.logo svg{width:26px;height:26px}
+header .btn{padding:10px 18px;min-height:42px;font-size:14px}
+header nav{display:none}
+@media(min-width:800px){header{left:50%;right:auto;transform:translateX(-50%);width:min(780px,92vw);top:16px}header nav{display:flex;gap:22px;font-size:14px;color:var(--muted)}header nav a:hover{color:var(--ink)}}
+.hero{min-height:100svh;max-width:none;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 20px 56px}
+.hero .wrap{max-width:1100px;width:100%;margin-inline:auto}
+.hero h1{font-size:clamp(44px,12.5vw,140px)}
+.hero h1 .w{display:inline-block;animation:bloom 1.2s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .w:nth-child(2){animation-delay:.14s}.hero h1 .w:nth-child(3){animation-delay:.28s}.hero h1 .w:nth-child(4){animation-delay:.4s}
+@keyframes bloom{from{opacity:0;transform:translateY(40px) scale(.94);filter:blur(12px)}to{opacity:1;transform:none;filter:none}}
+.hero p{max-width:460px;color:var(--muted);margin:20px 0 26px;font-size:17px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap}
+.hint{margin-top:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px 18px}
+.stat b{font:700 clamp(34px,9vw,56px) var(--hf);display:block;color:var(--acc2)}
+.stat span{color:var(--muted);font-size:14px}
+@media(min-width:800px){.stats{grid-template-columns:repeat(4,1fr)}}
+.bg{background:var(--bg2);max-width:none;border-block:1px solid var(--line)}
+.bg>.in{max-width:1060px;margin:auto}
+.grid{display:grid;gap:14px}
+@media(min-width:800px){.grid{grid-template-columns:repeat(3,1fr)}}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:26px 22px}
+.cat h3{font-size:26px;margin-bottom:6px}
+.cat>p{color:var(--muted);font-size:14px;margin-bottom:12px}
+.row2{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid var(--line);font-size:15px}
+.row2 small{display:block;color:var(--muted);font-size:12px}
+.row2 b{white-space:nowrap;color:var(--acc2)}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{position:relative;aspect-ratio:1/1.2;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+.tile svg{width:100%;height:100%;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.tile figcaption{position:absolute;left:14px;bottom:12px;font:600 17px var(--hf);color:#fff;text-shadow:0 1px 10px #0007}
+@media(hover:hover){.tile:hover svg{transform:scale(1.08) rotate(1deg)}}
+@media(min-width:800px){.gal{grid-template-columns:repeat(4,1fr);gap:14px}}
+.note{color:var(--muted);font-size:12px;margin-top:12px}
+.rev{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
+.r{flex:none;width:min(84vw,350px);scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:24px}
+.r .st{color:var(--gold);letter-spacing:3px}
+.r p{margin:10px 0 14px;font-size:16px}
+.r b{font-size:14px;color:var(--muted);font-weight:500}
+.mq{overflow:hidden;padding:22px 0;border-block:1px solid var(--line)}
+.trk{display:flex;gap:40px;width:max-content;font:700 clamp(28px,7vw,60px) var(--hf);white-space:nowrap;color:var(--acc2)}
+.trk span:nth-child(even){color:var(--ink);opacity:.85}
+.visit{display:grid;gap:14px}
+.map{border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--bg2)}
+.map svg{width:100%;height:100%;display:block}
+.pin{animation:pin 2s ease-in-out infinite}
+@keyframes pin{50%{transform:translateY(-8px)}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:24px}
+.info div{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+.info div span:last-child{color:var(--muted);text-align:right}
+.info .btn{width:100%;margin-top:18px}
+@media(min-width:800px){.visit{grid-template-columns:1.3fr 1fr}.map{aspect-ratio:auto;min-height:380px}}
+.cta{text-align:center;padding:90px 20px}
+.cta .btn{font-size:clamp(18px,5vw,24px);padding:24px 36px;width:100%;max-width:520px;animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #25d36680}70%,100%{box-shadow:0 0 0 22px #25d36600}}
+footer{padding:30px 20px 100px;color:var(--muted);font-size:12px;text-align:center}
+.fab{position:fixed;left:14px;right:14px;bottom:14px;z-index:30;display:flex;justify-content:center;align-items:center;gap:10px;height:56px;border-radius:99px;background:#25d366;color:#06240f;font:700 17px var(--bf);box-shadow:0 10px 30px #0006;transform:translateY(120px);transition:transform .4s}
+.fab.show{transform:none}
+@media(min-width:800px){.fab{left:auto;right:24px;bottom:24px;padding:0 28px}}
+.rv{opacity:0;transform:translateY(34px)}
+@media(prefers-reduced-motion:reduce){.hero h1 .w{animation:none}.rv{opacity:1!important;transform:none!important}.pin,.cta .btn{animation:none}}
+
+h1,h2,h3{font-weight:700}
+h1 em,h2 em{font-style:italic}
+.hero h1{font-size:clamp(50px,15vw,150px);line-height:.95}
+.hero .wrap>*{max-width:none}
+@media(min-width:800px){.hero .wrap>h1{max-width:780px;font-size:clamp(60px,6.6vw,100px)}.hero .wrap>p{max-width:460px}}
+.hero p{max-width:460px}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -20px 18px;padding:0 20px}
+.chip{flex:none;border:1px solid var(--ink);border-radius:99px;padding:11px 18px;min-height:44px;background:transparent;font:500 15px var(--bf);color:var(--ink);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff}
+.sortrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;color:var(--muted);font-size:14px}
+.sortrow button{background:none;border:0;font:700 14px var(--bf);color:var(--acc2);cursor:pointer;min-height:44px;padding:0 4px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:800px){.cards{grid-template-columns:repeat(4,1fr);gap:16px}}
+.bq{background:var(--card);border:1px solid var(--line);border-radius:26px;overflow:hidden;display:flex;flex-direction:column}
+.bq .pic{aspect-ratio:1/1.1;position:relative}
+.bq .pic svg{width:100%;height:100%;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+@media(hover:hover){.bq:hover .pic svg{transform:scale(1.07) rotate(-1deg)}}
+.bq .tag{position:absolute;left:10px;top:10px;background:#fffaf3ee;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:700;color:var(--acc2)}
+.bq .tx{padding:12px 12px 14px;display:flex;flex-direction:column;gap:2px;flex:1}
+.bq h3{font-size:24px}
+.bq small{color:var(--muted);font-size:12.5px;line-height:1.35;flex:1}
+.bq .pr{font:700 22px var(--hf);margin:8px 0 8px;color:var(--ink)}
+.bq .btn{background:#25d366;color:#06240f;padding:10px 8px;min-height:46px;font-size:13.5px;width:100%;text-align:center;line-height:1.2}
+.dl{display:grid;gap:12px}
+@media(min-width:800px){.dl{grid-template-columns:repeat(3,1fr)}}
+.dl .c{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:22px}
+.dl .c b{display:block;font:700 30px var(--hf);color:var(--acc2)}
+.dl .c p{color:var(--muted);font-size:15px}
+.tile figcaption{font-style:italic}
+.map{background:#efdcc6}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<header>
+  <a class="logo" href="#top"><svg viewBox="0 0 32 32"><g fill="#cf4a62"><circle cx="16" cy="7" r="5"/><circle cx="25" cy="14" r="5"/><circle cx="22" cy="24" r="5"/><circle cx="10" cy="24" r="5"/><circle cx="7" cy="14" r="5"/></g><circle cx="16" cy="16" r="4.500" fill="#f7c873"/></svg>Эдельвейс</a>
+  <nav><a href="#catalog">Каталог</a><a href="#delivery">Доставка</a><a href="#gallery">Событиям</a><a href="#reviews">Отзывы</a><a href="#visit">Контакты</a></nav>
+  <a class="btn" href="#" data-wa="Здравствуйте! Хочу заказать букет в «Эдельвейс»">Заказать</a>
+</header>
+<main id="top">
+  <section class="hero"><div class="wrap">
+    <span class="eyebrow">Цветочная мастерская · Алматы</span>
+    <h1><span class="w">Цветы,</span> <span class="w">которые</span> <span class="w"><em>говорят</em></span> <span class="w">за вас</span></h1>
+    <p>Свежие букеты каждое утро с рынка и от фермеров. Соберём за 40 минут, привезём по Алматы за 90. Бутон раскрывается, когда вы листаете.</p>
+    <div class="row">
+      <a class="btn wa" id="heroWa" href="#" data-wa="Здравствуйте! Хочу заказать букет в «Эдельвейс»">Заказать в WhatsApp</a>
+      <a class="btn ghost" href="#catalog">Каталог</a>
+    </div>
+    <div class="hint">↓ Листайте</div>
+  </div></section>
+
+  <section><div class="stats">
+    <div class="stat rv"><b data-c="90" data-s=" мин">0</b><span>доставка по Алматы</span></div>
+    <div class="stat rv"><b data-c="7">0</b><span>лет собираем букеты</span></div>
+    <div class="stat rv"><b data-c="4.9" data-d="1">0</b><span>оценка клиентов</span></div>
+    <div class="stat rv"><b data-c="48" data-s=" ч">0</b><span>букет не завянет, или заменим</span></div>
+  </div></section>
+
+  <div class="mq"><div class="trk" id="trk"><span>Свежесть 48 часов</span><span>Открытка в подарок</span><span>Фото букета перед доставкой</span><span>Анонимная доставка</span><span>Свежесть 48 часов</span><span>Открытка в подарок</span><span>Фото букета перед доставкой</span><span>Анонимная доставка</span></div></div>
+
+  <section class="bg" id="catalog"><div class="in">
+    <span class="eyebrow rv">Каталог</span><h2 class="rv">Букеты <em>на сегодня</em></h2>
+    <div class="chips" id="chips"></div>
+    <div class="sortrow"><span id="cnt"></span><button id="sort" type="button">Сначала дешевле ↑</button></div>
+    <div class="cards" id="cards"></div>
+    <p class="note">Цены демонстрационные. Состав может слегка меняться по сезону, перед сборкой пришлём фото.</p>
+  </div></section>
+
+  <section id="delivery">
+    <span class="eyebrow rv">Доставка и сервис</span><h2 class="rv">Привезём <em>вовремя</em></h2>
+    <div class="dl">
+      <div class="c rv"><b>от 1 500 ₸</b><p>Доставка по Алматы, в центре и Медеуском районе. От 15 000 ₸ в заказе бесплатно.</p></div>
+      <div class="c rv"><b>Точно ко времени</b><p>Выбираете окно в 30 минут. Курьер пишет в WhatsApp за 10 минут до приезда.</p></div>
+      <div class="c rv"><b>Анонимно</b><p>Скажем «от кого» или оставим секрет. Напишем вашу открытку от руки, бесплатно.</p></div>
+    </div>
+  </section>
+
+  <section class="bg" id="gallery"><div class="in">
+    <span class="eyebrow rv">Под событие</span><h2 class="rv">Свадьбы, <em>офисы</em>, подписка</h2>
+    <div class="gal" id="gal"></div>
+    <p class="note">Иллюстрации-заглушки, в боевой версии фото ваших работ.</p>
+  </div></section>
+
+  <section id="reviews">
+    <span class="eyebrow rv">Отзывы</span><h2 class="rv">Говорят <em>клиенты</em></h2>
+    <div class="rev">
+      <div class="r"><div class="st">★★★★★</div><p>Заказала маме в Караганду через друзей в Алматы. Прислали фото до доставки, мама плакала от радости.</p><b>Асель Н., букет «Нежность»</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Привезли за час до начала предложения, всё идеально. Девушка сказала «да», цветы простояли две недели.</p><b>Данияр М., букет «Алатау»</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Оформили подписку для офиса: каждый понедельник свежая композиция. Команда в восторге.</p><b>Светлана В., подписка</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Собрали букет в бюджет 12 000, выглядит дороже. Подсказали, что лучше выбрать по сезону.</p><b>Камила Ж., монобукет</b></div>
+    </div>
+  </section>
+
+  <section class="bg" id="visit"><div class="in">
+    <span class="eyebrow rv">Мастерская</span><h2 class="rv">Заходите <em>за цветами</em></h2>
+    <div class="visit">
+      <div class="map rv" id="map"></div>
+      <div class="info rv">
+        <div><span>Адрес</span><span>ул. Гоголя, 85<br>вход со двора</span></div>
+        <div><span>Часы</span><span>ежедневно 8:00–21:00</span></div>
+        <div><span>Телефон</span><span>+7 700 000 00 00</span></div>
+        <div><span>Самовывоз</span><span>через 40 минут</span></div>
+        <a class="btn ghost" href="https://2gis.kz/almaty" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+        <a class="btn wa" href="#" data-wa="Здравствуйте! Хочу заказать букет в «Эдельвейс»">Заказать в WhatsApp</a>
+      </div>
+    </div></div></section>
+
+  <section class="cta"><h2 class="rv">Подарите <em>настроение</em> сегодня</h2>
+    <a class="btn wa" href="#" data-wa="Здравствуйте! Хочу заказать букет в «Эдельвейс»">Заказать в WhatsApp</a></section>
+  <footer>© «Эдельвейс», вымышленная мастерская. Демо-сайт для портфолио. Цены и адрес не настоящие.</footer>
+</main>
+<a class="fab" id="fab" href="#" data-wa="Здравствуйте! Хочу заказать букет в «Эдельвейс»">Заказать в WhatsApp</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* bouquet illustrations generated in SVG (no photos) */
+function rnd(seed){let s=seed*9301+49297;return()=>{s=(s*9301+49297)%233280;return s/233280}}
+function bouquet(i,pal,type,wrap){
+  const R=rnd(i+3);let h='';
+  h+=`<defs><linearGradient id="g${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${pal[3]}"/><stop offset="1" stop-color="${pal[4]}"/></linearGradient></defs><rect width="200" height="220" fill="url(#g${i})"/>`;
+  h+=`<circle cx="${40+R()*120}" cy="${40+R()*40}" r="60" fill="#fff" opacity=".25"/>`;
+  const n=type==='mono'?5:type==='box'?9:8;
+  for(let k=0;k<7;k++){const x=70+k*10;h+=`<path d="M${x} 205 Q${100+(k-3)*12} 140 ${70+k*10+(k-3)*8} 105" stroke="#3f6b4a" stroke-width="3" fill="none"/>`}
+  for(let k=0;k<5;k++){const a=-70+k*35+R()*10;h+=`<ellipse cx="${100+Math.sin(a/57)*58}" cy="${125+Math.abs(a)*.25}" rx="9" ry="22" fill="#4f8a5b" transform="rotate(${a} ${100+Math.sin(a/57)*58} ${125+Math.abs(a)*.25})" opacity=".9"/>`}
+  const pts=[];for(let k=0;k<n;k++){const a=k/n*6.28+R(),r=type==='mono'?20+R()*30:14+R()*44;pts.push([100+Math.cos(a)*r*1.15,92+Math.sin(a)*r*.8,15+R()*7,pal[k%3]])}
+  pts.push([100,88,type==='peony'?27:20,pal[0]]);
+  for(const [x,y,s,c] of pts){
+    if(type==='peony'){for(let p=0;p<8;p++){h+=`<circle cx="${x+Math.cos(p*.78)*s*.45}" cy="${y+Math.sin(p*.78)*s*.45}" r="${s*.6}" fill="${c}" opacity=".92"/>`}h+=`<circle cx="${x}" cy="${y}" r="${s*.38}" fill="#fff" opacity=".4"/>`}
+    else{for(let p=0;p<6;p++){const a=p*1.047;h+=`<ellipse cx="${x+Math.cos(a)*s*.55}" cy="${y+Math.sin(a)*s*.55}" rx="${s*.5}" ry="${s*.32}" fill="${c}" transform="rotate(${a*57.3} ${x+Math.cos(a)*s*.55} ${y+Math.sin(a)*s*.55})"/>`}h+=`<circle cx="${x}" cy="${y}" r="${s*.24}" fill="#f7c873"/>`}
+  }
+  if(type==='box'){h+=`<rect x="40" y="150" width="120" height="62" rx="8" fill="${wrap}"/><rect x="40" y="150" width="120" height="12" rx="6" fill="#fff" opacity=".3"/>`}
+  else{h+=`<path d="M52 150 L148 150 L118 215 L82 215Z" fill="${wrap}"/><path d="M52 150 L100 168 L148 150" fill="#fff" opacity=".35"/><path d="M92 176 q8 8 16 0 l4 10 q-12 8 -24 0z" fill="#cf4a62"/>`}
+  return `<svg viewBox="0 0 200 220" preserveAspectRatio="xMidYMid slice">${h}</svg>`}
+const P={rose:['#d6405c','#f08aa1','#b72d4b','#fbe0e3','#f7c9d0'],pink:['#f4a6bd','#fbd4de','#e97d9d','#fdeef1','#f8d9e1'],peony:['#f6b3c4','#fbdbe3','#ee8fa9','#fdf3ee','#f6dccb'],white:['#ffffff','#f4efe6','#e8e2d2','#e9f0e4','#d1e0cf'],sun:['#f7b733','#fbd36b','#f08a24','#fff2d1','#f9dfa0'],lav:['#a78bd9','#c9b8ec','#8a6fc7','#f0eaf9','#d9cdf0'],mix:['#e8668a','#f7b733','#8a6fc7','#fdf0e2','#f6d7c3']};
+const B=[
+["Нежность","15 пионовидных роз, эвкалипт, крафт","Пионы",28500,'peony','peony','#e8d0b6'],
+["Алатау","25 красных роз Эквадор, зелень","Розы",42000,'rose','rose','#3f6b4a'],
+["Эдельвейс","Белые розы, гипсофила, лента","Моно",18500,'white','mono','#e6dfd0'],
+["Солнечный","Подсолнухи, ромашки, пшеница","Композиции",15500,'sun','mix','#f0c987'],
+["Облако","Пионы, гортензия, ранункулюсы","Пионы",36000,'peony','peony','#fbe8e0'],
+["Лаванда","Лаванда, эустома, эвкалипт","Композиции",19500,'lav','mix','#c9b8ec'],
+["Моно 11","11 кустовых роз одного оттенка","Моно",13000,'pink','mono','#f8d9e1'],
+["Рассвет","Розы, тюльпаны, мимоза","Композиции",22000,'mix','mix','#f3c9b4'],
+["Шляпная коробка","Розы и пионы в коробке, 25 см","Коробки",31000,'pink','box','#23352b'],
+["Мини","7 тюльпанов, открытка","Моно",7500,'sun','mono','#fbe0e3'],
+["Бархат","Бордовые розы, анемоны, зелень","Розы",33500,'rose','rose','#5b1d2e'],
+["Сад","Садовые розы, астильба, пионы","Коробки",38500,'peony','box','#e8d0b6']];
+const cats=['Все','Пионы','Розы','Моно','Композиции','Коробки'];
+let cat='Все',asc=true;
+const fmt=n=>n.toLocaleString('ru-RU').replace(/ /g,' ')+' ₸';
+function render(first){
+  const list=B.map((b,i)=>({b,i})).filter(({b})=>cat==='Все'||b[2]===cat).sort((x,y)=>asc?x.b[3]-y.b[3]:y.b[3]-x.b[3]);
+  document.getElementById('cnt').textContent=list.length+' '+(list.length%10===1&&list.length!==11?'букет':list.length%10>1&&list.length%10<5&&(list.length<10||list.length>20)?'букета':'букетов');
+  document.getElementById('cards').innerHTML=list.map(({b,i})=>`<article class="bq${first?' rv':''}"><div class="pic">${bouquet(i,P[b[4]],b[5],b[6])}<span class="tag">${b[2]}</span></div><div class="tx"><h3>${b[0]}</h3><small>${b[1]}</small><div class="pr">${fmt(b[3])}</div><a class="btn" href="https://wa.me/77000000000?text=${encodeURIComponent('Здравствуйте! Хочу заказать букет «'+b[0]+'» за '+fmt(b[3]))}">Заказать в WhatsApp</a></div></article>`).join('');
+  if(!first&&window.gsap&&!matchMedia('(prefers-reduced-motion: reduce)').matches)gsap.from('#cards .bq',{opacity:0,y:24,duration:.5,stagger:.05,ease:'power2.out'});
+}
+document.getElementById('chips').innerHTML=cats.map(c=>`<button class="chip" type="button" aria-pressed="${c==='Все'}">${c}</button>`).join('');
+document.getElementById('chips').addEventListener('click',e=>{const t=e.target.closest('.chip');if(!t)return;cat=t.textContent;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===t));render(false)});
+document.getElementById('sort').addEventListener('click',e=>{asc=!asc;e.target.textContent=asc?'Сначала дешевле ↑':'Сначала дороже ↓';render(false)});
+render(true);
+const ev=[["Свадьба","#f6dccb"],["Офис","#d9e5d6"],["Подписка","#f3d0d8"],["Юбилей","#efe0f3"]];
+document.getElementById('gal').innerHTML=ev.map(([n,b],i)=>`<figure class="tile rv"><svg viewBox="0 0 200 240" preserveAspectRatio="xMidYMid slice"><rect width="200" height="240" fill="${b}"/>${[0,1,2,3,4,5,6].map(k=>{const R=rnd(i*9+k);const x=20+R()*160,y=30+R()*140,s=14+R()*22;return `<g opacity=".92">${[0,1,2,3,4].map(p=>`<ellipse cx="${x+Math.cos(p*1.256)*s*.55}" cy="${y+Math.sin(p*1.256)*s*.55}" rx="${s*.5}" ry="${s*.32}" fill="${['#cf4a62','#f4a6bd','#fff','#f7b733','#8a6fc7'][(k+p+i)%5]}" transform="rotate(${p*72} ${x+Math.cos(p*1.256)*s*.55} ${y+Math.sin(p*1.256)*s*.55})"/>`).join('')}<circle cx="${x}" cy="${y}" r="${s*.22}" fill="#f7c873"/></g>`}).join('')}<path d="M${20+i*10} 240 Q100 ${150-i*10} ${180-i*10} 240Z" fill="#4f8a5b" opacity=".35"/></svg><figcaption>${n}</figcaption></figure>`).join('');
+mapSVG('map',{bg:'#efdcc6',park:'#cfe0c3',road:'#fffaf3',txt:'#23352b',pin:'#cf4a62',s1:'ул. Гоголя',s2:'пр. Назарбаева',addr:'«Эдельвейс»'});
+gsap.registerPlugin(ScrollTrigger);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('[data-wa]').forEach(a=>a.href='https://wa.me/77000000000?text='+encodeURIComponent(a.dataset.wa));
+const fab=document.getElementById('fab');
+new IntersectionObserver(([e])=>fab.classList.toggle('show',!e.isIntersecting)).observe(document.getElementById('heroWa'));
+document.querySelectorAll('.rv').forEach(el=>{
+  if(reduce)return;
+  gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}});
+});
+document.querySelectorAll('[data-c]').forEach(el=>{
+  const to=+el.dataset.c,d=+(el.dataset.d||0),s=el.dataset.s||'',o={v:0};
+  const set=()=>el.textContent=(d?o.v.toFixed(d).replace('.',','):Math.round(o.v).toLocaleString('ru-RU'))+s;
+  if(reduce){o.v=to;set();return}
+  ScrollTrigger.create({trigger:el,start:'top 94%',once:true,onEnter:()=>gsap.to(o,{v:to,duration:1.8,ease:'power2.out',onUpdate:set})});
+});
+const _t=document.getElementById('trk');
+if(_t){const mq=gsap.to(_t,{xPercent:-50,duration:26,ease:'none',repeat:-1});
+if(reduce)mq.pause(); else ScrollTrigger.create({onUpdate:s=>mq.timeScale(1+Math.abs(s.getVelocity())/400)});}
+function mapSVG(id,o){document.getElementById(id).innerHTML=`<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Схема проезда"><rect width="400" height="300" fill="${o.bg}"/><path d="M-10 230 Q120 200 200 240 T420 210 V310 H-10Z" fill="${o.park}" opacity=".7"/><rect x="260" y="30" width="110" height="70" rx="14" fill="${o.park}" opacity=".6"/><g stroke="${o.road}" stroke-width="16" fill="none" stroke-linecap="round"><path d="M-10 120 H410"/><path d="M150 -10 V310"/></g><g stroke="${o.road}" stroke-width="8" fill="none" opacity=".8"><path d="M-10 60 H410"/><path d="M290 -10 V310"/><path d="M-10 190 H410"/><path d="M60 -10 V310"/></g><g font-family="sans-serif" font-size="10" fill="${o.txt}" opacity=".75"><text x="165" y="22" transform="rotate(90 165 22)">${o.s1}</text><text x="10" y="116">${o.s2}</text><text x="300" y="55">${o.park2||'парк'}</text></g><g class="pin"><path d="M150 120 m0 -34 a22 22 0 1 1 .1 0 Z" transform="translate(0 0)" fill="${o.pin}" stroke="#fff" stroke-width="3"/><circle cx="150" cy="75" r="8" fill="#fff"/></g><text x="150" y="146" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="12" fill="${o.txt}">${o.addr}</text></svg>`}
+
+</script>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+const mobile=innerWidth<800;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canvas=document.getElementById('gl');
+let renderer;
+try{renderer=new THREE.WebGLRenderer({canvas,antialias:!mobile,alpha:true})}catch(e){console.warn('WebGL off',e)}
+if(renderer){
+renderer.setPixelRatio(Math.min(devicePixelRatio,mobile?1.5:2));
+renderer.setSize(innerWidth,innerHeight);
+const scene=new THREE.Scene();
+const cam=new THREE.PerspectiveCamera(38,innerWidth/innerHeight,.1,100);cam.position.set(0,0,9);
+const root=new THREE.Group();scene.add(root);
+
+/* procedural petal: cupped, tapered, with vertex colour from base to tip */
+function petalGeo(c1,c2){
+  const g=new THREE.PlaneGeometry(1,1,8,10),p=g.attributes.position,col=[];
+  const a=new THREE.Color(c1),b=new THREE.Color(c2);
+  for(let i=0;i<p.count;i++){
+    const x=p.getX(i),y=p.getY(i)+.5;
+    const w=Math.pow(Math.sin(Math.PI*(.12+.82*Math.min(1,y*1.05))),.55);
+    const xx=x*w*1.15;
+    p.setXYZ(i,xx,y,-xx*xx*1.5+y*y*.28);
+    const c=a.clone().lerp(b,Math.pow(y,.9));col.push(c.r,c.g,c.b);
+  }
+  g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));g.computeVertexNormals();return g}
+const mat=new THREE.MeshStandardMaterial({vertexColors:true,side:THREE.DoubleSide,roughness:.55,metalness:0});
+const rings=[],bloom=new THREE.Group();root.add(bloom);
+const spec=[[3,.55,'#8f1f3a','#d6405c',.12],[5,.8,'#b72d4b','#e8668a',.3],[7,1.05,'#cf4a62','#f08aa1',.5],[9,1.32,'#e8668a','#f7b3c1',.72],[11,1.6,'#f08aa1','#fbd4de',.95]];
+spec.forEach(([n,s,c1,c2,t0],ri)=>{
+  const geo=petalGeo(c1,c2);const grp=new THREE.Group();grp.rotation.y=ri*.4;
+  for(let k=0;k<n;k++){const pv=new THREE.Group();pv.rotation.y=k/n*Math.PI*2;const m=new THREE.Mesh(geo,mat);m.scale.set(s*.9,s,s);pv.add(m);m.position.set(0,0,.05*ri);grp.add(pv);rings.push({m,t0,ri})}
+  bloom.add(grp)});
+/* stem + sepals */
+const stem=new THREE.Mesh(new THREE.CylinderGeometry(.06,.09,2.2,10),new THREE.MeshStandardMaterial({color:0x3f6b4a,roughness:.7}));stem.position.y=-1.3;stem.visible=!mobile;bloom.add(stem);
+scene.add(new THREE.HemisphereLight(0xfff4ea,0xe7a9b5,2.1));
+const dl=new THREE.DirectionalLight(0xffffff,2.2);dl.position.set(3,5,6);scene.add(dl);
+
+/* falling petals, pushed by pointer wind */
+const PN=mobile?22:42,fg=petalGeo('#f08aa1','#fbd4de'),fm=new THREE.MeshStandardMaterial({vertexColors:true,side:THREE.DoubleSide,roughness:.6});
+const fall=[];
+for(let i=0;i<PN;i++){const m=new THREE.Mesh(fg,fm);m.scale.setScalar(.22+Math.random()*.2);m.userData={x:(Math.random()-.5)*12,y:(Math.random()-.5)*10,z:-1+Math.random()*3,sp:.25+Math.random()*.4,r:Math.random()*6,rs:.5+Math.random()*1.5};root.add(m);fall.push(m)}
+
+function layout(){const w=innerWidth,h=innerHeight;cam.aspect=w/h;cam.updateProjectionMatrix();renderer.setSize(w,h)}
+addEventListener('resize',layout);
+let mx=0,my=0,tmx=0,tmy=0;const auto={v:0};
+if(!reduce)gsap.to(auto,{v:.55,duration:3,ease:'power2.out',delay:.3});else auto.v=.8;
+addEventListener('pointermove',e=>{tmx=(e.clientX/innerWidth-.5)*2;tmy=-(e.clientY/innerHeight-.5)*2});
+const clock=new THREE.Clock();
+function frame(){
+  const t=clock.getElapsedTime();
+  mx+=(tmx-mx)*.06;my+=(tmy-my)*.06;
+  const sc=Math.min(1,scrollY/(innerHeight*1.2));
+  const open=Math.max(auto.v,sc);
+  rings.forEach(({m,t0,ri})=>{const k=Math.min(1,Math.max(0,open*1.15-ri*.04));m.rotation.x=-(.12+ri*.05+(.2+ri*.34)*k*1.25)+Math.sin(t*1.2+ri)*.015});
+  const w=innerWidth;
+  bloom.rotation.x=.85-my*.15;bloom.rotation.y=(reduce?0:t*.18)+mx*.5;
+  bloom.position.y=Math.sin(t*.8)*.06;
+  root.position.set(w<800?0:3.2,(w<800?1.45:.3)+sc*2.5,0);
+  root.scale.setScalar(w<800?.58:1.0);
+  fall.forEach(m=>{const u=m.userData;u.y-=u.sp*.012;u.x+=mx*.004+Math.sin(t*.5+u.r)*.002;if(u.y<-6)u.y=6;m.position.set(u.x,u.y,u.z);m.rotation.set(t*u.rs+u.r,t*u.rs*.7,u.r)});
+  canvas.style.opacity=Math.max(.0,Math.min(1,1-(sc-.6)*2));
+  renderer.render(scene,cam);
+  requestAnimationFrame(frame);
+}
+frame();
+}
+</script>
+</body>
+</html>

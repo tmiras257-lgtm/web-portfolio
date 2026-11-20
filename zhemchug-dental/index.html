@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Жемчуг — стоматология в Алматы</title>
+<meta name="description" content="Стоматология «Жемчуг» в Алматы: лечение без боли, имплантация, виниры, отбеливание. Первая консультация бесплатно. Демо-сайт для портфолио, клиника вымышленная.">
+<meta name="theme-color" content="#eaf4fb">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eaf4fb;--bg2:#f7fbff;--ink:#0b2742;--muted:#56728a;--acc:#1a6fd0;--acc2:#1a6fd0;--gold:#1aa59a;--line:rgba(11,39,66,.13);--card:#ffffffd9;--hdr:#f7fbffc4;--hf:'Unbounded';--bf:'Golos Text'}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--bf),system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--hf),Georgia,serif;line-height:1.05}
+h1 em,h2 em{color:var(--acc2);font-style:normal}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:2}
+section{padding:72px 20px;max-width:1100px;margin:auto}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h2{font-size:clamp(32px,8vw,64px);margin:10px 0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:99px;background:var(--acc);color:var(--onacc,#fff);font-weight:700;font-size:16px;transition:transform .3s;min-height:52px;border:0;cursor:pointer;font-family:inherit}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.wa{background:#25d366;color:#06240f}
+@media(hover:hover){.btn:hover{transform:translateY(-2px)}}
+header{position:fixed;top:10px;left:10px;right:10px;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:8px 8px 8px 20px;border-radius:99px;background:var(--hdr);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:8px;font:700 21px var(--hf)}
+.logo svg{width:26px;height:26px}
+header .btn{padding:10px 18px;min-height:42px;font-size:14px}
+header nav{display:none}
+@media(min-width:800px){header{left:50%;right:auto;transform:translateX(-50%);width:min(780px,92vw);top:16px}header nav{display:flex;gap:22px;font-size:14px;color:var(--muted)}header nav a:hover{color:var(--ink)}}
+.hero{min-height:100svh;max-width:none;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 20px 56px}
+.hero .wrap{max-width:1100px;width:100%;margin-inline:auto}
+.hero h1{font-size:clamp(44px,12.5vw,140px)}
+.hero h1 .w{display:inline-block;animation:bloom 1.2s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .w:nth-child(2){animation-delay:.14s}.hero h1 .w:nth-child(3){animation-delay:.28s}.hero h1 .w:nth-child(4){animation-delay:.4s}
+@keyframes bloom{from{opacity:0;transform:translateY(40px) scale(.94);filter:blur(12px)}to{opacity:1;transform:none;filter:none}}
+.hero p{max-width:460px;color:var(--muted);margin:20px 0 26px;font-size:17px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap}
+.hint{margin-top:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px 18px}
+.stat b{font:700 clamp(34px,9vw,56px) var(--hf);display:block;color:var(--acc2)}
+.stat span{color:var(--muted);font-size:14px}
+@media(min-width:800px){.stats{grid-template-columns:repeat(4,1fr)}}
+.bg{background:var(--bg2);max-width:none;border-block:1px solid var(--line)}
+.bg>.in{max-width:1060px;margin:auto}
+.grid{display:grid;gap:14px}
+@media(min-width:800px){.grid{grid-template-columns:repeat(3,1fr)}}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:26px 22px}
+.cat h3{font-size:26px;margin-bottom:6px}
+.cat>p{color:var(--muted);font-size:14px;margin-bottom:12px}
+.row2{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid var(--line);font-size:15px}
+.row2 small{display:block;color:var(--muted);font-size:12px}
+.row2 b{white-space:nowrap;color:var(--acc2)}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{position:relative;aspect-ratio:1/1.2;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+.tile svg{width:100%;height:100%;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.tile figcaption{position:absolute;left:14px;bottom:12px;font:600 17px var(--hf);color:#fff;text-shadow:0 1px 10px #0007}
+@media(hover:hover){.tile:hover svg{transform:scale(1.08) rotate(1deg)}}
+@media(min-width:800px){.gal{grid-template-columns:repeat(4,1fr);gap:14px}}
+.note{color:var(--muted);font-size:12px;margin-top:12px}
+.rev{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
+.r{flex:none;width:min(84vw,350px);scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:24px}
+.r .st{color:var(--gold);letter-spacing:3px}
+.r p{margin:10px 0 14px;font-size:16px}
+.r b{font-size:14px;color:var(--muted);font-weight:500}
+.mq{overflow:hidden;padding:22px 0;border-block:1px solid var(--line)}
+.trk{display:flex;gap:40px;width:max-content;font:700 clamp(28px,7vw,60px) var(--hf);white-space:nowrap;color:var(--acc2)}
+.trk span:nth-child(even){color:var(--ink);opacity:.85}
+.visit{display:grid;gap:14px}
+.map{border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--bg2)}
+.map svg{width:100%;height:100%;display:block}
+.pin{animation:pin 2s ease-in-out infinite}
+@keyframes pin{50%{transform:translateY(-8px)}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:24px}
+.info div{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+.info div span:last-child{color:var(--muted);text-align:right}
+.info .btn{width:100%;margin-top:18px}
+@media(min-width:800px){.visit{grid-template-columns:1.3fr 1fr}.map{aspect-ratio:auto;min-height:380px}}
+.cta{text-align:center;padding:90px 20px}
+.cta .btn{font-size:clamp(18px,5vw,24px);padding:24px 36px;width:100%;max-width:520px;animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #25d36680}70%,100%{box-shadow:0 0 0 22px #25d36600}}
+footer{padding:30px 20px 100px;color:var(--muted);font-size:12px;text-align:center}
+.fab{position:fixed;left:14px;right:14px;bottom:14px;z-index:30;display:flex;justify-content:center;align-items:center;gap:10px;height:56px;border-radius:99px;background:#25d366;color:#06240f;font:700 17px var(--bf);box-shadow:0 10px 30px #0006;transform:translateY(120px);transition:transform .4s}
+.fab.show{transform:none}
+@media(min-width:800px){.fab{left:auto;right:24px;bottom:24px;padding:0 28px}}
+.rv{opacity:0;transform:translateY(34px)}
+@media(prefers-reduced-motion:reduce){.hero h1 .w{animation:none}.rv{opacity:1!important;transform:none!important}.pin,.cta .btn{animation:none}}
+
+.hero h1{font-weight:500;font-size:clamp(36px,10.5vw,112px);letter-spacing:-.02em}
+.shade{position:absolute;right:20px;top:92px;z-index:3;background:#ffffffd0;border:1px solid var(--line);border-radius:18px;padding:10px 14px;font-size:12px;color:var(--muted);backdrop-filter:blur(8px)}
+.shade b{display:block;font:700 22px var(--hf);color:var(--acc)}
+.hero{position:relative}
+@media(min-width:800px){.hero .wrap>*{max-width:560px}.hero .wrap>h1{max-width:760px;font-size:clamp(36px,6vw,84px)}.shade{right:40px}}
+.steps{display:grid;gap:12px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;position:relative;padding-left:76px}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:18px;font:700 38px var(--hf);color:var(--acc);opacity:.9}
+.step h3{font-size:18px;margin-bottom:4px}.step p{color:var(--muted);font-size:15px}
+@media(min-width:800px){.steps{grid-template-columns:repeat(4,1fr)}.step{padding:70px 20px 22px}.step:before{top:16px}}
+.cmp{position:relative;border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/10;background:#fff;touch-action:pan-y}
+.cmp svg{position:absolute;inset:0;width:100%;height:100%}
+.cmp .a{clip-path:inset(0 0 0 var(--p,50%))}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--p,50%);width:3px;background:#fff;box-shadow:0 0 12px #0004;pointer-events:none}
+.cmp .bar:after{content:'↔';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-size:18px}
+.cmp .lb{position:absolute;bottom:12px;font-size:12px;font-weight:700;background:#fffd;border-radius:99px;padding:5px 12px;color:var(--ink);pointer-events:none}
+.docs{display:grid;gap:12px}
+@media(min-width:800px){.docs{grid-template-columns:repeat(3,1fr)}}
+.doc{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:18px}
+.doc svg{flex:none;width:84px;height:84px;border-radius:50%}
+.doc h3{font-size:16px}.doc p{font-size:13px;color:var(--muted)}
+.map{background:#dcebf6}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<header>
+  <a class="logo" href="#top"><svg viewBox="0 0 32 32"><path d="M16 4c-3-2-9-2-10 4-.7 5 2 8 2 13 0 3 1.5 7 3 7 2 0 2-5 5-5s3 5 5 5c1.5 0 3-4 3-7 0-5 2.700-8 2-13-1-6-7-6-10-4z" fill="#1a6fd0"/><path d="M11 9c1-1 3-1 4 0" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/></svg>Жемчуг</a>
+  <nav><a href="#prices">Цены</a><a href="#white">Отбеливание</a><a href="#docs">Врачи</a><a href="#reviews">Отзывы</a><a href="#visit">Контакты</a></nav>
+  <a class="btn" href="#" data-wa="Здравствуйте! Хочу записаться на консультацию в «Жемчуг»">Записаться</a>
+</header>
+<main id="top">
+  <section class="hero"><div class="shade">Оттенок эмали<b id="shade">A4</b></div><div class="wrap">
+    <span class="eyebrow">Стоматология · Алматы · с 2013</span>
+    <h1><span class="w">Улыбка</span> <span class="w">без</span> <span class="w"><em>страха</em></span></h1>
+    <p>Лечение без боли, имплантация и виниры с 3D-диагностикой. Первая консультация бесплатно, цена по плану лечения фиксируется до начала. Потяните страницу вниз: зуб светлеет.</p>
+    <div class="row">
+      <a class="btn wa" id="heroWa" href="#" data-wa="Здравствуйте! Хочу записаться на консультацию в «Жемчуг»">Записаться в WhatsApp</a>
+      <a class="btn ghost" href="#prices">Цены</a>
+    </div>
+    <div class="hint">↓ Листайте</div>
+  </div></section>
+
+  <section><div class="stats">
+    <div class="stat rv"><b data-c="12">0</b><span>лет работаем в Алматы</span></div>
+    <div class="stat rv"><b data-c="9400">0</b><span>пациентов вылечено</span></div>
+    <div class="stat rv"><b data-c="4.9" data-d="1">0</b><span>рейтинг на 2ГИС</span></div>
+    <div class="stat rv"><b data-c="2" data-s=" года">0</b><span>гарантия на работы</span></div>
+  </div></section>
+
+  <div class="mq"><div class="trk" id="trk"><span>Без боли</span><span>3D-снимок за 8 секунд</span><span>Рассрочка 0%</span><span>Стерильность</span><span>Без боли</span><span>3D-снимок за 8 секунд</span><span>Рассрочка 0%</span><span>Стерильность</span></div></div>
+
+  <section class="bg" id="prices"><div class="in">
+    <span class="eyebrow rv">Услуги и цены</span><h2 class="rv">Цена <em>до</em> лечения</h2>
+    <div class="grid">
+      <div class="cat rv"><h3>Лечение</h3><p>Современные материалы, анестезия по запросу.</p>
+        <div class="row2"><span>Консультация и план<small>с 3D-снимком</small></span><b>0 ₸</b></div>
+        <div class="row2"><span>Лечение кариеса</span><b>от 18 000 ₸</b></div>
+        <div class="row2"><span>Лечение каналов<small>под микроскопом</small></span><b>от 35 000 ₸</b></div>
+        <div class="row2"><span>Удаление зуба</span><b>от 12 000 ₸</b></div></div>
+      <div class="cat rv"><h3>Гигиена и отбеливание</h3><p>Раз в полгода, чтобы не лечить.</p>
+        <div class="row2"><span>Air Flow + УЗ-чистка</span><b>16 000 ₸</b></div>
+        <div class="row2"><span>Отбеливание в кресле<small>до 8 тонов</small></span><b>70 000 ₸</b></div>
+        <div class="row2"><span>Детский осмотр</span><b>5 000 ₸</b></div>
+        <div class="row2"><span>Серебрение, герметизация</span><b>от 6 000 ₸</b></div></div>
+      <div class="cat rv"><h3>Восстановление</h3><p>Имплант, коронка, винир: с гарантией.</p>
+        <div class="row2"><span>Имплант под ключ<small>Osstem + коронка</small></span><b>от 190 000 ₸</b></div>
+        <div class="row2"><span>Коронка из диоксида циркония</span><b>95 000 ₸</b></div>
+        <div class="row2"><span>Керамический винир</span><b>120 000 ₸</b></div>
+        <div class="row2"><span>Элайнеры<small>курс до 12 месяцев</small></span><b>от 650 000 ₸</b></div></div>
+    </div>
+    <p class="note">Цены демонстрационные. Рассрочка 0% до 12 месяцев на лечение от 150 000 ₸.</p>
+  </div></section>
+
+  <section id="white">
+    <span class="eyebrow rv">Отбеливание</span><h2 class="rv">Сдвиньте и <em>сравните</em></h2>
+    <div class="cmp rv" id="cmp">
+      <svg viewBox="0 0 400 250" id="smB" preserveAspectRatio="xMidYMid slice"></svg>
+      <svg viewBox="0 0 400 250" id="smA" class="a" preserveAspectRatio="xMidYMid slice"></svg>
+      <div class="bar"></div><span class="lb" style="left:12px">до · A4</span><span class="lb" style="right:12px">после · B1</span>
+      <input type="range" min="0" max="100" value="50" id="rng" aria-label="Сравнение до и после">
+    </div>
+    <p class="note">Иллюстрация. В боевой версии здесь реальные фото работ с согласия пациентов.</p>
+  </section>
+
+  <section class="bg"><div class="in">
+    <span class="eyebrow rv">Как проходит приём</span><h2 class="rv">Четыре <em>шага</em></h2>
+    <div class="steps">
+      <div class="step rv"><h3>Осмотр и КТ</h3><p>Покажем снимок на экране и объясним простыми словами.</p></div>
+      <div class="step rv"><h3>План и цена</h3><p>Письменный план с суммой. Дороже не станет.</p></div>
+      <div class="step rv"><h3>Лечение без боли</h3><p>Анестезия, при желании седация. Перерывы по вашему знаку.</p></div>
+      <div class="step rv"><h3>Гарантия</h3><p>2 года на работы, напоминание о профосмотре в WhatsApp.</p></div>
+    </div></div></section>
+
+  <section id="docs">
+    <span class="eyebrow rv">Врачи</span><h2 class="rv">Те, кто <em>лечит</em></h2>
+    <div class="docs" id="docs-g"></div>
+    <p class="note">Имена и портреты вымышлены, в боевой версии здесь фото врачей и сертификаты.</p>
+  </section>
+
+  <section class="bg" id="gallery"><div class="in">
+    <span class="eyebrow rv">Работы</span><h2 class="rv">Улыбки <em>пациентов</em></h2>
+    <div class="gal" id="gal"></div>
+    <p class="note">Иллюстрации-заглушки, в боевой версии фото «до/после».</p>
+  </div></section>
+
+  <section id="reviews">
+    <span class="eyebrow rv">Отзывы</span><h2 class="rv">Говорят <em>пациенты</em></h2>
+    <div class="rev">
+      <div class="r"><div class="st">★★★★★</div><p>Боялась стоматологов с детства. Здесь впервые за много лет не было страшно: всё объясняют, ничего не больно.</p><b>Динара К., лечение каналов</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Поставили имплант, цена совпала с планом до тенге. Через неделю уже жевал нормально.</p><b>Ерлан Т., имплантация</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Привела сына на осмотр, он сам попросился снова. Врач нашла подход за пять минут.</p><b>Мария С., детский приём</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Отбеливание на 6 тонов за час. Чувствительности почти не было, дали гель домой.</p><b>Айгерим Ж., отбеливание</b></div>
+    </div>
+  </section>
+
+  <section class="bg" id="visit"><div class="in">
+    <span class="eyebrow rv">Контакты</span><h2 class="rv">Как <em>нас найти</em></h2>
+    <div class="visit">
+      <div class="map rv" id="map"></div>
+      <div class="info rv">
+        <div><span>Адрес</span><span>пр. Достык, 112, 2 этаж<br>БЦ «Нур»</span></div>
+        <div><span>Часы</span><span>Пн–Сб 9:00–20:00</span></div>
+        <div><span>Телефон</span><span>+7 700 000 00 00</span></div>
+        <div><span>Парковка</span><span>бесплатная во дворе</span></div>
+        <a class="btn ghost" href="https://2gis.kz/almaty" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+        <a class="btn wa" href="#" data-wa="Здравствуйте! Хочу записаться на консультацию в «Жемчуг»">Записаться в WhatsApp</a>
+      </div>
+    </div></div></section>
+
+  <section class="cta"><h2 class="rv">Первая консультация <em>бесплатно</em></h2>
+    <a class="btn wa" href="#" data-wa="Здравствуйте! Хочу записаться на консультацию в «Жемчуг»">Записаться в WhatsApp</a></section>
+  <footer>© «Жемчуг», вымышленная клиника. Демо-сайт для портфолио. Услуги, цены и врачи не настоящие. Есть противопоказания, нужна консультация специалиста.</footer>
+</main>
+<a class="fab" id="fab" href="#" data-wa="Здравствуйте! Хочу записаться на консультацию в «Жемчуг»">Записаться в WhatsApp</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* illustrations: procedural smiles / avatars (no photos) */
+function smile(c,bg,gum){return `<rect width="400" height="250" fill="${bg}"/><circle cx="330" cy="50" r="70" fill="#fff" opacity=".25"/><path d="M60 100 Q200 60 340 100 Q330 215 200 225 Q70 215 60 100Z" fill="${gum}"/><path d="M80 110 Q200 80 320 110 Q312 190 200 198 Q88 190 80 110Z" fill="#6b1f2c" opacity=".35"/>${[0,1,2,3,4,5,6,7].map(k=>{const x=96+k*26.5,t=k<4?k:7-k;const h=44+(t===0?-8:t===1?2:t===2?10:16);return `<rect x="${x}" y="${96+(3-t)*2.5+Math.abs(k-3.5)*5}" width="25" height="${h}" rx="9" fill="${c}"/>`}).join('')}`}
+document.getElementById('smB').innerHTML=smile('#e6d397','#cfe6f6','#e98a98');
+document.getElementById('smA').innerHTML=smile('#ffffff','#cfe6f6','#e98a98');
+const cmp=document.getElementById('cmp'),rng=document.getElementById('rng');
+rng.addEventListener('input',()=>cmp.style.setProperty('--p',rng.value+'%'));
+const docs=[["Айдана Серикова","терапевт-эндодонт · 11 лет","#1a6fd0","АС"],["Тимур Бекеев","хирург-имплантолог · 14 лет","#1aa59a","ТБ"],["Лаура Омарова","ортодонт, детский врач · 9 лет","#6a5ad6","ЛО"]];
+document.getElementById('docs-g').innerHTML=docs.map(([n,r,c,i])=>`<div class="doc rv"><svg viewBox="0 0 84 84"><rect width="84" height="84" fill="${c}" opacity=".18"/><circle cx="42" cy="34" r="15" fill="${c}"/><path d="M12 84c2-22 14-30 30-30s28 8 30 30z" fill="${c}"/><path d="M42 58l-5 10h10z" fill="#fff"/></svg><div><h3>${n}</h3><p>${r}</p></div></div>`).join('');
+const gl=[["Виниры","#f3d9e3","#fff"],["Имплант","#d6ebf7","#fff"],["Брекеты","#d9f0e8","#fff"],["Отбеливание","#e5e1f7","#fff"],["Коронки","#f9ead2","#fff"],["Элайнеры","#d6ebf7","#f4faff"],["Дети","#fbe0d6","#fff"],["Гигиена","#d9f0e8","#fff"]];
+document.getElementById('gal').innerHTML=gl.map(([n,b,t],i)=>`<figure class="tile rv"><svg viewBox="0 0 400 480" preserveAspectRatio="xMidYMid slice"><rect width="400" height="480" fill="${b}"/><circle cx="${80+i*30}" cy="90" r="90" fill="#fff" opacity=".35"/><g transform="translate(0 110) scale(1)">${smile('#fff',b,'#e98a98').replace(/<rect width="400" height="250"[^>]*>/,'').replace(/<circle[^>]*>/,'')}</g>${i==2?'<g stroke="#8ea3b5" stroke-width="3" fill="none"><path d="M90 262H312"/></g>'+[0,1,2,3,4,5,6,7].map(k=>`<rect x="${100+k*26.5}" y="${236+Math.abs(k-3.5)*5}" width="12" height="10" rx="2" fill="#5a7690"/>`).join(''):''}</svg><figcaption>${n}</figcaption></figure>`).join('');
+mapSVG('map',{bg:'#dcebf6',park:'#bfe3d3',road:'#ffffff',txt:'#0b2742',pin:'#1a6fd0',s1:'пр. Достык',s2:'ул. Жолдасбекова',addr:'«Жемчуг»'});
+gsap.registerPlugin(ScrollTrigger);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('[data-wa]').forEach(a=>a.href='https://wa.me/77000000000?text='+encodeURIComponent(a.dataset.wa));
+const fab=document.getElementById('fab');
+new IntersectionObserver(([e])=>fab.classList.toggle('show',!e.isIntersecting)).observe(document.getElementById('heroWa'));
+document.querySelectorAll('.rv').forEach(el=>{
+  if(reduce)return;
+  gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}});
+});
+document.querySelectorAll('[data-c]').forEach(el=>{
+  const to=+el.dataset.c,d=+(el.dataset.d||0),s=el.dataset.s||'',o={v:0};
+  const set=()=>el.textContent=(d?o.v.toFixed(d).replace('.',','):Math.round(o.v).toLocaleString('ru-RU'))+s;
+  if(reduce){o.v=to;set();return}
+  ScrollTrigger.create({trigger:el,start:'top 94%',once:true,onEnter:()=>gsap.to(o,{v:to,duration:1.8,ease:'power2.out',onUpdate:set})});
+});
+const _t=document.getElementById('trk');
+if(_t){const mq=gsap.to(_t,{xPercent:-50,duration:26,ease:'none',repeat:-1});
+if(reduce)mq.pause(); else ScrollTrigger.create({onUpdate:s=>mq.timeScale(1+Math.abs(s.getVelocity())/400)});}
+function mapSVG(id,o){document.getElementById(id).innerHTML=`<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Схема проезда"><rect width="400" height="300" fill="${o.bg}"/><path d="M-10 230 Q120 200 200 240 T420 210 V310 H-10Z" fill="${o.park}" opacity=".7"/><rect x="260" y="30" width="110" height="70" rx="14" fill="${o.park}" opacity=".6"/><g stroke="${o.road}" stroke-width="16" fill="none" stroke-linecap="round"><path d="M-10 120 H410"/><path d="M150 -10 V310"/></g><g stroke="${o.road}" stroke-width="8" fill="none" opacity=".8"><path d="M-10 60 H410"/><path d="M290 -10 V310"/><path d="M-10 190 H410"/><path d="M60 -10 V310"/></g><g font-family="sans-serif" font-size="10" fill="${o.txt}" opacity=".75"><text x="165" y="22" transform="rotate(90 165 22)">${o.s1}</text><text x="10" y="116">${o.s2}</text><text x="300" y="55">${o.park2||'парк'}</text></g><g class="pin"><path d="M150 120 m0 -34 a22 22 0 1 1 .1 0 Z" transform="translate(0 0)" fill="${o.pin}" stroke="#fff" stroke-width="3"/><circle cx="150" cy="75" r="8" fill="#fff"/></g><text x="150" y="146" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="12" fill="${o.txt}">${o.addr}</text></svg>`}
+
+</script>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+const mobile=innerWidth<800;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canvas=document.getElementById('gl');
+let renderer;
+try{renderer=new THREE.WebGLRenderer({canvas,antialias:!mobile,alpha:true})}catch(e){console.warn('WebGL off',e)}
+if(renderer){
+renderer.setPixelRatio(Math.min(devicePixelRatio,mobile?1.5:2));
+renderer.setSize(innerWidth,innerHeight);
+const scene=new THREE.Scene();
+const cam=new THREE.PerspectiveCamera(38,innerWidth/innerHeight,.1,100);cam.position.z=8;
+const root=new THREE.Group();scene.add(root);
+
+/* procedural molar: sphere deformed into crown with cusps + two roots */
+const g=new THREE.SphereGeometry(1,mobile?72:110,mobile?48:80);
+const P=g.attributes.position;
+const sm=(a,b,x)=>{const t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t)};
+for(let i=0;i<P.count;i++){
+  const x=P.getX(i),y=P.getY(i),z=P.getZ(i),r=Math.hypot(x,z),a=Math.atan2(z,x);
+  let cx=Math.sign(x)*Math.pow(Math.abs(x),.8)*1.3,cy=y*.8+.2,cz=Math.sign(z)*Math.pow(Math.abs(z),.85)*1.1;
+  if(y>0){cy+=.16*y*y*(.5+.5*Math.cos(4*a+.6))*Math.min(1,r*1.6);cy-=.2*Math.exp(-r*r*7)*y*y}
+  const t=sm(-.1,-.75,y);
+  const s=Math.tanh(x*9);
+  const rx=s*(.52+.12*y)+x*.32*(1+y*.35),rz=z*.34*(1+y*.35),ry=-.3+y*1.35+(1-s*s)*.95;
+  P.setXYZ(i,cx+(rx-cx)*t,cy+(ry-cy)*t,cz+(rz-cz)*t);
+}
+g.computeVertexNormals();
+const mat=new THREE.MeshPhysicalMaterial({color:0xe6d397,roughness:.28,clearcoat:1,clearcoatRoughness:.12,sheen:.4,sheenColor:new THREE.Color(0xcfeaff)});
+const tooth=new THREE.Mesh(g,mat);root.add(tooth);
+const cA=new THREE.Color(0xe3cd8c),cB=new THREE.Color(0xffffff);
+scene.add(new THREE.HemisphereLight(0xffffff,0x9cc8ee,1.5));
+const d1=new THREE.DirectionalLight(0xffffff,2.4);d1.position.set(3,5,6);scene.add(d1);
+const d2=new THREE.DirectionalLight(0x8fd2ff,1.4);d2.position.set(-5,-1,3);scene.add(d2);
+
+/* sparkles appear as enamel gets whiter */
+const cv=document.createElement('canvas');cv.width=cv.height=64;const cx2=cv.getContext('2d');
+const gr=cx2.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,'#fff');gr.addColorStop(.25,'#bfe6ff');gr.addColorStop(1,'rgba(255,255,255,0)');cx2.fillStyle=gr;cx2.fillRect(0,0,64,64);
+cx2.fillStyle='#fff';cx2.fillRect(30,2,4,60);cx2.fillRect(2,30,60,4);
+const N=mobile?26:46,pos=new Float32Array(N*3),seed=[];
+for(let i=0;i<N;i++){seed.push([Math.random()*6.28,1.9+Math.random()*1.3,(Math.random()-.5)*3.6,.2+Math.random()*.4]);}
+const sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+const sp=new THREE.PointsMaterial({size:mobile?.34:.3,map:new THREE.CanvasTexture(cv),transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,opacity:0});
+const stars=new THREE.Points(sg,sp);root.add(stars);
+
+function layout(){const w=innerWidth,h=innerHeight;cam.aspect=w/h;cam.updateProjectionMatrix();renderer.setSize(w,h)}
+addEventListener('resize',layout);
+let mx=0,my=0,tmx=0,tmy=0,white=0;const auto={v:0};
+if(!reduce)gsap.to(auto,{v:.45,duration:2.6,ease:'power2.out',delay:.4});else auto.v=.45;
+const point=e=>{tmx=(e.clientX/innerWidth-.5)*2;tmy=-(e.clientY/innerHeight-.5)*2};
+addEventListener('pointermove',point);
+const shades=['A4','A3.5','A3','A2','A1','B2','B1'];
+const lab=document.getElementById('shade');let lastS=-1;
+const clock=new THREE.Clock();
+function frame(){
+  const t=clock.getElapsedTime();
+  mx+=(tmx-mx)*.06;my+=(tmy-my)*.06;
+  const sc=Math.min(1,scrollY/(innerHeight*1.1));
+  white=Math.max(auto.v,sc*1.0);
+  mat.color.copy(cA).lerp(cB,Math.min(1,white));
+  const si=Math.min(shades.length-1,Math.round(white*(shades.length-1)));
+  if(si!==lastS){lastS=si;lab.textContent=shades[si]}
+  const w=innerWidth;
+  root.position.set(w<800?0:3,(w<800?1.9:.5)+sc*2.2,0);
+  root.scale.setScalar(w<800?.62:1.05);
+  root.rotation.y=(reduce?.5:t*.35)+mx*.5+sc*3;root.rotation.x=-my*.25+.12;
+  tooth.position.y=Math.sin(t*1.2)*.05;
+  canvas.style.opacity=Math.max(0,Math.min(1,1-(sc-.55)*2.2));
+  sp.opacity=Math.max(0,(white-.5)*2);
+  for(let i=0;i<N;i++){const s=seed[i],a=s[0]+t*s[3];pos[i*3]=Math.cos(a)*s[1];pos[i*3+1]=s[2]+Math.sin(t+i)*.2;pos[i*3+2]=Math.sin(a)*s[1]}
+  sg.attributes.position.needsUpdate=true;
+  renderer.render(scene,cam);
+  requestAnimationFrame(frame);
+}
+frame();
+}
+</script>
+</body>
+</html>
