@@ -1,13 +1,221 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Портфолио — сайты с анимацией</title>
-<style>body{margin:0;background:#141010;color:#f3e9dc;font-family:system-ui,sans-serif;padding:48px 20px;max-width:900px;margin:auto}
-h1{font-size:clamp(32px,6vw,56px);margin:0 0 8px}p{color:#bfb3a5}a.card{display:block;margin-top:28px;border:1px solid #3a2f28;border-radius:18px;overflow:hidden;color:inherit;text-decoration:none}
-a.card img{width:100%;display:block}a.card div{padding:16px 20px}b{color:#e3a05a}</style></head><body>
-<h1>Сайты с анимацией</h1><p>Современные лендинги для бизнеса: адаптив под телефон, кнопки WhatsApp и записи. Демо-проекты — бизнесы вымышленные.</p>
-<a class="card" href="tau-zerno-cafe/"><img src="tau-zerno-cafe/screenshot.png" alt="Тау &amp; Зерно — кофейня"><div><b>«Тау &amp; Зерно»</b> — кофейня в Алматы · 3D-частицы, анимация при прокрутке</div></a>
-<a class="card" href="ostriyo-barbershop/"><img src="ostriyo-barbershop/screenshot.png" alt="ОСТРИЁ — барбершоп"><div><b>«ОСТРИЁ»</b> — барбершоп в Алматы · 3D барбер-столб, запись в WhatsApp</div></a>
-<a class="card" href="mirra-nail-brow/"><img src="mirra-nail-brow/screenshot.png" alt="Mirra — студия ногтей и бровей"><div><b>«Mirra»</b> — студия ногтей и бровей в Алматы · жидкий 3D-объект, прайс, галерея</div></a>
-<a class="card" href="zhemchug-dental/"><img src="zhemchug-dental/screenshot.png" alt="Жемчуг — стоматология"><div><b>«Жемчуг»</b> — стоматология в Алматы · 3D-зуб, который светлеет при прокрутке, до/после, прайс</div></a>
-<a class="card" href="edelweiss-flowers/"><img src="edelweiss-flowers/screenshot.png" alt="Эдельвейс — цветочная мастерская"><div><b>«Эдельвейс»</b> — цветочная мастерская в Алматы · раскрывающийся 3D-бутон, каталог букетов с заказом в WhatsApp</div></a>
-<a class="card" href="sana-studio/"><img src="sana-studio/screenshot.png" alt="Сана — женская студия"><div><b>«Сана»</b> — женская студия пилатеса и йоги в Алматы · «дышащая» 3D-волна, расписание по дням, абонементы</div></a>
-</body></html>
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайты с анимацией для бизнеса в Алматы — портфолио демо-проектов</title>
+<meta name="description" content="Девять демо-сайтов с анимацией для кафе, ресторанов, барбершопов, клиник, студий и автосервисов: адаптив под телефон, кнопка WhatsApp, запись в один тап. Лендинг от 50 000 ₸, 2 дня. Бизнесы в демо вымышленные.">
+<meta name="theme-color" content="#0d0d0f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d0d0f'/%3E%3Cpath d='M8 22V10l8 8 8-8v12' stroke='%23d7ff3a' stroke-width='3' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:title" content="Сайты с анимацией для бизнеса в Алматы"><meta property="og:description" content="Девять демо-проектов: кафе, ресторан, барбершоп, клиника, студия, автосервис. Запись в один тап."><meta property="og:image" content="https://tmiras257-lgtm.github.io/web-portfolio/ochag-restaurant/screenshot.png"><meta property="og:url" content="https://tmiras257-lgtm.github.io/web-portfolio/"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0d0f;--ink:#f4f3ee;--muted:#a9a9b0;--lime:#d7ff3a;--card:#17171b;--line:rgba(255,255,255,.12)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Onest,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:8px}
+.skip{position:fixed;left:12px;top:-64px;z-index:99;min-height:44px;display:flex;align-items:center;padding:0 16px;background:#fff;color:#000;border-radius:10px;font-weight:700;transition:top .2s}.skip:focus{top:12px}
+.w{max-width:1240px;margin-inline:auto;padding-inline:20px}
+header{position:sticky;top:0;z-index:40;background:rgba(13,13,15,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;justify-content:space-between;min-height:60px;gap:12px}
+.logo{white-space:nowrap;display:inline-flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;min-height:44px;letter-spacing:-.01em}
+.logo i{width:12px;height:12px;border-radius:50%;background:var(--lime);display:inline-block;box-shadow:0 0 18px var(--lime)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;background:var(--lime);color:#0d0d0f;font-weight:700;text-decoration:none;transition:transform .2s}
+.btn:active{transform:scale(.97)}
+header .btn{min-height:44px;padding:0 16px;font-size:14px;white-space:nowrap}
+.hero-wrap{position:relative;overflow:hidden}.hero{padding-block:56px 34px;position:relative}
+.hero-wrap::before{content:"";position:absolute;inset:-60px -20% auto;height:520px;background:radial-gradient(closest-side,rgba(215,255,58,.16),transparent);pointer-events:none}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);font-weight:700}
+h1{margin:14px 0 0;font-size:clamp(38px,10.4vw,104px);line-height:.98;letter-spacing:-.035em;font-weight:800;max-width:15ch}
+h1 em{font-style:normal;color:var(--lime)}
+.sub{margin:22px 0 0;font-size:19px;color:var(--muted);max-width:50ch}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:38px}
+.nums div{background:var(--bg);padding:18px 16px}.nums b{display:block;font-size:clamp(20px,6vw,48px);white-space:nowrap;letter-spacing:-.03em;line-height:1}.nums span{color:var(--muted);font-size:14px}
+.tools{position:sticky;top:60px;z-index:30;background:linear-gradient(var(--bg) 70%,transparent);padding:14px 0 10px}
+.fl{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}.fl::-webkit-scrollbar{display:none}
+.fl button{min-height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 15px Onest;white-space:nowrap;cursor:pointer}
+.fl button[aria-pressed=true]{background:var(--ink);color:#0d0d0f;border-color:var(--ink);font-weight:700}
+.grid{display:grid;gap:18px;padding-block:20px 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:14px 14px 20px;display:flex;flex-direction:column;gap:10px;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s}
+@media(hover:hover){.card:hover{transform:translateY(-6px);border-color:rgba(215,255,58,.5)}.card:hover .shot .d{transform:scale(1.04)}}
+.card[hidden]{display:none}
+.shot{position:relative;display:block;aspect-ratio:16/10;border-radius:18px;overflow:hidden;background:#000}
+.shot .d{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.ph{position:absolute;right:12px;bottom:-26px;width:23%;aspect-ratio:9/19;border-radius:14px;border:3px solid #0d0d0f;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.5);background:#000;transform:rotate(3deg)}
+.ph img{width:100%;height:100%;object-fit:cover;object-position:top}
+.new{position:absolute;left:12px;top:12px;background:var(--lime);color:#0d0d0f;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:99px}
+.meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px;padding-inline:6px}
+.ni{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}.st{font-size:14px;color:var(--muted)}
+.card h3{margin:0;padding-inline:6px;font-size:28px;letter-spacing:-.02em;line-height:1.1}
+.card p{margin:0;padding-inline:6px;color:#cfcfd4}
+.ch{list-style:none;margin:2px 0 0;padding:0 6px;display:flex;flex-wrap:wrap;gap:6px}.ch li{font-size:13px;padding:5px 11px;border:1px solid var(--line);border-radius:99px;color:#cfcfd4}
+.act{display:flex;gap:10px;margin-top:auto;padding:10px 6px 0;flex-wrap:wrap}
+.act a{min-height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;font-weight:700;text-decoration:none;padding:0 20px}
+.b1{background:var(--ink);color:#0d0d0f;flex:1 1 150px}.b2{border:1px solid var(--line);flex:0 1 auto}
+.act a:active{transform:scale(.97)}
+section.blk{padding-block:64px;border-top:1px solid var(--line)}
+section.blk h2{margin:10px 0 0;font-size:clamp(30px,7.6vw,64px);letter-spacing:-.03em;line-height:1;font-weight:800;max-width:18ch}
+.steps{display:grid;gap:12px;margin-top:30px;counter-reset:s}
+.steps li{list-style:none;counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;display:grid;gap:6px}
+.steps li::before{content:counter(s,decimal-leading-zero);font-weight:800;color:var(--lime);font-size:15px;letter-spacing:.08em}
+.steps b{font-size:22px;letter-spacing:-.02em}.steps span{color:var(--muted)}
+.steps{padding:0}
+.cta-box{margin-top:34px;padding:28px;border-radius:28px;background:var(--lime);color:#0d0d0f;display:grid;gap:14px}
+.cta-box h2{color:#0d0d0f;margin:0;font-size:clamp(28px,7vw,56px)}.cta-box p{margin:0;font-size:18px;max-width:52ch}
+.cta-box .btn{background:#0d0d0f;color:var(--ink);justify-self:start}
+footer{padding:34px 0 60px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(3,1fr)}.w{padding-inline:40px}.cta-box{grid-template-columns:1.4fr 1fr;align-items:center;padding:44px}.cta-box .btn{justify-self:end}}
+@media(min-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}.hero{padding-block:90px 50px}}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.001ms!important;animation-duration:.001ms!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">К работам</a>
+<header><div class="w"><a class="logo" href="#top" aria-label="На главную"><i></i>Сайты · Алматы</a><a class="btn" href="https://wa.me/77000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0" target="_blank" rel="noopener">WhatsApp</a></div></header>
+<main id="top">
+<div class="hero-wrap"><section class="hero w">
+ <span class="eyebrow">Портфолио · демо-проекты</span>
+ <h1>Сайты, которые <em>записывают</em> клиентов</h1>
+ <p class="sub">Анимация, которая цепляет с первого экрана, и одна кнопка, которая приводит клиента в WhatsApp. Для кафе, салонов, клиник, студий и автосервисов Алматы.</p>
+ <div class="cta"><a class="btn" href="#work">Смотреть работы</a><a class="btn ghost" href="#how">Как это работает</a></div>
+ <div class="nums"><div><b>9</b><span>демо-проектов</span></div><div><b>2 дня</b><span>на лендинг</span></div><div><b>50&nbsp;000&nbsp;₸</b><span>лендинг под ключ</span></div></div>
+</section></div>
+<div class="tools"><div class="w"><div class="fl" role="group" aria-label="Фильтр по нише" id="fl"><button type="button" data-k="all" aria-pressed="true">Все</button><button type="button" data-k="food" aria-pressed="false">Еда</button><button type="button" data-k="beauty" aria-pressed="false">Красота</button><button type="button" data-k="health" aria-pressed="false">Здоровье</button><button type="button" data-k="auto" aria-pressed="false">Авто</button><button type="button" data-k="home" aria-pressed="false">Дом и магазин</button></div></div></div>
+<section class="w" id="work" aria-label="Работы"><div class="grid" id="grid">
+<article class="card" data-f="food">
+ <a class="shot" href="ochag-restaurant/" aria-label="Открыть демо «ОЧАГ»">
+  <img class="d" src="ochag-restaurant/screenshot.png" alt="Экран сайта «ОЧАГ» на компьютере" width="1440" height="900" loading="lazy">
+  <span class="ph"><img src="ochag-restaurant/screenshot-mobile.png" alt="Экран сайта «ОЧАГ» на телефоне" width="390" height="844" loading="lazy"></span>
+  <span class="new">новое</span>
+ </a>
+ <div class="meta"><span class="ni">Ресторан</span><span class="st">Editorial · скролл-история</span></div>
+ <h3>ОЧАГ</h3><p>Журнальная вёрстка и «один вечер у огня»: страница сама проходит от 17:30 до 23:00. Бронь стола с готовыми значениями.</p>
+ <ul class="ch"><li>Закреплённый сторителлинг</li><li>Меню с вкладками</li><li>Бронь в 1 тап</li></ul>
+ <div class="act"><a class="b1" href="ochag-restaurant/">Открыть демо <span aria-hidden="true">→</span></a><a class="b2" href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20такой%20же%20сайт,%20как%20«ОЧАГ»%20(Ресторан)." target="_blank" rel="noopener">Хочу такой</a></div>
+</article>
+<article class="card" data-f="auto">
+ <a class="shot" href="blik-detailing/" aria-label="Открыть демо «БЛИК»">
+  <img class="d" src="blik-detailing/screenshot.png" alt="Экран сайта «БЛИК» на компьютере" width="1440" height="900" loading="lazy">
+  <span class="ph"><img src="blik-detailing/screenshot-mobile.png" alt="Экран сайта «БЛИК» на телефоне" width="390" height="844" loading="lazy"></span>
+  <span class="new">новое</span>
+ </a>
+ <div class="meta"><span class="ni">Детейлинг-студия</span><span class="st">Dark luxury · кинетическая типографика</span></div>
+ <h3>БЛИК</h3><p>Тёмная премиум-подача, бегущие строки от скорости прокрутки, слайдер «до/после» и калькулятор цены.</p>
+ <ul class="ch"><li>Калькулятор цены</li><li>До / После</li><li>Стопка пакетов</li></ul>
+ <div class="act"><a class="b1" href="blik-detailing/">Открыть демо <span aria-hidden="true">→</span></a><a class="b2" href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20такой%20же%20сайт,%20как%20«БЛИК»%20(Детейлинг-студия)." target="_blank" rel="noopener">Хочу такой</a></div>
+</article>
+<article class="card" data-f="home">
+ <a class="shot" href="mera-interiors/" aria-label="Открыть демо «МЕРА»">
+  <img class="d" src="mera-interiors/screenshot.png" alt="Экран сайта «МЕРА» на компьютере" width="1440" height="900" loading="lazy">
+  <span class="ph"><img src="mera-interiors/screenshot-mobile.png" alt="Экран сайта «МЕРА» на телефоне" width="390" height="844" loading="lazy"></span>
+  <span class="new">новое</span>
+ </a>
+ <div class="meta"><span class="ni">Студия интерьеров</span><span class="st">Bento-сетка · горизонтальная галерея</span></div>
+ <h3>МЕРА</h3><p>Интерактивный план квартиры с палитрой, бенто-плитки, чертежи проектов вбок и калькулятор ремонта.</p>
+ <ul class="ch"><li>Интерактивный план</li><li>Горизонтальная галерея</li><li>Расчёт ремонта</li></ul>
+ <div class="act"><a class="b1" href="mera-interiors/">Открыть демо <span aria-hidden="true">→</span></a><a class="b2" href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20такой%20же%20сайт,%20как%20«МЕРА»%20(Студия%20интерьеров)." target="_blank" rel="noopener">Хочу такой</a></div>
+</article>
+<article class="card" data-f="food">
+ <a class="shot" href="tau-zerno-cafe/" aria-label="Открыть демо «Тау &amp; Зерно»">
+  <img class="d" src="tau-zerno-cafe/screenshot.png" alt="Экран сайта «Тау &amp; Зерно» на компьютере" width="1440" height="900" loading="lazy">
+  <span class="ph"><img src="tau-zerno-cafe/screenshot-mobile.png" alt="Экран сайта «Тау &amp; Зерно» на телефоне" width="390" height="844" loading="lazy"></span>
+  
+ </a>
+ <div class="meta"><span class="ni">Кофейня</span><span class="st">3D-частицы · morph по скроллу</span></div>
+ <h3>Тау &amp; Зерно</h3><p>Чашка превращается в горы Алатау и в кофейное зерно, пока вы листаете. Меню-панели и бронь в WhatsApp.</p>
+ <ul class="ch"><li>Three.js</li><li>Morph по скроллу</li><li>Меню-панели</li></ul>
+ <div class="act"><a class="b1" href="tau-zerno-cafe/">Открыть демо <span aria-hidden="true">→</span></a><a class="b2" href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20такой%20же%20сайт,%20как%20«Тау%20&amp;%20Зерно»%20(Кофейня)." target="_blank" rel="noopener">Хочу такой</a></div>
+</article>
+<article class="card" data-f="beauty">
+ <a class="shot" href="ostriyo-barbershop/" aria-label="Открыть демо «ОСТРИЁ»">
+  <img class="d" src="ostriyo-barbershop/screenshot.png" alt="Экран сайта «ОСТРИЁ» на компьютере" width="1440" height="900" loading="lazy">
+  <span class="ph"><img src="ostriyo-barbershop/screenshot-mobile.png" alt="Экран сайта «ОСТРИЁ» на телефоне" width="390" height="844" loading="lazy"></span>
+  
+ </a>
+ <div class="meta"><span class="ni">Барбершоп</span><span class="st">3D-объект ниши</span></div>
+ <h3>ОСТРИЁ</h3><p>Барбер-столб крутится быстрее от скорости прокрутки и наклоняется за курсором. Прайс по вкладкам, запись в WhatsApp.</p>
+ <ul class="ch"><li>3D барбер-столб</li><li>Прайс-вкладки</li><li>Запись в WhatsApp</li></ul>
+ <div class="act"><a class="b1" href="ostriyo-barbershop/">Открыть демо <span aria-hidden="true">→</span></a><a class="b2" href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20такой%20же%20сайт,%20как%20«ОСТРИЁ»%20(Барбершоп)." target="_blank" rel="noopener">Хочу такой</a></div>
+</article>
+<article class="card" data-f="beauty">
+ <a class="shot" href="mirra-nail-brow/" aria-label="Открыть демо «Mirra»">
+  <img class="d" src="mirra-nail-brow/screenshot.png" alt="Экран сайта «Mirra» на компьютере" width="1440" height="900" loading="lazy">
+  <span class="ph"><img src="mirra-nail-brow/screenshot-mobile.png" alt="Экран сайта «Mirra» на телефоне" width="390" height="844" loading="lazy"></span>
+  
+ </a>
+ <div class="meta"><span class="ni">Ногти и брови</span><span class="st">Жидкий шейдер · светлая палитра</span></div>
+ <h3>Mirra</h3><p>Радужный блоб реагирует на касание. Галерея образов, прайс по времени и запись в один тап.</p>
+ <ul class="ch"><li>WebGL-шейдер</li><li>Галерея</li><li>Прайс по времени</li></ul>
+ <div class="act"><a class="b1" href="mirra-nail-brow/">Открыть демо <span aria-hidden="true">→</span></a><a class="b2" href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20такой%20же%20сайт,%20как%20«Mirra»%20(Ногти%20и%20брови)." target="_blank" rel="noopener">Хочу такой</a></div>
+</article>
+<article class="card" data-f="health">
+ <a class="shot" href="zhemchug-dental/" aria-label="Открыть демо «Жемчуг»">
+  <img class="d" src="zhemchug-dental/screenshot.png" alt="Экран сайта «Жемчуг» на компьютере" width="1440" height="900" loading="lazy">
+  <span class="ph"><img src="zhemchug-dental/screenshot-mobile.png" alt="Экран сайта «Жемчуг» на телефоне" width="390" height="844" loading="lazy"></span>
+  
+ </a>
+ <div class="meta"><span class="ni">Стоматология</span><span class="st">3D-зуб · «до/после»</span></div>
+ <h3>Жемчуг</h3><p>Эмаль зуба светлеет по шкале оттенков при прокрутке. Слайдер результата, шаги приёма, врачи, рассрочка.</p>
+ <ul class="ch"><li>Слайдер до/после</li><li>Шаги приёма</li><li>Прайс</li></ul>
+ <div class="act"><a class="b1" href="zhemchug-dental/">Открыть демо <span aria-hidden="true">→</span></a><a class="b2" href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20такой%20же%20сайт,%20как%20«Жемчуг»%20(Стоматология)." target="_blank" rel="noopener">Хочу такой</a></div>
+</article>
+<article class="card" data-f="home">
+ <a class="shot" href="edelweiss-flowers/" aria-label="Открыть демо «Эдельвейс»">
+  <img class="d" src="edelweiss-flowers/screenshot.png" alt="Экран сайта «Эдельвейс» на компьютере" width="1440" height="900" loading="lazy">
+  <span class="ph"><img src="edelweiss-flowers/screenshot-mobile.png" alt="Экран сайта «Эдельвейс» на телефоне" width="390" height="844" loading="lazy"></span>
+  
+ </a>
+ <div class="meta"><span class="ni">Цветочная мастерская</span><span class="st">Каталог → WhatsApp</span></div>
+ <h3>Эдельвейс</h3><p>Раскрывающийся 3D-бутон и каталог: фильтры, сортировка, заказ букета в WhatsApp с названием и ценой.</p>
+ <ul class="ch"><li>Фильтры и сортировка</li><li>Заказ с ценой</li><li>3D-бутон</li></ul>
+ <div class="act"><a class="b1" href="edelweiss-flowers/">Открыть демо <span aria-hidden="true">→</span></a><a class="b2" href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20такой%20же%20сайт,%20как%20«Эдельвейс»%20(Цветочная%20мастерская)." target="_blank" rel="noopener">Хочу такой</a></div>
+</article>
+<article class="card" data-f="health">
+ <a class="shot" href="sana-studio/" aria-label="Открыть демо «Сана»">
+  <img class="d" src="sana-studio/screenshot.png" alt="Экран сайта «Сана» на компьютере" width="1440" height="900" loading="lazy">
+  <span class="ph"><img src="sana-studio/screenshot-mobile.png" alt="Экран сайта «Сана» на телефоне" width="390" height="844" loading="lazy"></span>
+  
+ </a>
+ <div class="meta"><span class="ni">Студия пилатеса и йоги</span><span class="st">Расписание · дышащая волна</span></div>
+ <h3>Сана</h3><p>Волна из точек «дышит» в такт вдох/выдох. Расписание по дням, лист ожидания, запись на занятие.</p>
+ <ul class="ch"><li>Расписание по дням</li><li>Лист ожидания</li><li>Абонементы</li></ul>
+ <div class="act"><a class="b1" href="sana-studio/">Открыть демо <span aria-hidden="true">→</span></a><a class="b2" href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20такой%20же%20сайт,%20как%20«Сана»%20(Студия%20пилатеса%20и%20йоги)." target="_blank" rel="noopener">Хочу такой</a></div>
+</article>
+</div></section>
+<section class="blk"><div class="w">
+ <span class="eyebrow">Что внутри каждого сайта</span>
+ <h2 class="rv">Красиво — это половина дела</h2>
+ <ul class="steps" style="margin-top:30px">
+  <li class="rv"><b>Запись в один тап</b><span>Кнопка WhatsApp липнет к низу экрана на телефоне, в сообщение подставляются услуга, время и цена.</span></li>
+  <li class="rv"><b>Готовые значения</b><span>В формах уже выбрано самое частое. Клиенту остаётся поправить и нажать одну кнопку.</span></li>
+  <li class="rv"><b>Сначала телефон</b><span>Каждый макет проверяется на 390 px: без горизонтальной прокрутки, крупные кнопки, читаемый текст.</span></li>
+ </ul>
+</div></section>
+<section class="blk" id="how"><div class="w">
+ <span class="eyebrow">Как это работает</span>
+ <h2 class="rv">Три шага до сайта</h2>
+ <ol class="steps">
+  <li class="rv"><b>Вы пишете в WhatsApp</b><span>Присылаете название, Instagram или 2ГИС. Это всё, что нужно для старта.</span></li>
+  <li class="rv"><b>Показываю демо</b><span>Покажу, как выглядело бы на ваших цветах. Решаете, подходит ли.</span></li>
+  <li class="rv"><b>Запуск за 2 дня</b><span>После получения текстов и фото: адаптив под телефон, кнопки звонка и WhatsApp.</span></li>
+ </ol>
+ <div class="cta-box rv"><div><h2>Давайте сделаем ваш</h2><p>Лендинг с анимацией — 50 000 ₸, срок 2 дня после получения текстов и фото.</p></div><a class="btn" href="https://wa.me/77000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0" target="_blank" rel="noopener">Написать в WhatsApp</a></div>
+</div></section>
+</main>
+<footer><div class="w">Бизнесы в демо-проектах вымышленные, цены и адреса условные. Телефон WhatsApp в демо: +7 700 000 00 00.</div></footer>
+<script>
+(function(){
+var b=[].slice.call(document.querySelectorAll('#fl button')),c=[].slice.call(document.querySelectorAll('.card'));
+b.forEach(function(x){x.onclick=function(){b.forEach(function(y){y.setAttribute('aria-pressed',y===x)});c.forEach(function(k){k.hidden=!(x.dataset.k==='all'||k.dataset.f===x.dataset.k)})}});
+var els=[].slice.call(document.querySelectorAll('.rv'));
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});els.forEach(function(e){io.observe(e)})}else els.forEach(function(e){e.classList.add('in')});
+})();
+</script>
+</body>
+</html>

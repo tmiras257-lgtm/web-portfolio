@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Тау & Зерно — кофейня в Алматы</title>
 <meta name="description" content="Тау & Зерно — кофейня у подножия гор в Алматы. Свежая обжарка, завтраки весь день, бронь столика в WhatsApp. Демо-сайт для портфолио.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#120d0a">
+<meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:title" content="Тау & Зерно — кофейня в Алматы"><meta property="og:description" content="Тау & Зерно — кофейня у подножия гор в Алматы. Свежая обжарка, завтраки весь день, бронь столика в WhatsApp. Демо-сайт для портфолио."><meta property="og:image" content="https://tmiras257-lgtm.github.io/web-portfolio/tau-zerno-cafe/screenshot.png"><meta property="og:url" content="https://tmiras257-lgtm.github.io/web-portfolio/tau-zerno-cafe/"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -38,7 +41,7 @@ nav .links a:hover{color:var(--cream)}
 @media (max-width:720px){nav .links{display:none} nav{gap:12px}}
 
 section{position:relative;padding:120px 6vw}
-.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
 h1,h2{font-family:Unbounded;font-weight:800;letter-spacing:-.035em;line-height:.95}
 
 /* hero */
@@ -50,7 +53,7 @@ h1,h2{font-family:Unbounded;font-weight:800;letter-spacing:-.035em;line-height:.
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero .sub{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;justify-content:space-between;margin-top:34px}
 .hero p{max-width:420px;color:var(--muted);font-size:17px;line-height:1.55}
-.scrollhint{font-size:12px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}
+.scrollhint{font-size:13px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}
 
 /* story — pinned morph */
 .story{min-height:100vh;display:grid;place-items:center;text-align:center}
@@ -100,9 +103,16 @@ footer{padding:60px 6vw 40px;display:flex;justify-content:space-between;flex-wra
 .fab:hover{transform:scale(1.08)}
 .reveal{opacity:0;transform:translateY(40px)}
 @media (prefers-reduced-motion:reduce){.hero h1 .w{animation:none}.hero h1 .w,.reveal{filter:none!important;opacity:1!important;transform:none!important}}
+/*a11y-pass*/
+:focus-visible{outline:3px solid var(--focus,currentColor);outline-offset:3px;border-radius:6px}
+.skip{min-height:44px;position:fixed;left:12px;top:-60px;z-index:999;background:#fff;color:#000;padding:12px 16px;border-radius:10px;font:700 14px/1 system-ui;transition:top .2s}.skip:focus{top:12px}
+.logo{min-height:44px;display:inline-flex;align-items:center}
+.eyebrow{color:var(--accent)}
+.logo{font-size:15px}
 </style>
 </head>
 <body>
+<a class="skip" href="#top">К содержимому</a>
 <canvas id="gl"></canvas>
 <div class="grain"></div>
 <div class="cursor" id="cursor"></div>
