@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mirra — студия ногтей и бровей в Алматы</title>
+<meta name="description" content="Mirra — студия маникюра, педикюра и бровей в Алматы. Запись в WhatsApp за минуту. Демо-сайт для портфолио, бизнес вымышленный.">
+<meta name="theme-color" content="#f6e9e4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6e9e4;--bg2:#fff6f2;--ink:#3a1f2d;--muted:#85666f;--rose:#d8708f;--plum:#5b2a45;--gold:#b98a4e;--line:rgba(58,31,45,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.02;letter-spacing:-.01em}
+h1 em,h2 em{color:var(--rose);font-style:italic}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:2}
+section{padding:72px 20px;max-width:1100px;margin:auto}
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h2{font-size:clamp(38px,9vw,72px);margin:10px 0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:99px;background:var(--plum);color:#fff;font-weight:700;font-size:16px;transition:transform .3s,background .3s;min-height:52px}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.wa{background:#25d366;color:#06240f}
+@media(hover:hover){.btn:hover{transform:translateY(-2px)}}
+header{position:fixed;top:10px;left:10px;right:10px;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:8px 8px 8px 20px;border-radius:99px;background:#fff6f2b8;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line)}
+.logo{font:italic 700 26px 'Playfair Display';color:var(--plum)}
+.logo i{color:var(--rose)}
+header .btn{padding:10px 18px;min-height:42px;font-size:14px}
+header nav{display:none}
+@media(min-width:800px){header{left:50%;right:auto;transform:translateX(-50%);width:min(760px,92vw);top:16px}header nav{display:flex;gap:24px;font-size:14px;color:var(--muted)}header nav a:hover{color:var(--ink)}}
+/* hero */
+.hero{min-height:100svh;max-width:none;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 20px 56px}
+.hero .wrap{max-width:1100px;width:100%;margin-inline:auto}
+.hero h1{font-size:clamp(54px,15vw,170px)}
+.hero h1 .w{display:inline-block;animation:bloom 1.2s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .w:nth-child(2){animation-delay:.14s}.hero h1 .w:nth-child(3){animation-delay:.28s}
+@keyframes bloom{from{opacity:0;transform:translateY(40px) scale(.94);filter:blur(12px)}to{opacity:1;transform:none;filter:none}}
+.hero p{max-width:440px;color:var(--muted);margin:20px 0 26px;font-size:17px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap}
+.hint{margin-top:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+/* stats */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{background:#fff6f2b0;border:1px solid var(--line);border-radius:24px;padding:22px 18px;backdrop-filter:blur(8px)}
+.stat b{font:500 clamp(38px,9vw,60px) 'Playfair Display';display:block;color:var(--plum)}
+.stat span{color:var(--muted);font-size:14px}
+@media(min-width:800px){.stats{grid-template-columns:repeat(4,1fr)}}
+/* services */
+.bg{background:var(--bg2);max-width:none;border-block:1px solid var(--line)}
+.bg>.in{max-width:1100px;margin:auto}
+.grid{display:grid;gap:14px}
+@media(min-width:800px){.grid{grid-template-columns:repeat(3,1fr)}}
+.cat{background:#fff;border:1px solid var(--line);border-radius:28px;padding:26px 22px}
+.cat h3{font-size:30px;margin-bottom:6px}.cat h3 em{font-size:.6em}
+.cat>p{color:var(--muted);font-size:14px;margin-bottom:12px}
+.row2{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid var(--line);font-size:15px}
+.row2 span:first-child small{display:block;color:var(--muted);font-size:12px}
+.row2 b{white-space:nowrap;color:var(--plum)}
+/* gallery */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{position:relative;aspect-ratio:1/1.2;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+.tile svg{width:100%;height:100%;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.tile figcaption{position:absolute;left:14px;bottom:12px;font:italic 500 20px 'Playfair Display';color:#fff;text-shadow:0 1px 10px #0006}
+@media(hover:hover){.tile:hover svg{transform:scale(1.08) rotate(1deg)}}
+@media(min-width:800px){.gal{grid-template-columns:repeat(4,1fr);gap:14px}}
+.note{color:var(--muted);font-size:12px;margin-top:12px}
+/* reviews */
+.rev{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
+.r{flex:none;width:min(84vw,350px);scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px}
+.r .st{color:var(--gold);letter-spacing:3px}
+.r p{margin:10px 0 14px;font-size:16px}
+.r b{font-size:14px;color:var(--muted);font-weight:500}
+/* marquee */
+.mq{overflow:hidden;padding:24px 0;border-block:1px solid var(--line)}
+.trk{display:flex;gap:40px;width:max-content;font:italic 500 clamp(32px,8vw,68px) 'Playfair Display';white-space:nowrap;color:var(--plum)}
+.trk span:nth-child(even){color:var(--rose)}
+/* visit */
+.visit{display:grid;gap:14px}
+.map{border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:#f1ddd6}
+.map svg{width:100%;height:100%;display:block}
+.pin{animation:pin 2s ease-in-out infinite}
+@keyframes pin{50%{transform:translateY(-8px)}}
+.info{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px}
+.info div{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+.info div span:last-child{color:var(--muted);text-align:right}
+.info .btn{width:100%;margin-top:18px}
+@media(min-width:800px){.visit{grid-template-columns:1.3fr 1fr}.map{aspect-ratio:auto;min-height:380px}}
+.cta{text-align:center;padding:90px 20px}
+.cta .btn{font-size:clamp(18px,5vw,24px);padding:24px 36px;width:100%;max-width:520px;animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #25d36680}70%,100%{box-shadow:0 0 0 22px #25d36600}}
+footer{padding:30px 20px 100px;color:var(--muted);font-size:12px;text-align:center}
+.fab{position:fixed;left:14px;right:14px;bottom:14px;z-index:30;display:flex;justify-content:center;align-items:center;gap:10px;height:56px;border-radius:99px;background:#25d366;color:#06240f;font:700 17px Manrope;box-shadow:0 10px 30px #3a1f2d55;transform:translateY(120px);transition:transform .4s}
+.fab.show{transform:none}
+@media(min-width:800px){.fab{left:auto;right:24px;bottom:24px;padding:0 28px}}
+.rv{opacity:0;transform:translateY(34px)}
+@media(prefers-reduced-motion:reduce){.hero h1 .w{animation:none}.rv{opacity:1!important;transform:none!important}.pin,.cta .btn{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<header>
+  <a class="logo" href="#top">Mirra<i>.</i></a>
+  <nav><a href="#prices">Услуги</a><a href="#gallery">Работы</a><a href="#reviews">Отзывы</a><a href="#visit">Контакты</a></nav>
+  <a class="btn" href="https://wa.me/77000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20Mirra">Записаться</a>
+</header>
+
+<main id="top">
+  <section class="hero"><div class="wrap">
+    <span class="eyebrow">Ногти · Брови · Алматы</span>
+    <h1><span class="w">Красота</span> <span class="w">в</span> <span class="w"><em>деталях</em></span></h1>
+    <p>Маникюр, педикюр и брови в студии, где спокойно и красиво. Стерильные инструменты, стойкое покрытие, запись без звонков. Потрогайте каплю — она отзывается.</p>
+    <div class="row">
+      <a class="btn wa" id="heroWa" href="https://wa.me/77000000000">Записаться в WhatsApp</a>
+      <a class="btn ghost" href="#prices">Цены</a>
+    </div>
+    <div class="hint">↓ Листайте</div>
+  </div></section>
+
+  <section>
+    <div class="stats">
+      <div class="stat rv"><b data-c="5">0</b><span>лет в Алматы</span></div>
+      <div class="stat rv"><b data-c="8000" data-s="+">0</b><span>довольных клиенток</span></div>
+      <div class="stat rv"><b data-c="4.9" data-d="1">0</b><span>рейтинг в 2ГИС</span></div>
+      <div class="stat rv"><b data-c="3" data-s=" нед.">0</b><span>держится покрытие</span></div>
+    </div>
+  </section>
+
+  <div class="mq"><div class="trk" id="trk"><span>Маникюр</span><span>Брови</span><span>Педикюр</span><span>Ламинирование</span><span>Маникюр</span><span>Брови</span><span>Педикюр</span><span>Ламинирование</span></div></div>
+
+  <div class="bg" id="prices"><section class="in">
+    <span class="eyebrow">Услуги и цены</span>
+    <h2 class="rv">Что мы <em>делаем</em></h2>
+    <div class="grid">
+      <div class="cat rv"><h3>Ногти</h3><p>Маникюр и покрытие</p>
+        <div class="row2"><span>Маникюр классический<small>40 мин</small></span><b>5 500 ₸</b></div>
+        <div class="row2"><span>Маникюр + гель-лак<small>1,5 ч</small></span><b>9 000 ₸</b></div>
+        <div class="row2"><span>Наращивание<small>2,5 ч</small></span><b>14 000 ₸</b></div>
+        <div class="row2"><span>Дизайн, 1 ноготь<small>от</small></span><b>500 ₸</b></div>
+      </div>
+      <div class="cat rv"><h3>Брови</h3><p>Форма, цвет, уход</p>
+        <div class="row2"><span>Коррекция формы<small>30 мин</small></span><b>3 500 ₸</b></div>
+        <div class="row2"><span>Окрашивание хной<small>45 мин</small></span><b>5 000 ₸</b></div>
+        <div class="row2"><span>Ламинирование<small>1 ч</small></span><b>8 000 ₸</b></div>
+        <div class="row2"><span>Ресницы: ламинирование<small>1 ч</small></span><b>9 000 ₸</b></div>
+      </div>
+      <div class="cat rv"><h3>Педикюр</h3><p>Для лёгких шагов</p>
+        <div class="row2"><span>Классический<small>1 ч</small></span><b>7 000 ₸</b></div>
+        <div class="row2"><span>Smart-педикюр + гель-лак<small>1,5 ч</small></span><b>11 000 ₸</b></div>
+        <div class="row2"><span>Комплекс «Мама и дочь»<small>скидка 10%</small></span><b>от 14 000 ₸</b></div>
+        <div class="row2"><span>Снятие покрытия<small>20 мин</small></span><b>1 500 ₸</b></div>
+      </div>
+    </div>
+  </section></div>
+
+  <section id="gallery">
+    <span class="eyebrow">Работы</span>
+    <h2 class="rv">Наши <em>образы</em></h2>
+    <div class="gal" id="gal"></div>
+    <p class="note">Иллюстрации-заглушки. В боевой версии здесь фото работ ваших мастеров.</p>
+  </section>
+
+  <section id="reviews">
+    <span class="eyebrow">Отзывы</span>
+    <h2 class="rv">Что <em>говорят</em></h2>
+    <div class="rev">
+      <div class="r"><div class="st">★★★★★</div><p>Покрытие носила три недели без сколов. Мастер Асель аккуратная, кабинет чистый, инструменты вскрывают при мне.</p><b>Дана, Бостандыкский р-н</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Ламинирование бровей — лучшее решение за год. Утром просто расчесала и готова. Записалась в WhatsApp за минуту.</p><b>Айгерим, Ауэзовский р-н</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Хожу с мамой на педикюр, нам делают скидку. Уютно, чай, тихая музыка. Рекомендую.</p><b>Милена, Медеуский р-н</b></div>
+      <div class="r"><div class="st">★★★★★</div><p>Дизайн сделали точно по референсу, даже лучше. Цены честные, без доплат.</p><b>Томирис, Алмалинский р-н</b></div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <span class="eyebrow">Как нас найти</span>
+    <h2 class="rv">Ждём <em>вас</em></h2>
+    <div class="visit">
+      <div class="map" aria-label="Схема проезда">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+          <rect width="400" height="300" fill="#f1ddd6"/>
+          <g stroke="#fff6f2" stroke-width="16" fill="none"><path d="M-10 90 L410 70"/><path d="M-10 210 L410 230"/><path d="M110 -10 L130 310"/><path d="M290 -10 L270 310"/></g>
+          <path d="M-10 160 L410 150" stroke="#fff6f2" stroke-width="6"/>
+          <g fill="#e8cfc6"><rect x="140" y="95" width="120" height="50" rx="10"/><rect x="20" y="100" width="70" height="40" rx="10"/><rect x="300" y="100" width="80" height="40" rx="10"/><rect x="145" y="240" width="110" height="45" rx="10"/></g>
+          <circle cx="60" cy="260" r="26" fill="#d9e4cf"/>
+          <text x="150" y="62" fill="#85666f" font-size="11" font-family="Manrope">ул. Фурманова (демо)</text>
+          <g class="pin"><path d="M200 150c-14-22-24-34-24-48a24 24 0 0 1 48 0c0 14-10 26-24 48z" fill="#d8708f"/><circle cx="200" cy="102" r="9" fill="#fff"/></g>
+        </svg>
+      </div>
+      <div class="info">
+        <div><span>Адрес</span><span>Алматы, ул. Фурманова, 000 (демо)</span></div>
+        <div><span>Ориентир</span><span>вход со двора, 2 этаж (демо)</span></div>
+        <div><span>Ежедневно</span><span>09:00 — 21:00</span></div>
+        <div><span>Телефон</span><span>+7 700 000 00 00</span></div>
+        <div><span>Instagram</span><span>@mirra.studio (демо)</span></div>
+        <a class="btn ghost" href="https://2gis.kz/almaty" rel="noopener">Открыть в 2ГИС</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2 class="rv" style="margin-bottom:26px">Запишитесь <em>сегодня</em></h2>
+    <a class="btn wa" href="https://wa.me/77000000000">Записаться в WhatsApp</a>
+    <p class="note" style="margin-top:14px">+7 700 000 00 00 · отвечаем за 2 минуты</p>
+  </div>
+  <footer>© 2026 Mirra — вымышленная студия, демо-проект для портфолио · Сайт с анимацией, Алматы</footer>
+</main>
+
+<a class="fab" id="fab" href="https://wa.me/77000000000">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="#06240f"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.4.1.2.1.8-.1 1.4z"/></svg>
+  Записаться
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* gallery: procedural nail-shape illustrations (no photos) */
+const looks=[["Нюд","#f0c9b8","#d9a38d"],["Вишня","#c2324f","#7b1230"],["Френч","#fbe9e4","#e9b9c4"],["Хром","#c9b8f0","#7f9be0"],["Мята","#bfe3d3","#6fb59a"],["Беж","#e8cdb0","#b98a4e"],["Роза","#f2a6bd","#d8708f"],["Мокко","#a1766a","#5b2a45"]];
+document.getElementById('gal').innerHTML=looks.map(([n,a,b],i)=>{
+  const nails=[0,1,2,3,4].map(k=>`<g transform="translate(${28+k*34} ${88-[0,12,18,12,2][k]}) rotate(${(k-2)*5})"><rect width="24" height="${46+[0,6,10,6,-2][k]}" rx="12" fill="url(#n${i})"/><rect x="5" y="5" width="4" height="${24}" rx="2" fill="#fff" opacity=".45"/>${i==2?`<path d="M0 6Q12 -4 24 6V0Q12 -8 0 0Z" fill="#fff"/>`:''}</g>`).join('');
+  return `<figure class="tile rv"><svg viewBox="0 0 200 240" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="bg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient><linearGradient id="n${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${b}"/><stop offset="1" stop-color="${a}"/></linearGradient></defs><rect width="200" height="240" fill="url(#bg${i})" opacity=".55"/><circle cx="${40+i*18}" cy="${40+(i%3)*14}" r="${30+i*3}" fill="#fff" opacity=".18"/>${nails}</svg><figcaption>${n}</figcaption></figure>`}).join('');
+const fab=document.getElementById('fab');
+new IntersectionObserver(([e])=>fab.classList.toggle('show',!e.isIntersecting)).observe(document.getElementById('heroWa'));
+</script>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+gsap.registerPlugin(ScrollTrigger);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mobile=innerWidth<800;
+document.querySelectorAll('.rv').forEach(el=>{
+  if(reduce)return;
+  gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}});
+});
+document.querySelectorAll('[data-c]').forEach(el=>{
+  const to=+el.dataset.c,d=+(el.dataset.d||0),s=el.dataset.s||'',o={v:0};
+  const set=()=>el.textContent=(d?o.v.toFixed(d):Math.round(o.v).toLocaleString('ru-RU'))+s;
+  if(reduce){o.v=to;set();return}
+  ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:()=>gsap.to(o,{v:to,duration:1.8,ease:'power2.out',onUpdate:set})});
+});
+const mq=gsap.to(document.getElementById('trk'),{xPercent:-50,duration:26,ease:'none',repeat:-1});
+if(reduce)mq.pause(); else ScrollTrigger.create({onUpdate:s=>mq.timeScale(1+Math.abs(s.getVelocity())/400)});
+
+const canvas=document.getElementById('gl');
+let renderer;
+try{renderer=new THREE.WebGLRenderer({canvas,antialias:!mobile,alpha:true})}catch(e){console.warn('WebGL off',e)}
+if(renderer){
+renderer.setPixelRatio(Math.min(devicePixelRatio,mobile?1.5:2));
+renderer.setSize(innerWidth,innerHeight);
+const scene=new THREE.Scene();
+const cam=new THREE.PerspectiveCamera(40,innerWidth/innerHeight,.1,100);cam.position.z=7;
+const root=new THREE.Group();scene.add(root);
+
+/* iridescent liquid blob: noise-displaced sphere, pointer pushes it */
+const vs=`uniform float uT;uniform vec2 uM;uniform float uK;varying vec3 vN;varying vec3 vV;varying float vD;
+vec3 mod289(vec3 x){return x-floor(x*(1./289.))*289.;}vec4 mod289(vec4 x){return x-floor(x*(1./289.))*289.;}
+vec4 perm(vec4 x){return mod289(((x*34.)+1.)*x);}vec4 tis(vec4 r){return 1.79284291400159-.85373472095314*r;}
+float noise(vec3 v){const vec2 C=vec2(1./6.,1./3.);const vec4 D=vec4(0.,.5,1.,2.);
+vec3 i=floor(v+dot(v,C.yyy));vec3 x0=v-i+dot(i,C.xxx);vec3 g=step(x0.yzx,x0.xyz);vec3 l=1.-g;vec3 i1=min(g.xyz,l.zxy);vec3 i2=max(g.xyz,l.zxy);
+vec3 x1=x0-i1+C.xxx;vec3 x2=x0-i2+C.yyy;vec3 x3=x0-D.yyy;i=mod289(i);
+vec4 p=perm(perm(perm(i.z+vec4(0.,i1.z,i2.z,1.))+i.y+vec4(0.,i1.y,i2.y,1.))+i.x+vec4(0.,i1.x,i2.x,1.));
+float n_=.142857142857;vec3 ns=n_*D.wyz-D.xzx;vec4 j=p-49.*floor(p*ns.z*ns.z);vec4 x_=floor(j*ns.z);vec4 y_=floor(j-7.*x_);
+vec4 x=x_*ns.x+ns.yyyy;vec4 y=y_*ns.x+ns.yyyy;vec4 h=1.-abs(x)-abs(y);vec4 b0=vec4(x.xy,y.xy);vec4 b1=vec4(x.zw,y.zw);
+vec4 s0=floor(b0)*2.+1.;vec4 s1=floor(b1)*2.+1.;vec4 sh=-step(h,vec4(0.));vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy;vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;
+vec3 p0=vec3(a0.xy,h.x);vec3 p1=vec3(a0.zw,h.y);vec3 p2=vec3(a1.xy,h.z);vec3 p3=vec3(a1.zw,h.w);
+vec4 nm=tis(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));p0*=nm.x;p1*=nm.y;p2*=nm.z;p3*=nm.w;
+vec4 m=max(.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.);m=m*m;
+return 42.*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));}
+void main(){
+  vec3 p=position;
+  float n=noise(p*1.3+vec3(0.,uT*.35,uT*.2));
+  float push=smoothstep(1.6,0.,distance(p.xy,uM*2.2))*.35;
+  float d=n*(.28+uK*.35)+push;
+  vec3 q=p+normal*d;vD=d;
+  vN=normalize(normalMatrix*normal);vec4 mv=modelViewMatrix*vec4(q,1.);vV=-mv.xyz;gl_Position=projectionMatrix*mv;}`;
+const fs=`uniform float uT;varying vec3 vN;varying vec3 vV;varying float vD;
+void main(){
+  vec3 n=normalize(vN),v=normalize(vV);
+  float f=pow(1.-max(dot(n,v),0.),1.8);
+  vec3 irid=.5+.5*cos(6.2831*(vec3(0.,.33,.67)+f*1.1+vD*2.+uT*.05));
+  vec3 base=mix(vec3(.98,.80,.84),vec3(.85,.44,.58),f);
+  vec3 c=mix(base,irid,.45*f+.15);
+  vec3 h=normalize(normalize(vec3(.5,.8,.6))+v);
+  c+=pow(max(dot(n,h),0.),90.)*.5;
+  c+=vec3(1.,.95,.9)*pow(f,4.)*.35;
+  gl_FragColor=vec4(c,1.);}`;
+const mat=new THREE.ShaderMaterial({vertexShader:vs,fragmentShader:fs,uniforms:{uT:{value:0},uM:{value:new THREE.Vector2()},uK:{value:0}}});
+const blob=new THREE.Mesh(new THREE.IcosahedronGeometry(1.5,mobile?24:48),mat);root.add(blob);
+
+/* small floating pearls */
+const pm=new THREE.MeshStandardMaterial({color:0xfff2ee,roughness:.15,metalness:.2});
+const pearls=[];const pg=new THREE.SphereGeometry(1,24,16);
+const PN=mobile?10:18;
+for(let i=0;i<PN;i++){const m=new THREE.Mesh(pg,pm);const s=.06+Math.random()*.14;m.scale.setScalar(s);
+  const a=Math.random()*6.28,r=2.2+Math.random()*1.8;m.userData={a,r,y:(Math.random()-.5)*4,sp:.1+Math.random()*.2};root.add(m);pearls.push(m)}
+scene.add(new THREE.AmbientLight(0xffffff,1.1));
+const dl=new THREE.DirectionalLight(0xffffff,2);dl.position.set(3,4,5);scene.add(dl);
+
+function layout(){const w=innerWidth,h=innerHeight;cam.aspect=w/h;cam.updateProjectionMatrix();renderer.setSize(w,h)}
+addEventListener('resize',layout);
+let mx=0,my=0,tmx=0,tmy=0,scroll=0,kick=0;
+const point=e=>{tmx=(e.clientX/innerWidth-.5)*2;tmy=-(e.clientY/innerHeight-.5)*2};
+addEventListener('pointermove',point);addEventListener('pointerdown',e=>{point(e);kick=1});
+ScrollTrigger.create({trigger:document.body,start:'top top',end:'bottom bottom',scrub:.6,onUpdate:s=>scroll=s.progress});
+const clock=new THREE.Clock();
+function frame(){
+  const t=clock.getElapsedTime();
+  mx+=(tmx-mx)*.06;my+=(tmy-my)*.06;kick*=.95;
+  mat.uniforms.uT.value=reduce?0:t;
+  mat.uniforms.uM.value.set(mx*1.2,my*1.2);
+  mat.uniforms.uK.value=kick+scroll*1.5;
+  const w=innerWidth;
+  root.position.set(w<800?0:3-scroll*3, (w<800?1.5:0)+scroll*6,0);
+  root.scale.setScalar(w<800?.75:1);
+  root.rotation.y=mx*.4+t*.1;root.rotation.x=-my*.25;
+  pearls.forEach(p=>{const u=p.userData,a=u.a+t*u.sp;p.position.set(Math.cos(a)*u.r,u.y+Math.sin(t*.6+u.a)*.2,Math.sin(a)*u.r)});
+  renderer.render(scene,cam);
+  requestAnimationFrame(frame);
+}
+frame();
+}
+</script>
+</body>
+</html>
