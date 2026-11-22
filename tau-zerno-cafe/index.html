@@ -109,6 +109,7 @@ footer{padding:60px 6vw 40px;display:flex;justify-content:space-between;flex-wra
 .logo{min-height:44px;display:inline-flex;align-items:center}
 .eyebrow{color:var(--accent)}
 .logo{font-size:15px}
+.hero{position:relative;isolation:isolate}.hero .hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.62}.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,13,10,.6),rgba(18,13,10,.3) 40%,rgb(18,13,10))}
 </style>
 </head>
 <body>
@@ -124,7 +125,7 @@ footer{padding:60px 6vw 40px;display:flex;justify-content:space-between;flex-wra
 </nav>
 
 <main id="top">
-  <section class="hero">
+  <section class="hero"><video class="hv" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.webp" aria-hidden="true" tabindex="-1"><source src="assets/hero-m.mp4" type="video/mp4" media="(max-width:799px)"><source src="assets/hero.mp4" type="video/mp4"></video>
     <span class="eyebrow">Кофейня · Алматы · с 2019</span>
     <h1 id="heroTitle"><span class="w">Кофе</span> <span class="w">на</span> <span class="w">высоте</span> <span class="w"><em>гор</em></span></h1>
     <div class="sub">
@@ -202,7 +203,7 @@ footer{padding:60px 6vw 40px;display:flex;justify-content:space-between;flex-wra
     </div>
   </section>
 
-  <footer><span>© 2026 Тау & Зерно — вымышленная кофейня, демо-проект для портфолио</span><span>Сайт с анимацией · Алматы</span></footer>
+  <footer><span>© 2026 Тау & Зерно — вымышленная кофейня, демо-проект для портфолио</span><span>Сайт с анимацией · Алматы</span><p class="attr" style="padding:0 20px 90px;text-align:center;font-size:12px;opacity:.65">Видео — Mixkit (Mixkit Stock Video Free License): «Demonstration video of a steaming cup of coffee» №43935.</p></footer>
 </main>
 
 <a class="fab" href="https://wa.me/77000000000" aria-label="WhatsApp" data-hover>

@@ -1,6 +1,7 @@
 // МЕРА: real GLB (Khronos SheenChair, CC0) + Poly Haven HDRI (CC0). Drag / scroll / palette-tinted fabric.
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {RGBELoader} from 'three/addons/loaders/RGBELoader.js';
 export async function start(canvas,box,onReady){
  const R=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
@@ -11,7 +12,7 @@ export async function start(canvas,box,onReady){
  S.environment=new THREE.PMREMGenerator(R).fromEquirectangular(hdr).texture;S.environmentIntensity=1.1;
  const key=new THREE.DirectionalLight(0xfff3e0,2.4);key.position.set(3,6,4);key.castShadow=true;key.shadow.mapSize.set(1024,1024);
  Object.assign(key.shadow.camera,{left:-3,right:3,top:3,bottom:-3,near:1,far:15});key.shadow.radius=8;key.shadow.bias=-.0005;S.add(key);
- const g=await new GLTFLoader().loadAsync('assets/SheenChair.glb');const chair=g.scene;
+ const g=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync('assets/SheenChair.glb');const chair=g.scene;
  const b=new THREE.Box3().setFromObject(chair),sz=b.getSize(new THREE.Vector3()),c=b.getCenter(new THREE.Vector3());
  const k=2.2/Math.max(sz.x,sz.y,sz.z);chair.scale.setScalar(k);chair.position.set(-c.x*k,-b.min.y*k,-c.z*k);
  const fab=[];chair.traverse(o=>{if(o.isMesh){o.castShadow=true;(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>{if(/fabric/i.test(m.name))fab.push(m)})}});

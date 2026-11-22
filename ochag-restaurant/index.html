@@ -67,12 +67,12 @@ h1,h2,h3{font-family:var(--hf);font-weight:400;margin:0;line-height:1}
 
 .herox{position:relative;isolation:isolate;background:#120b07;color:#fff6ea}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.herox::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,11,7,.55) 0%,rgba(18,11,7,.15) 38%,rgba(18,11,7,.8) 100%)}
+.hero-bg{filter:brightness(.7)}.herox::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,11,7,.6) 0%,rgba(18,11,7,.5) 45%,rgba(18,11,7,.88) 100%)}@media(min-width:800px){.hero-bg{filter:none}.herox::after{background:linear-gradient(180deg,rgba(18,11,7,.55) 0%,rgba(18,11,7,.15) 38%,rgba(18,11,7,.8) 100%)}}
 .herox .hero .meta,.herox .hero-foot p{color:rgba(255,246,234,.9)}
 .herox .ln em{color:#ffb25b}.herox .link{color:#fff6ea}
 .herox h1{text-shadow:0 2px 30px rgba(0,0,0,.45)}
 .fire{border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:#120b07;box-shadow:0 20px 50px rgba(0,0,0,.35)}
-.fire video{width:100%;height:100%;object-fit:cover;display:block}
+.fire video{width:100%;height:100%;object-fit:cover;object-position:20% 50%;display:block}
 .attr{font-size:12px;opacity:.7;margin:14px 0 0}.attr a{color:inherit}
 /* ticker */
 .ticker{border-block:1px solid var(--ink);overflow:hidden;background:var(--ink);color:var(--bg);padding-block:14px;white-space:nowrap}
@@ -191,7 +191,7 @@ footer .big{font:400 clamp(80px,30vw,360px)/.85 var(--hf);letter-spacing:.02em;c
 <section class="story" id="story" aria-label="Один вечер у огня">
  <div class="stage" id="stage">
   <div class="top"><div class="clock" id="clock" aria-hidden="true">17:30</div><div class="lab mono">один вечер<br>у огня</div></div>
-  <div class="fire" aria-hidden="true"><video id="scrub" muted playsinline preload="auto" poster="assets/grill-poster.webp" tabindex="-1"><source src="assets/grill-scrub.mp4" type="video/mp4"></video></div>
+  <div class="fire" aria-hidden="true"><video id="scrub" muted playsinline preload="none" poster="assets/grill-poster.webp" tabindex="-1"><source src="assets/grill-scrub.mp4" type="video/mp4"></video></div>
   <div class="chs" id="chs">
    <article><h3>Разжигаем</h3><p>Мастер раскладывает яблоню и урюк. Огонь должен стать углём — это час терпения. В зале пахнет садом.</p></article>
    <article><h3>Первое слово</h3><p>Хлеб из печи, казы, баурсаки. Пока угли доходят, стол уже накрыт — холодное подаём без спешки.</p></article>
@@ -318,7 +318,7 @@ if(window.gsap&&window.ScrollTrigger&&!reduced){
  var cols=[['#efe7d8','#1b1713','#b73a17',.38],['#e9b872','#1b1713','#b73a17',.62],['#b73a17','#fff6ea','#f4b44a',1],['#1b1713','#efe7d8','#e9772b',.55]];
  var o={h:17.5};function showClock(){var h=Math.floor(o.h),m=Math.round((o.h-h)*12)*5;if(m===60){h++;m=0}clock.textContent=h+':'+(m<10?'0':'')+m}
  gsap.set(chs.slice(1),{opacity:0,y:24});gsap.set(fire,{scale:cols[0][3]});
- var sv=$('#scrub'),tt=0,cur=0;(function seek(){requestAnimationFrame(seek);var d=sv.duration||0;if(!d)return;cur+=(tt*d*.97-cur)*.12;if(Math.abs(sv.currentTime-cur)>.04)sv.currentTime=cur})();
+ var sv=$('#scrub'),tt=0,cur=0;new IntersectionObserver(function(e,o){if(e[0].isIntersecting){sv.preload='auto';sv.load();o.disconnect()}},{rootMargin:'600px'}).observe(sv);(function seek(){requestAnimationFrame(seek);var d=sv.duration||0;if(!d)return;cur+=(tt*d*.97-cur)*.12;if(Math.abs(sv.currentTime-cur)>.04)sv.currentTime=cur})();
  var tl=gsap.timeline({scrollTrigger:{trigger:st,start:'top 60px',end:'+='+(innerHeight*3.2),scrub:.5,pin:true,anticipatePin:1,onUpdate:function(s){tt=s.progress;var i=Math.min(3,Math.round(s.progress*3));dots.forEach(function(d,k){d.classList.toggle('on',k<=i)})}}});
  for(var i=1;i<4;i++){var at=(i-1)*1+0.0;
   tl.to(chs[i-1],{opacity:0,y:-24,duration:.35},at+.55);

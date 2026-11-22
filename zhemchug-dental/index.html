@@ -123,6 +123,7 @@ footer{padding:30px 20px 100px;color:var(--muted);font-size:13px;text-align:cent
 .logo{min-height:44px;display:inline-flex;align-items:center}
 .eyebrow{color:#0e766e}
 
+.hero{position:relative}.arch{position:absolute;z-index:1;top:88px;left:20px;right:20px;height:170px;border-radius:44px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(40,20,30,.35)}.arch video{width:100%;height:100%;object-fit:cover;display:block}.hero .wrap{position:relative;z-index:2}@media(min-width:800px){.arch{left:auto;right:6vw;top:110px;width:min(28vw,400px);height:min(70svh,620px)}}
 </style>
 </head>
 <body>
@@ -134,7 +135,7 @@ footer{padding:30px 20px 100px;color:var(--muted);font-size:13px;text-align:cent
   <a class="btn" href="#" data-wa="Здравствуйте! Хочу записаться на консультацию в «Жемчуг»">Записаться</a>
 </header>
 <main id="top">
-  <section class="hero"><div class="shade">Оттенок эмали<b id="shade">A4</b></div><div class="wrap">
+  <section class="hero"><div class="arch" aria-hidden="true"><video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.webp" aria-hidden="true" tabindex="-1"><source src="assets/hero-m.mp4" type="video/mp4" media="(max-width:799px)"><source src="assets/hero.mp4" type="video/mp4"></video></div><div class="shade">Оттенок эмали<b id="shade">A4</b></div><div class="wrap">
     <span class="eyebrow">Стоматология · Алматы · с 2013</span>
     <h1><span class="w">Улыбка</span> <span class="w">без</span> <span class="w"><em>страха</em></span></h1>
     <p>Лечение без боли, имплантация и виниры с 3D-диагностикой. Первая консультация бесплатно, цена по плану лечения фиксируется до начала. Потяните страницу вниз: зуб светлеет.</p>
@@ -234,7 +235,7 @@ footer{padding:30px 20px 100px;color:var(--muted);font-size:13px;text-align:cent
 
   <section class="cta"><h2 class="rv">Первая консультация <em>бесплатно</em></h2>
     <a class="btn wa" href="#" data-wa="Здравствуйте! Хочу записаться на консультацию в «Жемчуг»">Записаться в WhatsApp</a></section>
-  <footer>© «Жемчуг», вымышленная клиника. Демо-сайт для портфолио. Услуги, цены и врачи не настоящие. Есть противопоказания, нужна консультация специалиста.</footer>
+  <footer>© «Жемчуг», вымышленная клиника. Демо-сайт для портфолио. Услуги, цены и врачи не настоящие. Есть противопоказания, нужна консультация специалиста.<p class="attr" style="padding:0 20px 90px;text-align:center;font-size:12px;opacity:.65">Видео — Mixkit (Mixkit Stock Video Free License): «Dentist returning a tool» №21977.</p></footer>
 </main>
 <a class="fab" id="fab" href="#" data-wa="Здравствуйте! Хочу записаться на консультацию в «Жемчуг»">Записаться в WhatsApp</a>
 

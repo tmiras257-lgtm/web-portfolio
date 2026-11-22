@@ -154,6 +154,7 @@ h1,h2,h3{font-weight:800;letter-spacing:-.025em}
 .logo{min-height:44px;display:inline-flex;align-items:center}
 .eyebrow{color:var(--gold)}
 
+.hero{position:relative;isolation:isolate}.hero .hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.62}.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(15,43,45,.6),rgba(15,43,45,.3) 40%,rgb(15,43,45))}
 </style>
 </head>
 <body>
@@ -165,7 +166,7 @@ h1,h2,h3{font-weight:800;letter-spacing:-.025em}
   <a class="btn" href="#" data-wa="Здравствуйте! Хочу записаться на пробное занятие в студию «Сана»">Записаться</a>
 </header>
 <main id="top">
-  <section class="hero"><div class="breath" aria-hidden="true"><b id="br">Вдох</b><span>дышим вместе</span></div><div class="wrap">
+  <section class="hero"><video class="hv" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.webp" aria-hidden="true" tabindex="-1"><source src="assets/hero-m.mp4" type="video/mp4" media="(max-width:799px)"><source src="assets/hero.mp4" type="video/mp4"></video><div class="breath" aria-hidden="true"><b id="br">Вдох</b><span>дышим вместе</span></div><div class="wrap">
     <span class="eyebrow">Женская студия · Алматы · Самал-2</span>
     <h1><span class="w">Двигайся</span> <span class="w">в своём</span> <span class="w"><em>ритме</em></span></h1>
     <p>Пилатес на реформерах, йога, барре и стретчинг в маленьких группах до 8 человек. Только для женщин, без зеркал-осуждалок и без «надо уметь». Пробное занятие 3 500 ₸.</p>
@@ -250,7 +251,7 @@ h1,h2,h3{font-weight:800;letter-spacing:-.025em}
 
   <section class="cta"><h2 class="rv">Пробное занятие <em>3 500 ₸</em></h2>
     <a class="btn wa" href="#" data-wa="Здравствуйте! Хочу записаться на пробное занятие в студию «Сана»">Записаться в WhatsApp</a></section>
-  <footer>© «Сана», вымышленная студия. Демо-сайт для портфолио. Расписание, цены и адрес не настоящие.</footer>
+  <footer>© «Сана», вымышленная студия. Демо-сайт для портфолио. Расписание, цены и адрес не настоящие.<p class="attr" style="padding:0 20px 90px;text-align:center;font-size:12px;opacity:.65">Видео — Mixkit (Mixkit Stock Video Free License): «Woman doing yoga by the sea at sunset» №33066.</p></footer>
 </main>
 <a class="fab" id="fab" href="#" data-wa="Здравствуйте! Хочу записаться на пробное занятие в студию «Сана»">Записаться в WhatsApp</a>
 
