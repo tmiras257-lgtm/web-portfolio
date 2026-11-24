@@ -227,16 +227,22 @@ function addLead(){const b=prompt('Название бизнеса');if(!b)retur
 function alertToast(m){const t=document.getElementById('toast');if(t){t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}}
 document.addEventListener('DOMContentLoaded',()=>{
   const h=document.querySelector('header');const box=document.createElement('div');box.style.cssText='display:flex;gap:6px;align-items:center';
-  box.innerHTML='<button class="btn sm mob" id="fBtn">Фильтры</button><button class="btn sm" id="addBtn">+</button><label class="btn sm" style="cursor:pointer">Импорт<input type="file" accept=".csv,text/csv" id="impIn" style="display:none"></label><button class="btn sm" id="expBtn">Экспорт</button>';
+  box.innerHTML='<button class="btn sm mob" id="fBtn">Фильтры</button><button class="btn sm" id="addBtn">+</button><label class="btn sm" style="cursor:pointer">Импорт<input type="file" accept=".csv,text/csv" id="impIn" style="display:none"></label><button class="btn sm" id="expBtn">Экспорт</button><button class="btn sm" id="cfgBtn">⚙</button>';
   h.appendChild(box);
   document.getElementById('impIn').onchange=e=>{if(e.target.files[0])importCSV(e.target.files[0])};
-  document.getElementById('expBtn').onclick=exportCSV;document.getElementById('addBtn').onclick=addLead;
+  document.getElementById('expBtn').onclick=exportCSV;document.getElementById('cfgBtn').onclick=askCfg;document.getElementById('addBtn').onclick=addLead;
   const as=document.querySelector('aside');if(as){const c=document.createElement('button');c.className='btn closeAside';c.textContent='✕ Закрыть фильтры';c.onclick=()=>as.classList.remove('open');as.prepend(c);
    document.getElementById('fBtn').onclick=()=>as.classList.add('open')}
 });
 </script>
 <script>
-const PORTFOLIO='https://tmiras257-lgtm.github.io/web-portfolio/';
+let _cfg={};try{_cfg=JSON.parse(localStorage.getItem('radar_cfg')||'{}')}catch(e){}
+function askCfg(){const n=prompt('Как тебя зовут? (подставится в сообщения клиентам)',_cfg.name||'');if(n===null)return;
+ const p=prompt('Ссылка на твоё портфолио (если пусто — будут ссылки на примеры Мираса)',_cfg.portfolio||'');_cfg={name:(n||'').trim(),portfolio:(p||'').trim()};
+ localStorage.setItem('radar_cfg',JSON.stringify(_cfg));location.reload()}
+if(!_cfg.name)setTimeout(askCfg,400);
+const MYNAME=_cfg.name||'…';
+const PORTFOLIO=(_cfg.portfolio||'https://tmiras257-lgtm.github.io/web-portfolio/').replace(/\/?$/,'/');
 const DEMOS=[
   [/барбер|мужск/i,'ostriyo-barbershop','услуги, цены и кнопка записи в WhatsApp','барбершопа'],
   [/стомат|дентал|зуб/i,'zhemchug-dental','услуги, цены, врачи и кнопка записи в WhatsApp','стоматологии'],
@@ -343,8 +349,8 @@ function message(l){
   const d=demoFor(l);
   if(l._due||l.status==='written')return `Здравствуйте! Напомню о себе: на днях писал про сайт для «${l.business}». Пример, как это может выглядеть: ${d.url}. Если неактуально, просто ответьте «нет», больше не напишу.`;
   const first=l.site_type==='dead'?`Ассаламу алейкум! Заметил, что сайт «${l.business}» не открывается.`:`Ассаламу алейкум! Заметил, что у «${l.business}» нет сайта.`;
-  if(l.demo_url) return `${first}\nЯ Мирас, веб-разработчик. Специально для вас сделал демо-версию сайта, посмотрите: ${l.demo_url}\nПолный сайт делаю за 2 дня, цена 50 000 ₸. Если не понравится, можете просто не отвечать.`;
-  return `${first}\nЯ Мирас, веб-разработчик. Вот как может выглядеть сайт для ${d.kind}: ${d.url}\nМогу бесплатно сделать такую демо-версию лично под вас, с вашими ценами и адресом. Полный сайт за 2 дня, 50 000 ₸. Если неинтересно, можете просто не отвечать.`;
+  if(l.demo_url) return `${first}\nЯ ${MYNAME}, веб-разработчик. Специально для вас сделал демо-версию сайта, посмотрите: ${l.demo_url}\nПолный сайт делаю за 2 дня, цена 50 000 ₸. Если не понравится, можете просто не отвечать.`;
+  return `${first}\nЯ ${MYNAME}, веб-разработчик. Вот как может выглядеть сайт для ${d.kind}: ${d.url}\nМогу бесплатно сделать такую демо-версию лично под вас, с вашими ценами и адресом. Полный сайт за 2 дня, 50 000 ₸. Если неинтересно, можете просто не отвечать.`;
 }
 function daysSince(d){if(!d)return '—';return Math.round((new Date(TODAY)-new Date(d))/864e5)}
 let waIdx=0;
