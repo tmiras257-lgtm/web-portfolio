@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>Радар — клиенты без сайта</title>
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Радар">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0b0c; --panel:#131315; --panel2:#18181b; --line:#25252a; --line2:#303036;
+  --text:#ececee; --muted:#8b8b93; --dim:#5d5d66;
+  --acc:#ffd23f; --acc-ink:#1a1500; --acc-soft:rgba(255,210,63,.12);
+  --green:#3ddc84; --blue:#5aa9ff; --red:#ff5d5d; --violet:#a77bff; --orange:#ff9f43; --pink:#ff6fb5;
+  --r:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font:13.5px/1.45 Inter,system-ui,sans-serif;overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,select,textarea{font:inherit;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:8px 10px;outline:none;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--acc)}
+::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#2a2a30;border-radius:8px}
+
+.app{display:grid;grid-template-columns:250px 1fr 400px;grid-template-rows:60px 1fr;height:100vh}
+header{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:0 18px;border-bottom:1px solid var(--line);background:var(--panel)}
+.logo{display:flex;align-items:center;gap:9px;font-family:Unbounded,Inter,sans-serif;font-weight:800;font-size:17px;letter-spacing:.02em;min-width:214px}
+.logo i{width:26px;height:26px;border-radius:8px;background:var(--acc);display:grid;place-items:center;color:var(--acc-ink);font-style:normal;font-size:14px}
+.search{max-width:340px}
+.stats{display:flex;gap:8px;margin-left:auto}
+.stat{padding:6px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px;white-space:nowrap;cursor:pointer}
+.stat b{color:var(--text);font-weight:700;margin-left:4px}
+.stat.hot{border-color:var(--acc);color:var(--acc)}.stat.hot b{color:var(--acc)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 14px;border-radius:10px;border:1px solid var(--line2);background:var(--panel2);font-weight:600;font-size:13px;white-space:nowrap}
+.btn:hover{border-color:#45454d}
+.btn.acc{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+.btn.acc:hover{filter:brightness(1.06)}
+.btn.sm{padding:6px 10px;font-size:12px;border-radius:8px}
+.btn[disabled]{opacity:.35;pointer-events:none}
+
+aside{border-right:1px solid var(--line);overflow:auto;padding:16px 14px 40px;background:var(--panel)}
+.sec{margin-bottom:20px}
+.sec h4{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;font-weight:700}
+.opt{display:flex;align-items:center;justify-content:space-between;padding:6px 9px;border-radius:8px;color:var(--muted);cursor:pointer;user-select:none}
+.opt:hover{background:var(--panel2);color:var(--text)}
+.opt.on{background:var(--acc-soft);color:var(--acc)}
+.opt span:last-child{font-size:11.5px;color:var(--dim)}
+.opt.on span:last-child{color:var(--acc)}
+.dots{display:flex;gap:8px;flex-wrap:wrap}
+.dot{width:20px;height:20px;border-radius:50%;cursor:pointer;border:2px solid transparent}
+.dot.on{border-color:#fff}
+.toggle{display:flex;align-items:center;gap:9px;color:var(--muted);cursor:pointer;padding:4px 2px}
+.toggle input{width:auto;accent-color:var(--acc)}
+input[type=range]{padding:0;accent-color:var(--acc);background:none;border:0}
+
+main{overflow:auto;padding:16px 18px 40px}
+.bar{display:flex;align-items:center;gap:10px;margin-bottom:14px;color:var(--muted)}
+.bar select{width:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px 13px;cursor:pointer;position:relative;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--line2);transform:translateY(-1px)}
+.card.sel{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc) inset}
+.card .top{display:flex;gap:8px;align-items:flex-start}
+.card h3{font-size:14px;font-weight:700;line-height:1.25;flex:1;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.card .meta{color:var(--muted);font-size:12px;margin:3px 0 10px}
+.card .row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.tagdot{width:9px;height:9px;border-radius:50%;margin-top:5px;flex:none}
+.pill{font-size:11px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
+.pill.st-new{color:var(--text)}
+.pill.st-written{color:var(--blue);border-color:rgba(90,169,255,.35)}
+.pill.st-followed_up{color:var(--violet);border-color:rgba(167,123,255,.35)}
+.pill.st-replied{color:var(--orange);border-color:rgba(255,159,67,.4)}
+.pill.st-agreed{color:var(--green);border-color:rgba(61,220,132,.4)}
+.pill.st-declined{color:var(--red);border-color:rgba(255,93,93,.35)}
+.pill.site{background:transparent}
+.pill.due{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+.rating{font-weight:700;font-size:12.5px}.rating small{color:var(--dim);font-weight:500}
+.icons{margin-left:auto;display:flex;gap:5px;color:var(--dim);font-size:11px;font-weight:700}
+.icons .on{color:var(--green)}
+.empty{color:var(--muted);padding:60px 20px;text-align:center}
+
+section.detail{border-left:1px solid var(--line);overflow:auto;background:var(--panel);padding:18px 18px 40px}
+.d-head h2{font-family:Unbounded,Inter,sans-serif;font-size:19px;line-height:1.2;margin-bottom:5px}
+.d-head p{color:var(--muted);font-size:12.5px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}
+.num{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px}
+.num b{display:block;font-size:21px;font-weight:800;letter-spacing:-.02em}
+.num span{font-size:11px;color:var(--dim)}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.actions .btn.acc{grid-column:1/-1;padding:12px}
+.block{margin-top:18px}
+.block h4{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{padding:6px 10px;border-radius:8px;border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:600}
+.seg button.on{background:var(--acc);border-color:var(--acc);color:var(--acc-ink)}
+.info{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--muted);font-size:12.5px}
+.info div+div{margin-top:5px}
+.info b{color:var(--text);font-weight:600}
+.hint{background:var(--acc-soft);border:1px solid rgba(255,210,63,.35);color:var(--acc);border-radius:10px;padding:10px 12px;font-size:12.5px;margin-top:14px}
+textarea{min-height:120px;resize:vertical;line-height:1.45}
+.wa-pick{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.placeholder{color:var(--dim);text-align:center;margin-top:35vh}
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:9}
+.modal.on{display:grid}
+.modal .box{background:var(--panel);border:1px solid var(--line2);border-radius:16px;padding:22px;width:min(440px,92vw)}
+.modal h3{font-family:Unbounded,Inter,sans-serif;font-size:17px;margin-bottom:6px}
+.modal p{color:var(--muted);font-size:12.5px;margin-bottom:14px}
+.modal label{display:block;font-size:12px;color:var(--muted);margin:10px 0 5px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--acc);color:var(--acc-ink);padding:10px 16px;border-radius:10px;font-weight:600;display:none;z-index:10;max-width:90vw}
+
+@media (max-width:1100px){.app{grid-template-columns:220px 1fr}section.detail{position:fixed;right:0;top:60px;bottom:0;width:min(400px,100vw);display:none;z-index:5;box-shadow:-20px 0 40px rgba(0,0,0,.5)}section.detail.open{display:block}}
+@media (max-width:720px){.app{grid-template-columns:1fr}aside{display:none}.stats{display:none}.logo{min-width:0}}
+
+.mob{display:none}
+@media (max-width:720px){
+ body{font-size:15px}
+ header{gap:8px;padding:0 10px;padding-top:env(safe-area-inset-top);height:auto;min-height:60px;flex-wrap:wrap}
+ .app{grid-template-rows:auto 1fr;height:100dvh}
+ .search{max-width:none;flex:1 1 100%;order:5;margin-bottom:8px}
+ .mob{display:inline-flex}
+ aside{display:block;position:fixed;inset:0;z-index:20;transform:translateX(-100%);transition:transform .25s;padding-top:calc(16px + env(safe-area-inset-top))}
+ aside.open{transform:none}
+ .grid{grid-template-columns:1fr}
+ section.detail{top:0!important;width:100vw!important;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+ .btn{padding:11px 14px}
+ main{padding:12px 10px 90px}
+}
+.closeAside{display:none}
+@media (max-width:720px){.closeAside{display:inline-flex;margin-bottom:12px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo"><i>◉</i>РАДАР</div>
+    <input class="search" id="q" placeholder="Поиск: название, город, адрес…">
+    <div class="stats" id="stats"></div>
+    <button class="btn acc" id="findBtn">+ Найти новых</button>
+  </header>
+
+  <aside id="side"></aside>
+
+  <main>
+    <div class="bar">
+      <span id="count"></span>
+      <span style="margin-left:auto">Сортировка</span>
+      <select id="sort">
+        <option value="due">Сначала «повторить»</option>
+        <option value="reviews">Больше отзывов</option>
+        <option value="rating">Выше рейтинг</option>
+        <option value="added">Новые в базе</option>
+        <option value="name">По названию</option>
+      </select>
+    </div>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <section class="detail" id="detail"><div class="placeholder">Выбери заведение слева,<br>чтобы открыть карточку</div></section>
+</div>
+
+<div class="modal" id="modal"><div class="box">
+  <h3>Найти новых</h3>
+  <p id="modalNote"></p>
+  <label>Город</label><input id="mCity" placeholder="Караганда">
+  <label>Ниша</label><input id="mNiche" placeholder="барбершоп">
+  <div style="display:flex;gap:8px;margin-top:16px;justify-content:flex-end">
+    <button class="btn" id="mCancel">Отмена</button>
+    <button class="btn acc" id="mGo">Искать</button>
+  </div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* Мобильная версия: данные хранятся на телефоне (localStorage), без сервера */
+const STORE='radar_leads_v1';
+function getAll(){try{return JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){return[]}}
+function setAll(a){localStorage.setItem(STORE,JSON.stringify(a))}
+function isoToday(){const d=new Date();return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)}
+function addDays(iso,n){const d=new Date(iso+'T12:00:00');d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)}
+function siteType(r){if(r.site_type)return r.site_type;const s=(r.website_status||'').toLowerCase();
+ if(/не работает|мёртв|мертв|parked/.test(s))return'dead';if(/alteg|dikidi|zapis|taplink|linktr|tilda|wixsite|beacons|booking|yclients/.test(s))return'template';
+ if(/instagram|соцсет|tiktok|whatsapp/.test(s))return'social';return'none'}
+function csvParse(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;i++){const c=t[i];
+ if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
+ else if(c=='"')q=true;else if(c==','){r.push(f);f=''}else if(c=='\n'||c=='\r'){if(c=='\r'&&t[i+1]=='\n')i++;r.push(f);f='';if(r.some(x=>x!==''))rows.push(r);r=[]}else f+=c}
+ if(f!==''||r.length){r.push(f);rows.push(r)}const h=rows.shift()||[];return rows.map(x=>Object.fromEntries(h.map((k,j)=>[k.trim(),x[j]??''])))}
+const FIELDS=["added","business","niche","city","address","phone","whatsapp_link","instagram","telegram","email","rating_reviews","source_card","website_status","note","status","site_type","tag","comment","contacted_at","followup_at","followups","demo_url"];
+function csvOut(a){const e=v=>{v=String(v??'');return/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};return FIELDS.join(',')+'\n'+a.map(r=>FIELDS.map(k=>e(r[k])).join(',')).join('\n')+'\n'}
+function norm(r,i){FIELDS.forEach(k=>{if(r[k]==null)r[k]=''});r.status=r.status||'new';r.site_type=siteType(r);r.id=r.id||('L'+Date.now().toString(36)+i+Math.random().toString(36).slice(2,6));return r}
+const _fetch=window.fetch.bind(window);
+window.fetch=async(url,opt={})=>{
+ const J=o=>new Response(JSON.stringify(o),{headers:{'Content-Type':'application/json'}});
+ if(url==='/api/leads'){return J({leads:getAll(),today:isoToday(),places_key:false})}
+ if(url==='/api/update'){const d=JSON.parse(opt.body||'{}');const a=getAll();const t=isoToday();
+  const r=a.find(x=>x.id===d.id);if(r){const before=r.status;['status','tag','comment'].forEach(k=>{if(k in d)r[k]=d[k]});
+   if(d.status==='written'&&before!=='written'){r.contacted_at=t;r.followup_at=addDays(t,4)}
+   if(d.status==='followed_up'){r.followups=String((+r.followups||0)+1);r.contacted_at=t;r.followup_at=''}}
+  setAll(a);return J({ok:true,lead:r})}
+ if(url==='/api/search'){return J({error:'На телефоне поиск Google Places не работает. Добавляй бизнесы вручную (кнопка «+») или импортируй CSV.'})}
+ return _fetch(url,opt)};
+function importCSV(file){const fr=new FileReader();fr.onload=()=>{const rows=csvParse(fr.result).filter(r=>r.business);
+  const a=getAll();const seen=new Set(a.map(r=>(r.business+'|'+r.city).toLowerCase()));let n=0;
+  rows.forEach((r,i)=>{const k=(r.business+'|'+r.city).toLowerCase();if(!seen.has(k)){a.push(norm(r,i));seen.add(k);n++}});
+  setAll(a);alertToast('Импортировано: '+n);load()};fr.readAsText(file,'utf-8')}
+function exportCSV(){const blob=new Blob([csvOut(getAll())],{type:'text/csv'});const u=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=u;a.download='radar-base-'+isoToday()+'.csv';document.body.appendChild(a);a.click();a.remove()}
+function addLead(){const b=prompt('Название бизнеса');if(!b)return;const city=prompt('Город')||'';const niche=prompt('Ниша (барбершоп, кафе…)')||'';
+  const ph=(prompt('WhatsApp номер (7701…)')||'').replace(/\D/g,'');const a=getAll();
+  a.push(norm({business:b,city,niche,phone:ph?'+'+ph:'',whatsapp_link:ph?'https://wa.me/'+ph:'',added:isoToday(),website_status:'нет сайта'},0));setAll(a);load()}
+function alertToast(m){const t=document.getElementById('toast');if(t){t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}}
+document.addEventListener('DOMContentLoaded',()=>{
+  const h=document.querySelector('header');const box=document.createElement('div');box.style.cssText='display:flex;gap:6px;align-items:center';
+  box.innerHTML='<button class="btn sm mob" id="fBtn">Фильтры</button><button class="btn sm" id="addBtn">+</button><label class="btn sm" style="cursor:pointer">Импорт<input type="file" accept=".csv,text/csv" id="impIn" style="display:none"></label><button class="btn sm" id="expBtn">Экспорт</button>';
+  h.appendChild(box);
+  document.getElementById('impIn').onchange=e=>{if(e.target.files[0])importCSV(e.target.files[0])};
+  document.getElementById('expBtn').onclick=exportCSV;document.getElementById('addBtn').onclick=addLead;
+  const as=document.querySelector('aside');if(as){const c=document.createElement('button');c.className='btn closeAside';c.textContent='✕ Закрыть фильтры';c.onclick=()=>as.classList.remove('open');as.prepend(c);
+   document.getElementById('fBtn').onclick=()=>as.classList.add('open')}
+});
+</script>
+<script>
+const PORTFOLIO='https://tmiras257-lgtm.github.io/web-portfolio/';
+const DEMOS=[
+  [/барбер|мужск/i,'ostriyo-barbershop','услуги, цены и кнопка записи в WhatsApp','барбершопа'],
+  [/стомат|дентал|зуб/i,'zhemchug-dental','услуги, цены, врачи и кнопка записи в WhatsApp','стоматологии'],
+  [/авто|сто|шином|детейл|мойк/i,'blik-detailing','услуги, цены и кнопки звонка и записи в WhatsApp','автостудии'],
+  [/коф|каф|кулин|пекар/i,'tau-zerno-cafe','меню, адрес и кнопка заказа в WhatsApp','кофейни'],
+  [/ресторан|столов|гриль/i,'ochag-restaurant','меню, фото зала и кнопка брони в WhatsApp','ресторана'],
+  [/ногт|маник|бров|ресниц/i,'mirra-nail-brow','услуги, цены, работы мастеров и кнопка записи в WhatsApp','студии красоты'],
+  [/салон|красот|beauty|парикмах|космет/i,'mirra-nail-brow','услуги, цены, работы мастеров и кнопка записи в WhatsApp','салона красоты'],
+  [/фитнес|зал|gym|йог|спорт|пилат/i,'sana-studio','направления, расписание и кнопка записи на пробное в WhatsApp','фитнес-студии'],
+  [/цвет|флор/i,'edelweiss-flowers','каталог букетов, цены и кнопка заказа в WhatsApp','цветочного магазина'],
+  [/дет|развив|школ|курс/i,'lisenok-kids','направления, расписание и кнопка записи на пробное в WhatsApp','детского центра'],
+];
+const STATUSES=[['new','Новый'],['written','Написал'],['followed_up','Повтор отправлен'],['replied','Ответили'],['agreed','Согласны'],['declined','Отказ']];
+const SITE={none:'Нет сайта',social:'Только соцсети',template:'Шаблонная страница',dead:'Сайт не работает'};
+const TAGS={red:'var(--red)',orange:'var(--orange)',acc:'var(--acc)',green:'var(--green)',blue:'var(--blue)',violet:'var(--violet)'};
+
+let L=[], TODAY='', HASKEY=false, sel=null;
+const F={status:'',city:'',niche:'',site:'',tag:'',minRating:0,onlyWa:false,due:false,q:''};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=u=>/^(https?:|tel:)/i.test(u||'')?u:'';
+
+function parse(l){
+  const m=(l.rating_reviews||'').match(/([\d.,]+)\s*\/\s*(\d+)/)||(l.rating_reviews||'').match(/([\d.,]+)/);
+  l._rating=m?parseFloat(m[1].replace(',','.')):0;
+  l._reviews=m&&m[2]?parseInt(m[2]):0;
+  l._wa=(l.whatsapp_link||'').split(/[,\s]+/).filter(u=>/^https:\/\/wa\.me\/\d+$/.test(u));
+  l._due=(l.status==='written')&&l.followup_at&&l.followup_at<=TODAY&&!(+l.followups>0);
+  return l;
+}
+async function load(){
+  const r=await fetch('/api/leads');const d=await r.json();
+  TODAY=d.today;HASKEY=d.places_key;L=d.leads.map(parse);render();
+  if(sel){const s=L.find(x=>x.id===sel);if(s)detail(s)}
+}
+function count(arr,key){const c={};arr.forEach(x=>{const k=typeof key==='function'?key(x):x[key];if(k)c[k]=(c[k]||0)+1});return Object.entries(c).sort((a,b)=>b[1]-a[1])}
+function passes(l,skip){
+  if(skip!=='status'&&F.status&&l.status!==F.status)return false;
+  if(skip!=='city'&&F.city&&l.city!==F.city)return false;
+  if(skip!=='niche'&&F.niche&&l.niche!==F.niche)return false;
+  if(skip!=='site'&&F.site&&l.site_type!==F.site)return false;
+  if(F.tag&&l.tag!==F.tag)return false;
+  if(F.minRating&&l._rating<F.minRating)return false;
+  if(F.onlyWa&&!l._wa.length)return false;
+  if(F.due&&!l._due)return false;
+  if(F.q){const s=(l.business+' '+l.city+' '+l.address+' '+l.niche+' '+l.comment).toLowerCase();if(!s.includes(F.q))return false}
+  return true;
+}
+function optList(title,key,pairs,labels){
+  return `<div class="sec"><h4>${title}</h4>`+
+    `<div class="opt ${F[key]===''?'on':''}" data-f="${key}" data-v=""><span>Все</span><span>${L.filter(l=>passes(l,key)).length}</span></div>`+
+    pairs.map(([v,n])=>`<div class="opt ${F[key]===v?'on':''}" data-f="${key}" data-v="${esc(v)}"><span>${esc(labels?labels[v]||v:v)}</span><span>${n}</span></div>`).join('')+`</div>`;
+}
+function render(){
+  const due=L.filter(l=>l._due).length;
+  const by=s=>L.filter(l=>l.status===s).length;
+  $('#stats').innerHTML=
+    `<div class="stat" data-st="">Всего<b>${L.length}</b></div>`+
+    `<div class="stat" data-st="new">Новые<b>${by('new')}</b></div>`+
+    `<div class="stat" data-st="written">Написал<b>${by('written')+by('followed_up')}</b></div>`+
+    `<div class="stat" data-st="replied">Ответили<b>${by('replied')+by('agreed')}</b></div>`+
+    `<div class="stat ${due?'hot':''}" data-due="1">Повторить сегодня<b>${due}</b></div>`;
+  $('#stats').querySelectorAll('.stat').forEach(s=>s.onclick=()=>{if(s.dataset.due){F.due=!F.due;F.status=''}else{F.due=false;F.status=s.dataset.st}render()});
+
+  const sub=k=>L.filter(l=>passes(l,k));
+  $('#side').innerHTML=
+    optList('Статус','status',STATUSES.map(([v])=>[v,sub('status').filter(l=>l.status===v).length]).filter(x=>x[1]),Object.fromEntries(STATUSES))+
+    optList('Тип сайта','site',count(sub('site'),'site_type'),SITE)+
+    optList('Город','city',count(sub('city'),'city'))+
+    optList('Ниша','niche',count(sub('niche'),'niche'))+
+    `<div class="sec"><h4>Рейтинг от ${F.minRating?F.minRating.toFixed(1):'любой'}</h4><input type="range" id="minR" min="0" max="5" step="0.1" value="${F.minRating}"></div>`+
+    `<div class="sec"><h4>Метка</h4><div class="dots"><div class="dot ${F.tag===''?'on':''}" data-tag="" style="background:#2a2a30" title="Все"></div>${Object.entries(TAGS).map(([k,c])=>`<div class="dot ${F.tag===k?'on':''}" data-tag="${k}" style="background:${c}"></div>`).join('')}</div></div>`+
+    `<div class="sec"><label class="toggle"><input type="checkbox" id="onlyWa" ${F.onlyWa?'checked':''}> Только с WhatsApp</label><label class="toggle"><input type="checkbox" id="dueOnly" ${F.due?'checked':''}> Кому писать снова</label></div>`;
+  $('#side').querySelectorAll('.opt').forEach(o=>o.onclick=()=>{F[o.dataset.f]=o.dataset.v;render()});
+  $('#side').querySelectorAll('.dot').forEach(o=>o.onclick=()=>{F.tag=o.dataset.tag;render()});
+  $('#minR').oninput=e=>{F.minRating=+e.target.value;render()};
+  $('#onlyWa').onchange=e=>{F.onlyWa=e.target.checked;render()};
+  $('#dueOnly').onchange=e=>{F.due=e.target.checked;render()};
+
+  let arr=L.filter(l=>passes(l));
+  const s=$('#sort').value;
+  arr.sort((a,b)=>s==='rating'?b._rating-a._rating||b._reviews-a._reviews:s==='reviews'?b._reviews-a._reviews:s==='added'?(b.added||'').localeCompare(a.added||''):s==='name'?a.business.localeCompare(b.business):(b._due-a._due)||((a.status==='new')?-1:0)-((b.status==='new')?-1:0)||b._reviews-a._reviews);
+  $('#count').textContent=`Показано ${arr.length} из ${L.length}`;
+  $('#grid').innerHTML=arr.length?arr.map(card).join(''):`<div class="empty">Ничего не найдено. Сбрось фильтры или нажми «Найти новых».</div>`;
+  $('#grid').querySelectorAll('.card').forEach(c=>c.onclick=()=>{sel=c.dataset.id;detail(L.find(x=>x.id===sel));$('#grid').querySelectorAll('.card').forEach(x=>x.classList.toggle('sel',x===c))});
+}
+function card(l){
+  const st=Object.fromEntries(STATUSES)[l.status]||l.status;
+  return `<div class="card ${sel===l.id?'sel':''}" data-id="${l.id}">
+    <div class="top">${l.tag?`<span class="tagdot" style="background:${TAGS[l.tag]}"></span>`:''}<h3>${esc(l.business)}</h3></div>
+    <div class="meta">${esc(l.niche)} · ${esc(l.city)}</div>
+    <div class="row">
+      ${l._due?'<span class="pill due">Повторить</span>':`<span class="pill st-${l.status}">${esc(st)}</span>`}
+      <span class="pill site">${SITE[l.site_type]||''}</span>
+    </div>
+    <div class="row" style="margin-top:9px">
+      <span class="rating">${l._rating?'★ '+l._rating.toFixed(1):'—'} <small>${l._reviews?l._reviews+' отз.':''}</small></span>
+      <span class="icons"><span class="${l._wa.length?'on':''}">WA</span><span class="${l.instagram?'on':''}">IG</span><span class="${l.phone?'on':''}">☎</span></span>
+    </div>
+  </div>`;
+}
+function demoFor(l){const d=DEMOS.find(([re])=>re.test(l.niche+' '+l.business));return d?{url:PORTFOLIO+d[1]+'/',benefit:d[2],kind:d[3]}:{url:PORTFOLIO,benefit:'услуги, цены и кнопки звонка и записи в WhatsApp',kind:'бизнеса'}}
+function message(l){
+  const d=demoFor(l);
+  if(l._due||l.status==='written')return `Здравствуйте! Напомню о себе: на днях писал про сайт для «${l.business}». Пример, как это может выглядеть: ${d.url}. Если неактуально, просто ответьте «нет», больше не напишу.`;
+  const first=l.site_type==='dead'?`Ассаламу алейкум! Заметил, что сайт «${l.business}» не открывается.`:`Ассаламу алейкум! Заметил, что у «${l.business}» нет сайта.`;
+  if(l.demo_url) return `${first}\nЯ Мирас, веб-разработчик. Специально для вас сделал демо-версию сайта, посмотрите: ${l.demo_url}\nПолный сайт делаю за 2 дня, цена 50 000 ₸. Если не понравится, можете просто не отвечать.`;
+  return `${first}\nЯ Мирас, веб-разработчик. Вот как может выглядеть сайт для ${d.kind}: ${d.url}\nМогу бесплатно сделать такую демо-версию лично под вас, с вашими ценами и адресом. Полный сайт за 2 дня, 50 000 ₸. Если неинтересно, можете просто не отвечать.`;
+}
+function daysSince(d){if(!d)return '—';return Math.round((new Date(TODAY)-new Date(d))/864e5)}
+let waIdx=0;
+function detail(l){
+  if(!l)return;
+  waIdx=0;
+  const box=$('#detail');box.classList.add('open');
+  box.innerHTML=`
+  <div class="d-head"><h2>${esc(l.business)}</h2><p>${esc(l.niche)} · ${esc(l.city)}${l.address?' · '+esc(l.address):''}</p></div>
+  <div class="nums">
+    <div class="num"><b>${l._rating?l._rating.toFixed(1):'—'}</b><span>рейтинг</span></div>
+    <div class="num"><b>${l._reviews||'—'}</b><span>оценок</span></div>
+    <div class="num"><b>${daysSince(l.contacted_at)}</b><span>дн. с контакта</span></div>
+  </div>
+  ${l._due?`<div class="hint">⏰ Прошло 4+ дня, ответа нет. Пора отправить одно вежливое напоминание. Больше одного не нужно.</div>`:''}
+  ${l.status==='replied'?`<div class="hint">Они ответили. Передай переписку deal-tracker или реши сам, что предложить.</div>`:''}
+  <div class="block"><h4>Сообщение <button class="btn sm" id="regen">↻ заново</button></h4>
+    <textarea id="msg">${esc(message(l))}</textarea>
+    ${l._wa.length>1?`<div class="wa-pick">${l._wa.map((u,i)=>`<button class="btn sm ${i?'':'acc'}" data-wa="${i}">WhatsApp ${i+1}: +${u.split('/').pop()}</button>`).join('')}</div>`:''}
+  </div>
+  <div class="actions" style="margin-top:12px">
+    <button class="btn acc" id="waBtn" ${l._wa.length&&l.status!=='declined'?'':'disabled'}>💬 Открыть чат в WhatsApp</button>
+    <a class="btn" ${l.phone?`href="tel:${esc(l.phone)}"`:'aria-disabled="true" style="opacity:.35;pointer-events:none"'}>☎ ${esc(l.phone||'нет телефона')}</a>
+    <button class="btn" id="copyBtn">⧉ Скопировать текст</button>
+    <a class="btn" target="_blank" ${safeUrl(l.instagram)?`href="${esc(l.instagram)}"`:'style="opacity:.35;pointer-events:none"'}>Instagram</a>
+    <a class="btn" target="_blank" ${safeUrl(l.source_card)?`href="${esc(l.source_card)}"`:'style="opacity:.35;pointer-events:none"'}>Карточка 2ГИС</a>
+  </div>
+  <div class="block"><h4>Статус</h4><div class="seg">${STATUSES.map(([v,n])=>`<button data-st="${v}" class="${l.status===v?'on':''}">${n}</button>`).join('')}</div></div>
+  <div class="block"><h4>Метка</h4><div class="dots"><div class="dot ${!l.tag?'on':''}" data-t="" style="background:#2a2a30"></div>${Object.entries(TAGS).map(([k,c])=>`<div class="dot ${l.tag===k?'on':''}" data-t="${k}" style="background:${c}"></div>`).join('')}</div></div>
+  <div class="block"><h4>Заметка</h4><textarea id="cmt" style="min-height:70px" placeholder="Что ответили, кто владелец, когда перезвонить…">${esc(l.comment)}</textarea></div>
+  <div class="block"><h4>Из карточки</h4><div class="info">
+    <div><b>Сайт:</b> ${esc(l.website_status||'—')}</div>
+    ${l.note?`<div><b>Заметка агента:</b> ${esc(l.note)}</div>`:''}
+    <div><b>В базе с:</b> ${esc(l.added||'—')}${l.contacted_at?` · <b>написал:</b> ${esc(l.contacted_at)}`:''}${l.followup_at?` · <b>напомнить:</b> ${esc(l.followup_at)}`:''}</div>
+  </div></div>`;
+  box.querySelectorAll('[data-wa]').forEach(b=>b.onclick=()=>{waIdx=+b.dataset.wa;box.querySelectorAll('[data-wa]').forEach(x=>x.classList.toggle('acc',x===b))});
+  $('#regen').onclick=()=>{$('#msg').value=message(l)};
+  $('#copyBtn').onclick=async()=>{await navigator.clipboard.writeText($('#msg').value);toast('Текст скопирован')};
+  $('#waBtn').onclick=()=>{
+    const url=l._wa[waIdx]+'?text='+encodeURIComponent($('#msg').value);
+    window.open(url,'_blank');
+    const next=l._due?'followed_up':(l.status==='new'?'written':null);
+    if(next){update(l.id,{status:next});toast(next==='written'?'Чат открыт. Отметил «Написал», напомню через 4 дня':'Отметил: напоминание отправлено')}
+  };
+  box.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{
+    if(b.dataset.st==='declined'&&!confirm('Отметить отказ? Заведение попадёт в do-not-contact, больше писать не будем.'))return;
+    update(l.id,{status:b.dataset.st})});
+  box.querySelectorAll('[data-t]').forEach(d=>d.onclick=()=>update(l.id,{tag:d.dataset.t}));
+  $('#cmt').onchange=e=>update(l.id,{comment:e.target.value});
+}
+async function update(id,patch){
+  const r=await fetch('/api/update',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,...patch})});
+  if(!r.ok){toast('Не сохранилось. Сервер запущен?');return}
+  await load();
+}
+function toast(t){const e=$('#toast');e.textContent=t;e.style.display='block';clearTimeout(e._t);e._t=setTimeout(()=>e.style.display='none',3200)}
+
+$('#q').oninput=e=>{F.q=e.target.value.trim().toLowerCase();render()};
+$('#sort').onchange=render;
+$('#findBtn').onclick=()=>{
+  $('#modalNote').innerHTML=HASKEY?'Поиск через Google Places: возьму до 20 мест и оставлю только тех, у кого нет своего сайта и есть телефон. Дубли с базой и do-not-contact отсеиваются.'
+    :'Ключ Google Places не подключён. Без ключа новых ищет агент <b>lead-base</b> по 2ГИС: напиши Claude «найди базу». С ключом поиск будет прямо отсюда (положи его в <code>radar/.env</code>).';
+  $('#mGo').disabled=!HASKEY;$('#modal').classList.add('on')};
+$('#mCancel').onclick=()=>$('#modal').classList.remove('on');
+$('#mGo').onclick=async()=>{
+  const city=$('#mCity').value.trim(),niche=$('#mNiche').value.trim();if(!city||!niche)return toast('Укажи город и нишу');
+  $('#mGo').textContent='Ищу…';
+  const r=await (await fetch('/api/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({city,niche})})).json();
+  $('#mGo').textContent='Искать';$('#modal').classList.remove('on');
+  if(r.error)return toast(r.error);
+  toast(`Добавлено ${r.added.length}. Пропущено: `+Object.entries(r.skipped).filter(x=>x[1]).map(x=>x[0]+' '+x[1]).join(', '));
+  load();
+};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('#modal').classList.remove('on');$('#detail').classList.remove('open')}});
+load();
+</script>
+</body>
+</html>
