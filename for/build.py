@@ -196,6 +196,7 @@ header .btn{{padding:10px 16px;min-height:42px;font-size:12px}}header nav{{displ
 .hero::after{{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.2) 40%,var(--bg) 100%)}}
 .hero .wrap{{max-width:1100px;width:100%;margin-inline:auto}}
 .hero h1{{font-size:clamp(52px,13vw,150px);letter-spacing:-.01em}}
+{'.hero h1{font-size:clamp(34px,9.4vw,120px);overflow-wrap:anywhere}.hero p{max-width:100%}.hero .wrap{padding-right:4px}' if s['niche'] in ('gymsoft','hair') else ''}
 .hero h1 .w{{display:inline-block;animation:up 1s cubic-bezier(.2,.8,.2,1) both}}
 .hero h1 .w:nth-child(2){{animation-delay:.12s;color:transparent;-webkit-text-stroke:2px var(--ink)}}
 .hero h1 .w:nth-child(3){{animation-delay:.24s;color:var(--acc)}}
