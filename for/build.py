@@ -16,6 +16,10 @@ NICHE = {
                 font="Unbounded", credit="Mixkit (Mixkit Stock Video Free License)", kind="СПА-салон"),
     "gym": dict(video=None, acc="#ff5a1f", acc2="#ffd23f", bg="#0b0b0c", bg2="#161618",
                 font="Oswald", credit="", kind="фитнес"),
+    "gymsoft": dict(video=None, acc="#d98ca3", acc2="#f2d9c9", bg="#1a1315", bg2="#251a1d",
+                    font="Unbounded", credit="", kind="женская фитнес-студия"),
+    "hair": dict(video=None, acc="#c08a5b", acc2="#efd5b2", bg="#130f0d", bg2="#1d1714",
+                 font="Unbounded", credit="", kind="салон красоты и парикмахерская"),
     "dental": dict(video="zhemchug-dental", acc="#3aa6b9", acc2="#cfeff3", bg="#0c1214", bg2="#131c1f",
                    font="Unbounded", credit="Mixkit (Mixkit Stock Video Free License), клип №21977", kind="стоматология"),
 }
@@ -110,6 +114,22 @@ SITES = [
       tabs=[("Услуги", [("Имплантация", U), ("Ортопедия (коронки, протезы)", U), ("Хирургия, удаление", U),
                         ("Прицельный снимок зуба", U), ("Срочная помощь при острой боли", U)])],
       perks=["Срочный приём при боли", "Пандус", "Парковка на 20 мест", "Оплата картой, наличными и QR"]),
+ dict(slug="gravity-fit", name="Gravity Fit", niche="gymsoft", city="Алматы", addr="Алматы, мкр. Думан-2, 57/1 (цокольный этаж, 2 подъезд)",
+      wa="77075360613", phone="+7 707 536 06 13", ig="https://www.instagram.com/gravity_fit.kz",
+      gis="https://2gis.kz/almaty/firm/70000001080551882", rating=5.0, ratings=116, reviews=57, opens=None, hours="по предварительной записи",
+      h1=["Сила", "в твоём", "ритме"], lead="Женская фитнес-студия в Думан-2: йога, пилатес, стретчинг, персональный тренер и массаж. Запись заранее, в WhatsApp.",
+      words=["Йога", "Пилатес", "Стретчинг", "Массаж"],
+      tabs=[("Абонементы", [("Месячный абонемент", "от 21 000 ₸"), ("Разовое посещение", "возможно, цена уточняется"), ("Персональный тренер", U)]),
+            ("Направления", [("Йога", U), ("Пилатес", U), ("Стретчинг", U), ("Персональный тренер", U), ("Массаж", U)])],
+      perks=["Только для женщин", "Запись заранее, без толпы", "Возможны разовые посещения", "Оплата картой, наличными, через банк и по QR"]),
+ dict(slug="maira-kyzylorda", name="Майра", niche="hair", city="Кызылорда", addr="Кызылорда, ул. Гани Муратбаева, 18",
+      wa="77770048888", phone="+7 777 004 88 88", ig=None,
+      gis="https://2gis.kz/kyzylorda/firm/70000001063135116", rating=5.0, ratings=128, reviews=37, opens="09:00", hours="ежедневно 09:00–19:00",
+      h1=["Стрижка", "с душой", "и вкусом"], lead="Парикмахерская и салон красоты в Кызылорде: стрижки, наращивание волос, плетение кос, свадебные и вечерние причёски.",
+      words=["Стрижка", "Причёски", "Косы", "Наращивание"],
+      tabs=[("Услуги", [("Мужская стрижка", "от 2 500 ₸"), ("Детская стрижка", U), ("Наращивание волос", U), ("Плетение кос", U),
+                        ("Свадебные и вечерние причёски", U)])],
+      perks=["Работаем каждый день, 09:00–19:00", "Запись в WhatsApp", "Оплата наличными и по QR"]),
 ]
 
 WA_ICON = '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.4.1.2.1.8-.1 1.4z"/></svg>'
@@ -251,9 +271,10 @@ footer{{padding:30px 20px 110px;color:var(--muted);font-size:13px;text-align:cen
   <section id="visit"><span class="eyebrow">Как нас найти</span><h2 class="rv">Адрес</h2>
     <div class="visit"><div class="info">
       <div><span>Адрес</span><span>{E(s['addr'])}</span></div>
-      {f'<div><span>Открываемся</span><span>в {E(s["opens"])}</span></div>' if s.get('opens') else ''}
       <div><span>Телефон</span><span><a href="tel:{E(s['phone'].replace(' ', ''))}">{E(s['phone'])}</a></span></div>
-      <div><span>Instagram</span><span><a href="{E(s['ig'])}" rel="noopener">@{E(s['ig'].rstrip('/').split('/')[-1])}</a></span></div>
+      {f'<div><span>Открываемся</span><span>в {E(s["opens"])}</span></div>' if s.get('opens') and not s.get('hours') else ''}
+      {f'<div><span>Часы</span><span>{E(s["hours"])}</span></div>' if s.get('hours') else ''}
+      {f'<div><span>Instagram</span><span><a href="{E(s["ig"])}" rel="noopener">@{E(s["ig"].rstrip("/").split("/")[-1])}</a></span></div>' if s.get('ig') else ''}
       <a class="btn ghost" style="width:100%;margin-top:18px" href="{E(s['gis'])}" rel="noopener">Маршрут в 2ГИС</a>
     </div></div></section>
   <div class="cta"><h2 class="rv" style="margin-bottom:26px">Ждём вас</h2><a class="btn wa" href="{E(wa)}">{WA_ICON} Записаться в WhatsApp</a></div>
