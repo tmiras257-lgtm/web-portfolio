@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Алтын шай — чайный дом в Алматы · демо-концепт</title>
+<meta name="description" content="Алтын шай — чайный дом в Алматы: 60 сортов листа, церемония гунфу-ча, настоящий дастархан. Демо-концепт сайта для малого бизнеса.">
+<meta name="theme-color" content="#0d0906">
+<meta property="og:title" content="Алтын шай — чайный дом в Алматы">
+<meta property="og:description" content="60 сортов листа, церемония и дастархан. Демо-концепт.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Onest:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+</head>
+<body class="is-loading">
+
+<div class="pre" aria-hidden="true">
+  <div class="pre-in"><span class="pre-k">шай ішейік</span><b class="pre-name">Алтын шай</b><span class="pre-n"><i id="preN">0</i>%</span></div>
+  <div class="pre-bar"><span id="preBar"></span></div>
+</div>
+<div class="cur" aria-hidden="true"><span class="cur-t"></span></div>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#top" aria-label="Алтын шай — на главную"><span class="logo-mark" aria-hidden="true"></span><span>Алтын шай</span></a>
+  <nav class="links" aria-label="Разделы">
+    <a href="#ceremony">Церемония</a><a href="#menu">Чайная карта</a><a href="#sets">Сеты</a><a href="#pick">Подбор</a><a href="#book">Бронь</a>
+  </nav>
+  <a class="btn btn-sm mag" href="#book">Забронировать</a>
+  <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
+</header>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <a href="#ceremony">Церемония</a><a href="#menu">Чайная карта</a><a href="#sets">Сеты</a><a href="#pick">Подбор чая</a><a href="#book">Бронь стола</a>
+  <p>Алматы · 11:00–23:00<br>+7 700 000 00 00</p>
+</div>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <video class="hero-v" id="heroV" muted loop playsinline autoplay preload="auto" poster="assets/hero-poster.webp" aria-hidden="true"></video>
+  <div class="hero-shade"></div>
+  <div class="hero-in">
+    <p class="eyebrow"><span>Чайный дом</span><i></i><span>Алматы</span><i></i><span>11:00–23:00</span></p>
+    <h1 class="hero-h split">Время, заваренное правильно.</h1>
+    <div class="hero-row">
+      <p class="hero-p">60 сортов листа, церемония гунфу-ча и настоящий дастархан. Место, где город на два часа замедляется.</p>
+      <div class="hero-cta"><a class="btn mag" href="#book">Забронировать стол</a><a class="btn btn-ghost mag" href="#menu">Чайная карта</a></div>
+    </div>
+  </div>
+  <div class="hero-foot"><span>Қош келдіңіз</span><span class="scroll"><i></i>листайте вниз</span></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true"><div class="marq-t"><span>Да Хун Пао</span><span>Те Гуань Инь</span><span>Шу пуэр</span><span>Дянь Хун</span><span>Сенча</span><span>Жасминовая жемчужина</span><span>Иван-чай</span><span>Сүт шай</span><span>Да Хун Пао</span><span>Те Гуань Инь</span><span>Шу пуэр</span><span>Дянь Хун</span><span>Сенча</span><span>Жасминовая жемчужина</span><span>Иван-чай</span><span>Сүт шай</span></div></div>
+
+<!-- 3D CUP -->
+<section class="cup" id="ceremony">
+  <div class="cup-stick">
+    <div class="cup-glow"></div>
+    <div class="cup-bg" aria-hidden="true">ШАЙ</div>
+    <canvas id="cupC" aria-label="3D-модель фарфоровой чашки, вращается при прокрутке" role="img"></canvas>
+    <picture><source media="(max-width:900px)" srcset="assets/cup-poster-m.webp"><img class="cup-poster" src="assets/cup-poster.webp" alt="" width="1440" height="900"></picture>
+    <div class="cup-txt">
+      <p class="eyebrow"><span>Церемония</span><i></i><span id="stepNo">01 / 04</span></p>
+      <div class="steps">
+        <div class="step on"><h2>Лист</h2><p>Три грамма сухого листа. Мы взвешиваем его при вас и даём почувствовать аромат до воды: так видно, живой ли чай.</p></div>
+        <div class="step"><h2>Вода</h2><p>95 °C для улуна, 80 °C для зелёного. Вода в чайнике из родниковой скважины под Алматы, без хлорки и накипи.</p></div>
+        <div class="step"><h2>Время</h2><p>Первый пролив — 20 секунд, дальше дольше. Один лист раскрывается пять-семь раз, и каждый раз это другой чай.</p></div>
+        <div class="step"><h2>Тепло</h2><p>Пейте медленно, пока пар ещё поднимается. К чаю — баурсаки, финики и разговор, который никуда не торопится.</p></div>
+      </div>
+      <div class="rail" aria-hidden="true"><span id="railF"></span></div>
+    </div>
+    <button class="cup-drag" aria-hidden="true" tabindex="-1">крутите колесом — чашка наполняется</button>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <p class="eyebrow"><span>Чайная карта</span><i></i><span>чайник 600 мл на двоих</span></p>
+    <h2 class="h2 split">Шестьдесят сортов. Начните с одного.</h2>
+    <div class="menu-grid">
+      <aside class="menu-side">
+        <div class="pv" id="pv" aria-hidden="true">
+          <video muted loop playsinline preload="none" data-src="assets/hero" data-poster="assets/hero-poster.webp"></video>
+          <video muted loop playsinline preload="none" data-src="assets/mist" data-poster="assets/mist-poster.webp"></video>
+          <video muted loop playsinline preload="none" data-src="assets/leaf" data-poster="assets/leaf-poster.webp"></video>
+          <video muted loop playsinline preload="none" data-src="assets/steam" data-poster="assets/steam-poster.webp"></video>
+          <video muted loop playsinline preload="none" data-src="assets/pot" data-poster="assets/pot-poster.webp"></video>
+          <span class="pv-cap" id="pvCap">Чёрные</span>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Категории чая" id="tabs"></div>
+      </aside>
+      <div class="list" id="list" role="tabpanel" aria-live="polite"></div>
+    </div>
+    <p class="note">Цены за чайник 600 мл, хватает на 5–7 проливов. Доплата за второй чайник — 50%.</p>
+  </div>
+</section>
+
+<!-- MIST -->
+<section class="mist">
+  <video class="mist-v" id="mistV" muted loop playsinline preload="none" aria-hidden="true"></video>
+  <div class="mist-shade"></div>
+  <p class="mist-t" id="mistT">Чай растёт в тумане. Мы привозим его неспешно, партиями по тридцать килограммов, и знаем фермера по имени.</p>
+</section>
+
+<!-- SETS (horizontal) -->
+<section class="sets" id="sets">
+  <div class="sets-pin">
+    <div class="sets-head wrap"><p class="eyebrow"><span>Сеты</span><i></i><span>на двоих и на компанию</span></p><h2 class="h2 split">Выберите вечер.</h2></div>
+    <div class="sets-track" id="track">
+      <article class="card"><div class="card-v"><video muted loop playsinline preload="none" data-src="assets/leaf" data-poster="assets/leaf-poster.webp" aria-hidden="true"></video></div><div class="card-b"><span class="tag">90 минут</span><h3>Гунфу-ча на двоих</h3><p>Церемония с мастером: пять проливов, три сорта, десерт из фиников и орехов.</p><div class="card-f"><b>12 500 ₸</b><a href="#book" data-set="Гунфу-ча на двоих">Выбрать</a></div></div></article>
+      <article class="card"><div class="card-v"><video muted loop playsinline preload="none" data-src="assets/pot" data-poster="assets/pot-poster.webp" aria-hidden="true"></video></div><div class="card-b"><span class="tag">800 мл</span><h3>Фруктовый чайник</h3><p>Ягоды, цитрус, яблоко и чёрный лист в стеклянном чайнике над свечой.</p><div class="card-f"><b>4 800 ₸</b><a href="#book" data-set="Фруктовый чайник">Выбрать</a></div></div></article>
+      <article class="card"><div class="card-v"><video muted loop playsinline preload="none" data-src="assets/steam" data-poster="assets/steam-poster.webp" aria-hidden="true"></video></div><div class="card-b"><span class="tag">к чаю</span><h3>Чай и выпечка</h3><p>Чёрный чай в глиняной кружке и тёплые пирожки с картошкой или мясом.</p><div class="card-f"><b>3 900 ₸</b><a href="#book" data-set="Чай и выпечка">Выбрать</a></div></div></article>
+      <article class="card"><div class="card-v"><video muted loop playsinline preload="none" data-src="assets/hero" data-poster="assets/hero-poster.webp" aria-hidden="true"></video></div><div class="card-b"><span class="tag">4–6 человек</span><h3>Дастархан для компании</h3><p>Сүт шай, баурсаки, сухофрукты, сладости и два чайника на выбор. Стол в отдельной нише.</p><div class="card-f"><b>28 000 ₸</b><a href="#book" data-set="Дастархан для компании">Выбрать</a></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- PICK -->
+<section class="pick" id="pick">
+  <div class="wrap pick-in">
+    <div>
+      <p class="eyebrow"><span>Подбор</span><i></i><span>15 секунд</span></p>
+      <h2 class="h2 split">Какой чай вам нужен сегодня?</h2>
+      <div class="q"><p class="q-l">Настроение</p><div class="chips" data-q="mood">
+        <button class="chip" data-v="focus">Собраться</button><button class="chip" data-v="calm">Выдохнуть</button><button class="chip" data-v="warm">Согреться</button><button class="chip" data-v="talk">Поговорить</button></div></div>
+      <div class="q"><p class="q-l">Крепость</p><div class="chips" data-q="power">
+        <button class="chip" data-v="0">Нежный</button><button class="chip" data-v="1">Средний</button><button class="chip" data-v="2">Насыщенный</button></div></div>
+    </div>
+    <div class="res" id="res" aria-live="polite">
+      <p class="res-hint">Выберите настроение и крепость, и мы подскажем чай из карты.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book" id="book">
+  <div class="wrap book-in">
+    <div class="book-l">
+      <p class="eyebrow"><span>Бронь</span><i></i><span>ответим в WhatsApp за 5 минут</span></p>
+      <h2 class="h2 split">Столик у окна ждёт вас.</h2>
+      <ul class="info">
+        <li><span>Адрес</span>Алматы, ул. Примерная, 12 (демо-адрес)</li>
+        <li><span>Часы</span>Ежедневно 11:00–23:00</li>
+        <li><span>Телефон</span><a href="tel:+77000000000">+7 700 000 00 00</a></li>
+        <li><span>Instagram</span>@altyn.shai.demo</li>
+      </ul>
+    </div>
+    <form class="form" id="form" novalidate>
+      <label>Имя<input name="name" autocomplete="name" placeholder="Айгерим" required></label>
+      <label>Телефон<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 7__ ___ __ __" required></label>
+      <div class="row2">
+        <label>Дата<input name="date" type="date" required></label>
+        <label>Время<select name="time"><option>12:00</option><option>14:00</option><option>16:00</option><option selected>18:00</option><option>19:30</option><option>21:00</option></select></label>
+      </div>
+      <div class="row2">
+        <div class="stepper"><span>Гостей</span><div><button type="button" id="gm" aria-label="Меньше">−</button><output id="gn">2</output><button type="button" id="gp" aria-label="Больше">+</button></div></div>
+        <label>Сет<select name="set" id="setSel"><option>Только чайная карта</option><option>Гунфу-ча на двоих</option><option>Фруктовый чайник</option><option>Чай и выпечка</option><option>Дастархан для компании</option></select></label>
+      </div>
+      <button class="btn btn-fill mag" type="submit">Отправить в WhatsApp</button>
+      <p class="form-n" id="formN">Откроется WhatsApp с готовым сообщением. Без регистрации.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot-big" aria-hidden="true">Алтын шай</div>
+  <div class="wrap foot-in">
+    <p><b>Демо-концепт.</b> Вымышленный чайный дом, сайт создан как пример работы. Адрес, телефон и цены условные.</p>
+    <p class="src">3D-модель чашки: «Diffuse Transmission Teacup», Eric Chadwick / Poly Haven, CC0. Видео: Mixkit (Stock Video License). Шрифты: Cormorant Garamond, Onest (OFL). Three.js, GSAP, Lenis (MIT).</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="app.js"></script>
+<script type="module" src="cup.js"></script>
+</body>
+</html>
