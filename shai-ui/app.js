@@ -60,7 +60,7 @@ const heroW=split($('.hero-h'));
 const otherSplits=$$('.h2.split').map(split);
 
 /* ---------- hero video ---------- */
-const hv=$('#heroV');hv.src=small?'assets/hero-m.mp4':'assets/hero.mp4';hv.play().catch(()=>{});
+const hv=$('#heroV');const startHero=()=>{hv.src=small?'assets/hero-m.mp4':'assets/hero.mp4';hv.play().catch(()=>{})};document.readyState==='complete'?startHero():addEventListener('load',startHero,{once:true});
 
 /* ---------- menu ---------- */
 const tabs=$('#tabs'),list=$('#list'),pvs=$$('#pv video'),cap=$('#pvCap');
@@ -134,8 +134,7 @@ function setup(){
   const i=Math.min(3,Math.floor(p*4));if(i!==cur){cur=i;steps.forEach((x,j)=>x.classList.toggle('on',j===i));no.textContent='0'+(i+1)+' / 04'}}});
  gsap.from('.cup-bg',{xPercent:20,opacity:0,duration:1.6,ease:'power3.out',scrollTrigger:{trigger:'.cup',start:'top 60%'}});
  // mist text + parallax
- const mt=$('#mistT'),t=mt.textContent.trim();mt.setAttribute('aria-label',t);
- mt.innerHTML=t.split(/(\s+)/).map(w=>/^\s+$/.test(w)?' ':`<span aria-hidden="true">${[...w].map(c=>`<i class="ch" style="font-style:normal">${c}</i>`).join('')}</span>`).join('');
+ const mt=$('#mistT'),t=mt.textContent.trim();mt.innerHTML='<span class="sr-only">'+t+'</span>'+t.split(/(\s+)/).map(w=>/^\s+$/.test(w)?' ':`<span aria-hidden="true">${[...w].map(c=>`<i class="ch" style="font-style:normal">${c}</i>`).join('')}</span>`).join('');
  const chs=$$('.ch',mt);
  ScrollTrigger.create({trigger:'.mist',start:'top 60%',end:'center 40%',scrub:true,onUpdate:s=>{const n=Math.round(s.progress*chs.length);chs.forEach((c,i)=>c.classList.toggle('on',i<n))}});
  gsap.fromTo('.mist-v',{yPercent:-7},{yPercent:7,ease:'none',scrollTrigger:{trigger:'.mist',start:'top bottom',end:'bottom top',scrub:true}});

@@ -1,7 +1,3 @@
-import * as THREE from 'three';
-import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
-import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 
 const stage=document.querySelector('.cup-stick'),canvas=document.getElementById('cupC');
 const small=matchMedia('(max-width:900px)').matches;
@@ -13,7 +9,8 @@ io.observe(document.querySelector('.cup'));
 const sm=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
 const lerp=(a,b,t)=>a+(b-a)*t;
 
-function boot(){
+async function boot(){
+ const [THREE,{GLTFLoader},{MeshoptDecoder},{RoomEnvironment}]=await Promise.all([import('three'),import('three/addons/loaders/GLTFLoader.js'),import('three/addons/libs/meshopt_decoder.module.js'),import('three/addons/environments/RoomEnvironment.js')]);
  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'high-performance',preserveDrawingBuffer:false});
  renderer.setPixelRatio(Math.min(devicePixelRatio,small?1.75:2));
  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;renderer.outputColorSpace=THREE.SRGBColorSpace;
